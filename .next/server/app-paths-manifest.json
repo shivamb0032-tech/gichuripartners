@@ -1,3 +1,27 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/business-registration/llp-registration/page": "app/business-registration/llp-registration/page.js",
+  "/business-registration/opc-registration/page": "app/business-registration/opc-registration/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/business-registration/page": "app/business-registration/page.js",
+  "/business-registration/private-limited-company/page": "app/business-registration/private-limited-company/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/documentation/page": "app/documentation/page.js",
+  "/documentation/contracts/page": "app/documentation/contracts/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/legal-services/legal-notice/page": "app/legal-services/legal-notice/page.js",
+  "/legal-services/page": "app/legal-services/page.js",
+  "/login/page": "app/login/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/page": "app/page.js",
+  "/tax-compliance/gst-filing/page": "app/tax-compliance/gst-filing/page.js",
+  "/services/page": "app/services/page.js",
+  "/tax-compliance/gst-registration/page": "app/tax-compliance/gst-registration/page.js",
+  "/tax-compliance/page": "app/tax-compliance/page.js",
+  "/tax-compliance/income-tax-filing/page": "app/tax-compliance/income-tax-filing/page.js",
+  "/terms-and-conditions/page": "app/terms-and-conditions/page.js",
+  "/trademark-ip/page": "app/trademark-ip/page.js",
+  "/trademark-ip/trademark-registration/page": "app/trademark-ip/trademark-registration/page.js",
+  "/about/page": "app/about/page.js"
 }
