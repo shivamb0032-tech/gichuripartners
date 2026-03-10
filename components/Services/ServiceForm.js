@@ -225,22 +225,22 @@ export default function ServiceFrom() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
               {/* WhatsApp */}
-              <button
+              <a href="https://wa.me/message/YT2LRK7BSP2VF1"
                 type="button"
                 className="flex items-center justify-center gap-3 px-6 py-4 text-sm font-semibold text-green-600 transition-all duration-300 bg-white border-2 border-green-500 rounded-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white hover:border-transparent hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200 active:translate-y-0"
               >
                 <i className="text-xl fa-brands fa-whatsapp" />
                 Chat on WhatsApp
-              </button>
+              </a>
 
               {/* Call */}
-              <button
+              <a href="tel:+254 711 82 71 49"
                 type="button"
                 className="flex items-center justify-center gap-3 px-6 py-4 text-sm font-semibold text-[#123453] transition-all duration-300 bg-white border-2 border-[#123453] rounded-2xl hover:bg-gradient-to-r hover:from-[#123453] hover:to-rose-500 hover:text-white hover:border-transparent hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-200 active:translate-y-0"
               >
                 <i className="text-base fa-solid fa-phone" />
                 Call Us Now
-              </button>
+              </a>
             </div>
           </div>
 

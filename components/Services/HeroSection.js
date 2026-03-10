@@ -2,40 +2,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ServiceCard from "@/components/ServiceCard";
-import {
-  FaArrowRight,
-  FaPhone,
-  FaStar,
-  FaCheckCircle,
-  FaQuoteLeft,
-  FaChevronDown,
-  FaChevronRight,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBuilding,
-  faChartLine,
-  faTrademark,
-  faGavel,
-  faFileContract,
-  faMagnifyingGlass,
-  faUserGraduate,
-  faBolt,
-  faLock,
-  faMoneyBillWave,
-  faMobileScreenButton,
-  faHandshake,
-  faComments,
-  faFolderOpen,
-  faGears,
   faMedal,
   faShieldHalved,
   faRocket,
   faHeadset,
-  faCalendarCheck,
-  faCalculator,
   faCheckDouble,
   faStar as faSolidStar,
 } from "@fortawesome/free-solid-svg-icons";
@@ -84,11 +57,10 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative w-full px-4 py-32 mx-auto max-w-7xl md:px-8 lg:px-16">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          
+      <div className="relative w-full px-4 py-12 mx-auto lg:py-30 max-w-7xl md:px-8 lg:px-16">
+        <div className="grid items-center gap-5 lg:gap-16 lg:grid-cols-2">
           {/* Left Form Card */}
-          <div className="rounded-[24px] p-7 bg-[#0f1535]/60 border border-white/10 backdrop-blur-xl">
+          <div className="order-2 lg:order-1 rounded-[24px] p-7 bg-[#0f1535]/60 border border-white/10 backdrop-blur-xl">
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F91750]/15 border border-[#F91750]/20 mb-3">
                 <FontAwesomeIcon
@@ -161,7 +133,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content */}
-          <div>
+          <div className="order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-6 border bg-[#eee] text-[#F91750] border-[#F91750]/30">
               <span className="w-2 h-2 rounded-full animate-pulse bg-[#F91750]" />
               India's #1 CA & Tax Consulting Platform

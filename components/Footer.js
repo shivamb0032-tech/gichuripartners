@@ -63,10 +63,10 @@ const footerLinks = {
 };
 
 const socials = [
-  { Icon: FaFacebookF, href: "#" },
-  { Icon: FaTwitter, href: "#" },
-  { Icon: FaLinkedinIn, href: "#" },
-  { Icon: FaInstagram, href: "#" },
+  { Icon: FaFacebookF, href: "https://www.facebook.com/gichuripartners" },
+  { Icon: FaTwitter, href: "https://x.com/Gichuripartners" },
+  { Icon: FaLinkedinIn, href: "https://ke.linkedin.com/in/gichuri-partners" },
+  { Icon: FaInstagram, href: "https://www.instagram.com/gichuripartners/" },
   { Icon: FaYoutube, href: "#" },
 ];
 
@@ -115,27 +115,27 @@ export default function Footer() {
             {/* Contact */}
             <div className="mb-6 space-y-3">
               <a
-                href="mailto:info@taxproca.com"
+                href="mailto:info@gichuripartners.com"
                 className="flex items-center gap-3 text-sm text-gray-700 transition-colors hover:text-gray-700"
               >
                 <FaEnvelope
                   style={{ color: "#F91750" }}
                   className="flex-shrink-0"
                 />
-                info@taxproca.com
+                info@gichuripartners.com
               </a>
-              <a
-                href="tel:+919876543210"
+              <a target="_blank" rel="noopener noreferrer"
+                href="tel:+254711827149"
                 className="flex items-center gap-3 text-sm text-gray-700 transition-colors hover:text-gray-700"
               >
                 <FaPhoneAlt
                   style={{ color: "#F91750" }}
                   className="flex-shrink-0"
                 />
-                +91 98765 43210
+                +254 711 82 71 49
               </a>
-              <a
-                href="https://wa.me/919876543210"
+              <a target="_blank" rel="noopener noreferrer"
+                href="https://wa.me/message/YT2LRK7BSP2VF1"
                 className="flex items-center gap-3 text-sm text-gray-700 transition-colors hover:text-gray-700"
               >
                 <FaWhatsapp
@@ -228,21 +228,21 @@ export default function Footer() {
           className="flex flex-col items-center justify-between bg-[#123453] gap-4 p-5 text-sm text-white mt-14 md:flex-row"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
-          <p>© {new Date().getFullYear()} All rights reserved.</p>
+          <p>Copyright © {new Date().getFullYear()}  Gichuri & Parterns. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link
-              href="/privacy-policy"
+              href="#"
               className="transition-colors hover:text-white"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/terms-and-conditions"
+              href="#"
               className="transition-colors hover:text-white"
             >
               Terms & Conditions
             </Link>
-            <Link href="/faq" className="transition-colors hover:text-white">
+            <Link href="#" className="transition-colors hover:text-white">
               FAQ
             </Link>
           </div>
