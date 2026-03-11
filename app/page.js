@@ -4,6 +4,8 @@ import HomeEmpower from '@/components/Home/HomeEmpower'
 import WhatWeDo from '@/components/Home/WhatWeDo'
 import WhoWeAre from '@/components/Home/WhoWeAre'
 import TaxCompliance from '@/components/Home/TaxCompliance'
+import TaxCompliance from '@/components/Services/'
+import ChooseUs from '@/components/Services/ChooseUs'
 
 
 export default function HomePage() {
@@ -15,7 +17,8 @@ export default function HomePage() {
      <HomeEmpower/> 
      {/* <WhatWeDo/> */}
      <WhoWeAre/>     
-     <TaxCompliance/>     
+     <TaxCompliance/> 
+      <ChooseUs/>    
     </>
   )
 }
