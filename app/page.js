@@ -1,32 +1,21 @@
 'use client'
+import HomeHero from '@/components/Home/HomeHero'
+import HomeEmpower from '@/components/Home/HomeEmpower'
+import WhatWeDo from '@/components/Home/WhatWeDo'
+import WhoWeAre from '@/components/Home/WhoWeAre'
+import TaxCompliance from '@/components/Home/TaxCompliance'
 
-import HeroSection from '@/components/Services/HeroSection'
-import EmpoweringSec from '@/components/Services/EmpoweringSec'
-import AccSection from '@/components/Services/AccSection'
-import AuditServices from '@/components/Services/AuditServices'
-import BussinessServ from '@/components/Services/BussinessServ'
-import TypeAudit from '@/components/Services/TypeAudit'
-import WhyChoose from '@/components/Services/WhyChoose'
-import SecureService from '@/components/Services/SecureService'
-import ValueAddedServices from '@/components/Services/ValueAddedServices'
-import ChooseUs from '@/components/Services/ChooseUs'
-import ServiceForm from '@/components/Services/ServiceForm'
+
 export default function HomePage() {
- 
+  
 
   return (
     <>
-    <HeroSection/>
-    <EmpoweringSec/>
-    <AccSection/>
-    <AuditServices/>
-    <TypeAudit/>
-    <BussinessServ/>
-    <WhyChoose/>
-    <SecureService/>
-    <ValueAddedServices/>
-    <ChooseUs/>
-    <ServiceForm/>
+     <HomeHero/> 
+     <HomeEmpower/> 
+     {/* <WhatWeDo/> */}
+     <WhoWeAre/>     
+     <TaxCompliance/>     
     </>
   )
 }

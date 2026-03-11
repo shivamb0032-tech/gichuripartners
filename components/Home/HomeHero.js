@@ -13,7 +13,7 @@ import {
   faStar as faSolidStar,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function HeroSection() {
+export default function HomeHero() {
   const trustBadges = [
     { faIcon: faShieldHalved, label: "ICAI Registered" },
     { faIcon: faMedal, label: "ISO Certified" },
@@ -32,7 +32,7 @@ export default function HeroSection() {
     <section className="relative flex items-center min-h-screen overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/assets/hero-bg/Auditing-Services.jpeg"
+        src="/assets/hero-bg/Best-Tax-Consultants.jpeg"
         alt="Background"
         fill
         priority
@@ -40,7 +40,7 @@ export default function HeroSection() {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#e8e9f0]/80 via-[#273277]/90 to-[#180e33]/95"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#e8e9f0]/80 via-[#273277]/50 to-[#180e33]/95"></div>
 
       {/* Floating shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -136,22 +136,20 @@ export default function HeroSection() {
           <div className="order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-6 border bg-[#eee] text-[#F91750] border-[#F91750]/30">
               <span className="w-2 h-2 rounded-full animate-pulse bg-[#F91750]" />
-              CA & Tax Consulting Platform
+               Tax Consulting Platform
             </div>
 
             <h1 className="mb-6 font-serif text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
-              Best{" "}
+               Best  {" "}
               <span className="bg-gradient-to-r from-[#F91750] to-[#ff6b8a] bg-clip-text text-transparent">
-                Auditing
+                Tax Consultants
               </span>
               <br />
-              Services in <span className="italic text-[#E11345]">Kenya</span>
+              in Nairobi,  <span className="italic text-[#E11345]">Kenya.</span>
             </h1>
 
             <p className="max-w-xl mb-10 text-lg leading-relaxed text-slate-300">
-              Are you looking for the best auditing services in Kenya? We offer
-              professional audit and assurance services, including statutory,
-              project, forensic, tax, and due diligence audits.
+              We Handle Taxes, You Handle Business.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

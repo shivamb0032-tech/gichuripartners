@@ -26,7 +26,7 @@ import Image from "next/image";
 
 const menuData = [
   { label: "Home", href: "#" },
-  { label: "Auditing", href: "#" },
+  { label: "Auditing", href: "services" },
   { label: "Accounting", href: "#" },
   { label: "Bookkeeping", href: "#" },
   { label: "Tax Advisory", href: "#" },
@@ -156,21 +156,31 @@ export default function Navbar() {
         </div>
 
         {/* CTA buttons row */}
-        <div className="grid w-full grid-cols-2" style={{ background: "#d4103f" }}>
+        <div className="grid w-full grid-cols-3 gap-2 p-2 border-t " style={{ background: "#fff" }}>
+           
           <a
             href="tel:+254711827149"
-            className="flex flex-col items-center justify-center gap-1 py-2.5 text-white text-xs font-semibold border-r border-[#123453] active:bg-[#b00d33] transition-colors"
+            className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border   transition-colors"
           >
             <FontAwesomeIcon icon={faHeadset} className="text-base" />
             Talk to an Expert
           </a>
           <a
-            href="#"
-            className="flex flex-col items-center justify-center gap-1 py-2.5 text-white text-xs font-semibold active:bg-[#b00d33] transition-colors"
+            href="tel:+254711827149"
+            className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border  transition-colors"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} className="text-base" />
+             WhatsApp
+          </a>
+          <a
+            href="tel:+254711827149"
+            className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border  transition-colors"
           >
             <FontAwesomeIcon icon={faPercent} className="text-base" />
-            PAYE Calculator
+             PAYE Calculator
           </a>
+         
+          
         </div>
 
         {/* Slide-down menu */}
