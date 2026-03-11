@@ -86,9 +86,7 @@ export default function HomeEmpower() {
             viewport={{ once: true }}
             className="text-base md:text-lg"
           >
-            We have been helping entrepreneurs, startups, and growing businesses
-            simplify complex processes with expert guidance and reliable
-            solutions.
+            Gichuri & Partners is the Best Tax Consultants in Nairobi, Kenya, specializing in KRA Tax Audits, KRA Tax Assessments, Bookkeeping, Payroll Services, and professional representation in KRA Independent Review of Objections (IRO), Tax Appeal Tribunal (TAT), and Alternative Dispute Resolution (ADR) to help individuals and businesses achieve full tax compliance. We have a team of experienced tax consultants, who manage your KRA tax matters professionally.
           </motion.p>
 
           <motion.p
@@ -98,9 +96,7 @@ export default function HomeEmpower() {
             viewport={{ once: true }}
             className="text-base md:text-lg"
           >
-            Our focus is to deliver transparent and efficient services that
-            allow businesses to stay compliant, grow faster, and operate
-            smoothly.
+           Our tax consultants helps you navigate KRA tax disputes, manage tax liabilities, and develop effective tax planning strategies tailored to your business needs while maximizing tax compliance and returns. We understand that bookkeeping, payroll management, auditing, and meeting ongoing tax obligations can be overwhelming, which is why we provide reliable bookkeeping services, tax compliance support, and audit assistance to give you peace of mind.
           </motion.p>
 
           <motion.p
@@ -110,9 +106,7 @@ export default function HomeEmpower() {
             viewport={{ once: true }}
             className="text-base md:text-lg"
           >
-            With thousands of satisfied clients and years of experience, we
-            continue empowering businesses with trusted advisory and dependable
-            support.
+           Let us help you maintain tax compliance for your business through our tailored solutions like KRA tax audit services, KRA tax assessment services, inventory tracking, and business tax advisory services. As the best tax consultants Nairobi, Kenya, we offer the best solutions for all businesses. We assist you with auditing services, tax advisory, bookkeeping services, business services, payroll services, accounting services, KRA services, and business registration.
           </motion.p>
         </div>
         <div className="mb-4 text-center md:mb-16">
