@@ -16,7 +16,7 @@ export default function WhyChoose() {
   ];
 
   return (
-    <section className="py-12 bg-white md:py-16">
+    <section className="py-12 bg-white md:py-12">
       <div className="max-w-6xl px-5 mx-auto sm:px-6 lg:px-8">
 
        

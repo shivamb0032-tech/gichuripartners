@@ -82,18 +82,22 @@ export default function ValueAddedServices() {
   ];
 
   return (
-    <section className="py-12 overflow-hidden md:py-16 bg-gradient-to-b from-gray-100 to-white">
+   
+      <section className="py-12 overflow-hidden md:py-20 bg-brand-navy">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+
+        
         <div className="mb-10 text-center md:mb-14">
-          <h2 className="text-3xl font-bold tracking-tight text-[#123453] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Value Added Services
           </h2>
-          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-gray-700 md:text-lg">
+          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-blue-200 md:text-lg">
             Let us support your business with our 10+ years of expertise in the field of Accounting
           </p>
         </div>
 
-        <div className="relative px-12 md:px-0">
+        
+        <div className="relative px-10 md:px-14">
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={20}
@@ -103,17 +107,26 @@ export default function ValueAddedServices() {
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: false,
+              pauseOnMouseEnter: true,
             }}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 24 },
               1024: { slidesPerView: 3, spaceBetween: 32 },
             }}
-            onBeforeInit={(swiper) => {
-              if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }
+            
+            onSwiper={(swiper) => {
+              setTimeout(() => {
+                if (
+                  swiper.params.navigation &&
+                  typeof swiper.params.navigation !== "boolean"
+                ) {
+                  swiper.params.navigation.prevEl = prevRef.current;
+                  swiper.params.navigation.nextEl = nextRef.current;
+                  swiper.navigation.destroy();
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                }
+              });
             }}
             navigation={{
               prevEl: prevRef.current,
@@ -124,12 +137,15 @@ export default function ValueAddedServices() {
             {services.map((service) => (
               <SwiperSlide key={service.number}>
                 <div className="relative flex flex-col h-full overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-md group rounded-2xl hover:shadow-xl">
-                  <div className="absolute text-4xl font-bold transition-colors text-[#123453]/50 top-4 right-4 md:text-5xl group-hover:text-indigo-200">
+                  
+                  {/* Background number */}
+                  <div className="absolute text-4xl font-bold transition-colors text-[#123453]/10 top-4 right-4 md:text-5xl group-hover:text-indigo-100">
                     {service.number}
                   </div>
 
+                  {/* Icon */}
                   <div className="flex justify-center pt-8 pb-4">
-                    <div className="flex items-center justify-center w-16 h-16 transition-colors bg-[#F91750]/20 rounded-full md:w-20 md:h-20 group-hover:bg-[#F91750]/10">
+                    <div className="flex items-center justify-center w-16 h-16 transition-colors bg-[#F91750]/20 rounded-full md:w-20 md:h-20 group-hover:bg-[#F91750]/30">
                       <FontAwesomeIcon
                         icon={service.icon}
                         className="text-2xl text-[#F91750] transition-transform md:text-3xl group-hover:scale-110"
@@ -137,6 +153,7 @@ export default function ValueAddedServices() {
                     </div>
                   </div>
 
+                  {/* Text */}
                   <div className="flex flex-col flex-grow px-6 pb-8 text-center">
                     <h3 className="mb-3 text-xl font-semibold text-[#123453] md:text-2xl">
                       {service.title}
@@ -150,20 +167,22 @@ export default function ValueAddedServices() {
             ))}
           </Swiper>
 
+          {/* Prev Button */}
           <button
             ref={prevRef}
-            className="absolute left-0 md:left-[-60px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#F91750] text-[#F91750] flex items-center justify-center shadow-lg hover:bg-[#F91750] hover:text-white transition-all duration-300 focus:outline-none"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-2 border-[#F91750] text-[#F91750] flex items-center justify-center shadow-lg hover:bg-[#F91750] hover:text-white transition-all duration-300 focus:outline-none"
           >
-            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
+          {/* Next Button */}
           <button
             ref={nextRef}
-            className="absolute right-0 md:right-[-60px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white border-2 border-[#F91750] text-[#F91750] flex items-center justify-center shadow-lg hover:bg-[#F91750] hover:text-white transition-all duration-300 focus:outline-none"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-2 border-[#F91750] text-[#F91750] flex items-center justify-center shadow-lg hover:bg-[#F91750] hover:text-white transition-all duration-300 focus:outline-none"
           >
-            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>

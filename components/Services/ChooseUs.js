@@ -11,12 +11,12 @@ import {
 
 export default function ChooseUs() {
   return (
-    <section className="py-12 bg-gray-100 md:py-16 lg:py-20">
+    <section className="py-12 bg-gray-100 md:py-12 lg:py-12">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 
         {/* Heading + Subheading + Description */}
         <div className="mb-10 text-center md:mb-14">
-          <h2 className="text-3xl font-bold tracking-tight text-[#123453] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#273277] md:text-4xl lg:text-5xl">
             Why Choose Us
           </h2>
 
@@ -29,49 +29,46 @@ export default function ChooseUs() {
           </p>
         </div>
 
-        {/* Two Columns Layout */}
+       
         <div className="grid items-start grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
-
-          {/* Left: Image with Overlay Stats (white bg cards) */}
           <div className="relative overflow-hidden border border-gray-200 shadow-2xl rounded-2xl">
-
-            {/* Main Image - natural height, no forced aspect ratio */}
+ 
             <img
               src="assets/hero-bg/Nairobi-1536x2048.jpg"
               alt="Nairobi business team"
               className="object-cover h-[400px] w-full md:h-[700px]"
             />
 
-            {/* Overlay Stats - bottom पर, white background cards के साथ */}
+       
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
               <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                 
                 {/* Stat 1 */}
-                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-white/95 backdrop-blur-sm md:p-4">
+                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-[#273277]/80 backdrop-blur-sm md:p-4">
                   <div className="text-base font-bold text-[#F91750] sm:text-xl md:text-2xl lg:text-3xl">
                     10,000+
                   </div>
-                  <p className="mt-1 text-xs font-medium text-gray-700 sm:text-sm md:text-base">
+                  <p className="mt-1 text-xs font-medium text-gray-100 sm:text-sm md:text-base">
                     Happy Customers
                   </p>
                 </div>
 
                 {/* Stat 2 */}
-                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-white/95 backdrop-blur-sm md:p-4">
+                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-[#273277]/80 backdrop-blur-sm md:p-4">
                   <div className="text-base font-bold text-[#F91750] sm:text-xl md:text-2xl lg:text-3xl">
                     5,000+
                   </div>
-                  <p className="mt-1 text-xs font-medium text-gray-700 sm:text-sm md:text-base">
+                  <p className="mt-1 text-xs font-medium text-gray-100 sm:text-sm md:text-base">
                     Businesses Served
                   </p>
                 </div>
 
                 {/* Stat 3 */}
-                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-white/95 backdrop-blur-sm md:p-4">
+                <div className="p-3 text-center border border-gray-200 rounded-lg shadow-md bg-[#273277]/80 backdrop-blur-sm md:p-4">
                   <div className="text-base font-bold text-[#F91750] sm:text-xl md:text-2xl lg:text-3xl">
                     10+
                   </div>
-                  <p className="mt-1 text-xs font-medium text-gray-700 sm:text-sm md:text-base">
+                  <p className="mt-1 text-xs font-medium text-gray-100 sm:text-sm md:text-base">
                     Dedicated Team
                   </p>
                 </div>

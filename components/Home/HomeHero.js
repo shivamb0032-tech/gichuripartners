@@ -1,172 +1,176 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { FaPhone } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMedal,
-  faShieldHalved,
-  faRocket,
-  faHeadset,
-  faCheckDouble,
-  faStar as faSolidStar,
-} from "@fortawesome/free-solid-svg-icons";
+
+const services = [
+ "Bookkepping",
+  "Filling Returns",
+  "VAT Registration",
+  "Pin Registration",
+  "KRA Assessments",
+  "Business Registration",
+];
 
 export default function HomeHero() {
-  const trustBadges = [
-    { faIcon: faShieldHalved, label: "ICAI Registered" },
-    { faIcon: faMedal, label: "ISO Certified" },
-    { faIcon: faRocket, label: "15+ Years" },
-    { faIcon: faCheckDouble, label: "Pan India" },
-  ];
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    company: "",
+    service: "",
+  });
 
-  const stats = [
-    { number: "10,000+", label: "Happy Clients" },
-    { number: "15+", label: "Years Experience" },
-    { number: "50+", label: "Expert CAs" },
-    { number: "99%", label: "Success Rate" },
-  ];
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Consultation booked! We'll call you back shortly.");
+  };
 
   return (
-    <section className="relative flex items-center min-h-screen overflow-hidden">
+    <section className="relative min-h-screen bg-[#0a0f2e] overflow-hidden flex flex-col items-center justify-center px-4 py-16">
+
       {/* Background Image */}
-      <Image
-        src="/assets/hero-bg/Best-Tax-Consultants.jpeg"
-        alt="Background"
-        fill
-        priority
-        className="object-cover"
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#e8e9f0]/80 via-[#273277]/50 to-[#180e33]/95"></div>
-
-      {/* Floating shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-20 bg-[#F91750]" />
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full blur-2xl opacity-10 bg-[#273277]" />
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, #F91750 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/assets/hero-bg/Best-Tax-Consultants.jpeg"
+          alt="Hero Background"
+          fill
+          className="object-cover object-right "
+          priority
         />
+        
+        <div className="absolute inset-0 bg-[#0a0f2e]/60" />
+      </div>
+      
+      <div className="absolute top-0 bg-blue-600 rounded-full pointer-events-none left-1/4 w-96 h-96 opacity-10 blur-3xl" />
+      <div className="absolute bottom-0 bg-indigo-500 rounded-full pointer-events-none right-1/4 w-80 h-80 opacity-10 blur-3xl" />
+      <div className="absolute left-0 w-64 h-64 bg-blue-400 rounded-full pointer-events-none top-1/2 opacity-5 blur-2xl" />
+
+     
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 w-48 h-full left-1/3 opacity-10 bg-gradient-to-b from-blue-300 to-transparent rotate-12" />
       </div>
 
-      {/* Content */}
-      <div className="relative w-full px-4 py-12 mx-auto lg:py-30 max-w-7xl md:px-8 lg:px-16">
-        <div className="grid items-center gap-5 lg:gap-16 lg:grid-cols-2">
-          {/* Left Form Card */}
-          <div className="order-2 lg:order-1 rounded-[24px] p-7 bg-[#0f1535]/60 border border-white/10 backdrop-blur-xl">
-            <div className="mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F91750]/15 border border-[#F91750]/20 mb-3">
-                <FontAwesomeIcon
-                  icon={faHeadset}
-                  className="text-[#F91750] text-sm"
-                />
-                <span className="text-xs font-semibold text-[#F91750]">
-                  Free Consultation
-                </span>
-              </div>
+    
+      <div className="relative z-10 pl-10 mb-4 text-right">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          Best Tax Consultants
+          <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-600">
+            in Nairobi, Kenya.
+          </span>
+        </h1>
+        <p className="max-w-3xl mx-auto mt-4 text-sm text-gray-300 sm:text-base md:text-lg">
+          We Handle Taxes, You Handle Business. Get fast, reliable, and expert
+          tax consultation tailored for your business needs.
+        </p>
+      </div>
 
-              <h3 className="mb-2 text-2xl font-bold text-white">
-                Let's Talk Free Consultation
-              </h3>
+     
 
-              <p className="text-sm text-slate-300">
-                Fill in your details and our team will get back to you shortly.
-              </p>
-            </div>
+      {/* Form Card */}
+      <div className="relative z-10 w-full max-w-5xl p-6 shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl sm:p-8">
+        <form onSubmit={handleSubmit}>
+         
+          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2 lg:grid-cols-4">
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Enter Your Name"
+              required
+              className="w-full px-4 py-3 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent bg-gray-50"
+            />
 
-            <form className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]"
-                />
-
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]"
-                />
-              </div>
-
+          
+            <div className="flex overflow-hidden border border-gray-200 rounded-lg bg-gray-50 focus-within:ring-2 focus-within:ring-rose-400">
+              <select className="px-3 py-3 text-sm text-gray-600 bg-gray-100 border-r border-gray-200 focus:outline-none">
+                <option value="+254">🇰🇪 +254</option>
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+44">🇬🇧 +44</option>
+              </select>
               <input
                 type="tel"
-                placeholder="Phone Number"
-                className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="Enter your Phone No."
+                className="flex-1 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 bg-transparent focus:outline-none"
               />
-
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]"
-              />
-
-              <input
-                type="text"
-                placeholder="Company Name"
-                className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]"
-              />
-
-              <select className="w-full rounded-xl px-4 py-3 text-sm text-slate-300 bg-white/10 border border-white/20 outline-none focus:border-[#F91750]">
-                <option>Select Service</option>
-                <option>Statutory Audit</option>
-                <option>Internal Audit</option>
-                <option>Tax Audit</option>
-                <option>Forensic Audit</option>
-              </select>
-
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-xl bg-gradient-to-r from-[#F91750] to-[#d4103f]"
-              >
-                <FaPhone className="text-xs" />
-                Request A Callback Now
-              </button>
-            </form>
-          </div>
-
-          {/* Right Content */}
-          <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-6 border bg-[#eee] text-[#F91750] border-[#F91750]/30">
-              <span className="w-2 h-2 rounded-full animate-pulse bg-[#F91750]" />
-               Tax Consulting Platform
             </div>
 
-            <h1 className="mb-6 font-serif text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
-               Best  {" "}
-              <span className="bg-gradient-to-r from-[#F91750] to-[#ff6b8a] bg-clip-text text-transparent">
-                Tax Consultants
-              </span>
-              <br />
-              in Nairobi,  <span className="italic text-[#E11345]">Kenya.</span>
-            </h1>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Enter your Email"
+              className="w-full px-4 py-3 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent bg-gray-50"
+            />
 
-            <p className="max-w-xl mb-10 text-lg leading-relaxed text-slate-300">
-              We Handle Taxes, You Handle Business.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-12">
-              <Link
-                href="/"
-                className="flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white shadow-lg rounded-xl"
-                style={{
-                  background: "linear-gradient(135deg,#F91750,#d4103f)",
-                  boxShadow: "0 8px 30px rgba(249,23,80,0.35)",
-                }}
-              >
-                Book A Free Consultation
-              </Link>
-            </div>
+            <input
+              type="text"
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              placeholder="Company Name"
+              className="w-full px-4 py-3 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent bg-gray-50"
+            />
           </div>
-        </div>
+
+          {/* Row 2: Service + CTA */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <select
+              name="service"
+              value={form.service}
+              onChange={handleChange}
+              required
+              className="px-4 py-3 text-sm text-gray-500 border border-gray-200 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent bg-gray-50"
+            >
+              <option value="">What Services Are You Looking?</option>
+              {services.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+
+            <button
+              type="submit"
+              className="px-8 py-3 text-sm font-bold tracking-widest text-white uppercase transition-all duration-200 rounded-lg shadow-lg bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 hover:shadow-rose-500/30 hover:scale-[1.02] active:scale-95"
+            >
+              Book A Free Consultation
+            </button>
+          </div>
+        </form>
       </div>
+
+      {/* Stats Bar */}
+      {/* <div className="relative z-10 w-full max-w-5xl mt-8">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-0 sm:divide-x sm:divide-gray-600">
+          {[
+            { icon: "🛡️", label: "What Sets Us Apart" },
+            { value: "200+", label: "Certified Tax Experts" },
+            { value: "5,000+", label: "Verified Reviews" },
+            { value: "1,000+", label: "Monthly Client Onboardings" },
+            { label: "Serving Businesses Across Kenya" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2 px-4 py-2"
+            >
+              {item.icon && <span className="text-lg">{item.icon}</span>}
+              {item.value && (
+                <span className="text-sm font-bold text-rose-400">{item.value}</span>
+              )}
+              <span className="text-xs text-gray-300 sm:text-sm whitespace-nowrap">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div> */}
     </section>
   );
 }
