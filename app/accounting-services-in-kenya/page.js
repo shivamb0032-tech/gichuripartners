@@ -1,30 +1,28 @@
 'use client'
 
-import HeroSection from '@/components/Services/HeroSection'
+import AccountHero from '@/components/Accounting/AccountHero'
 import EmpoweringSec from '@/components/Services/EmpoweringSec'
-import AccSection from '@/components/Services/AccSection'
-import AuditServices from '@/components/Services/AuditServices'
+import AccountService from '@/components/Accounting/AccountService'
+import BestAccounting from '@/components/Accounting/BestAccounting'
 import BussinessServ from '@/components/Services/BussinessServ'
+import BussnessServe from '@/components/Accounting/BussnessServe'
 import TypeAudit from '@/components/Services/TypeAudit'
 import WhyChoose from '@/components/Services/WhyChoose'
 import SecureService from '@/components/Services/SecureService'
 import ValueAddedServices from '@/components/Services/ValueAddedServices'
 import ChooseUs from '@/components/Services/ChooseUs'
 import ServiceForm from '@/components/Services/ServiceForm'
-export default function HomePage() {
+export default function Accounting() {
  
 
   return (
     <>
-    <HeroSection/>
+    <AccountHero/>
     <EmpoweringSec/>
-    <AccSection/>
-    <AuditServices/>
-    <TypeAudit/>
-    <BussinessServ/>
-    <WhyChoose/>
-    <SecureService/>
-    <ValueAddedServices/>
+    <AccountService/>
+    <BestAccounting/>
+    <BussnessServe/>
+   
     <ChooseUs/>
     <ServiceForm/>
     </>

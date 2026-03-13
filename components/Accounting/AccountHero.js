@@ -11,7 +11,7 @@ const services = [
   "Business Registration",
 ];
 
-export default function HomeHero() {
+export default function AccountHero() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -35,7 +35,7 @@ export default function HomeHero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/hero-bg/Auditing-Services.jpeg"
+          src="/assets/blogs/Accounting.jpeg"
           alt="Hero Background"
           fill
           className="object-cover object-right "
@@ -55,16 +55,16 @@ export default function HomeHero() {
       </div>
 
     
-      <div className="relative z-10 mb-4 text-center ">
+      <div className="relative z-10 mb-4 text-center lg:pl-10 lg:text-right md:text-right">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-         Best Auditing 
+          Best Accounting 
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-600">
-           Services in Kenya
+            Services in Kenya
           </span>
         </h1>
         <p className="max-w-3xl mx-auto mt-4 text-sm text-gray-300 sm:text-base md:text-lg">
-         Are you looking for the best auditing services in Kenya? We offer professional audit and assurance services, including statutory, project, forensic, tax, and due diligence audits.
+         Are you looking for the best accounting services in Kenya? Our accounting experts offer top-tier accounting solutions to maintain your company’s financial health.
         </p>
       </div>
 

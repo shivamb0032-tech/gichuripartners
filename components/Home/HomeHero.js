@@ -30,7 +30,7 @@ export default function HomeHero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#0a0f2e] overflow-hidden flex flex-col items-center justify-center px-4 py-16">
+    <section className="relative bg-[#0a0f2e] overflow-hidden flex flex-col items-center justify-center px-4 py-8 sm:py-10 md:py-12 lg:min-h-screen">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -55,7 +55,7 @@ export default function HomeHero() {
       </div>
 
     
-      <div className="relative z-10 pl-10 mb-4 text-right">
+      <div className="relative z-10 mb-4 text-center lg:pl-10 lg:text-right md:text-right">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
           Best Tax Consultants
           <br />

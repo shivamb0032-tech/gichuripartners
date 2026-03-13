@@ -198,7 +198,7 @@ function BlueCard({ service }) {
         <div className="w-full h-px mb-5 transition-all duration-300 bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-brand-blue/40 group-hover:to-transparent" />
 
         {/* desc */}
-        <p className="mb-8 text-sm font-light leading-relaxed transition-colors duration-300 text-slate-600 group-hover:text-slate-500">
+        <p className="mb-8 text-sm font-light leading-relaxed text-justify transition-colors duration-300 text-slate-600 group-hover:text-slate-500">
           {service.fullDesc}
         </p>
 
@@ -244,13 +244,10 @@ function RedCard({ service }) {
           {service.title}
         </h3>
 
-      
-       
-
      
         <div className="w-full h-px mb-5 transition-all duration-300 bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-brand-red/40 group-hover:to-transparent" />
 
-        <p className="mb-8 text-sm font-light leading-relaxed transition-colors duration-300 text-slate-600 group-hover:text-slate-500">
+        <p className="mb-8 text-sm font-light leading-relaxed text-justify transition-colors duration-300 text-slate-600 group-hover:text-slate-500">
           {service.fullDesc}
         </p>
 

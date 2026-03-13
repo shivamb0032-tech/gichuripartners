@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, useLayoutEffect  } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,9 +25,9 @@ import {
 import Image from "next/image";
 
 const menuData = [
-  { label: "Home", href: "#" },
-  { label: "Auditing", href: "services" },
-  { label: "Accounting", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "Auditing", href: "/auditing-services-in-kenya" },
+  { label: "Accounting", href: "/accounting-services-in-kenya" },
   { label: "Bookkeeping", href: "#" },
   { label: "Tax Advisory", href: "#" },
   { label: "About Us", href: "#" },
@@ -37,12 +37,37 @@ const menuData = [
 ];
 
 const socialLinks = [
-  { icon: faFacebookF,  href: "https://www.facebook.com/gichuripartners",  label: "Facebook",  color: "#1877F2" },
-  { icon: faLinkedinIn, href: "https://ke.linkedin.com/in/gichuri-partners",  label: "LinkedIn",  color: "#0A66C2" },
-  { icon: faInstagram,  href: "https://www.instagram.com/gichuripartners/", label: "Instagram", color: "#E1306C" },
-  { icon: faXTwitter,   href: "https://x.com/Gichuripartners",         label: "X",         color: "#000000" },
-  { icon: faYoutube,    href: "#",   label: "YouTube",   color: "#FF0000" },
-  { icon: faWhatsapp,   href: "https://wa.me/message/YT2LRK7BSP2VF1", label: "WhatsApp", color: "#25D366" },
+  {
+    icon: faFacebookF,
+    href: "https://www.facebook.com/gichuripartners",
+    label: "Facebook",
+    color: "#1877F2",
+  },
+  {
+    icon: faLinkedinIn,
+    href: "https://ke.linkedin.com/in/gichuri-partners",
+    label: "LinkedIn",
+    color: "#0A66C2",
+  },
+  {
+    icon: faInstagram,
+    href: "https://www.instagram.com/gichuripartners/",
+    label: "Instagram",
+    color: "#E1306C",
+  },
+  {
+    icon: faXTwitter,
+    href: "https://x.com/Gichuripartners",
+    label: "X",
+    color: "#000000",
+  },
+  { icon: faYoutube, href: "#", label: "YouTube", color: "#FF0000" },
+  {
+    icon: faWhatsapp,
+    href: "https://wa.me/message/YT2LRK7BSP2VF1",
+    label: "WhatsApp",
+    color: "#25D366",
+  },
 ];
 
 export default function Navbar() {
@@ -60,8 +85,25 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setMobileOpen(false);
+      setMobileExpanded(null);
+    }
+  };
 
-  useLayoutEffect(() => {
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+useEffect(() => {
+  return () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
+}, []);
+
+ useEffect(() => {
   const measure = () => {
     if (window.innerWidth < 1024 && mobileNavRef.current) {
       const h = mobileNavRef.current.getBoundingClientRect().height;
@@ -72,10 +114,15 @@ export default function Navbar() {
     }
   };
 
-  measure();
+  const id = requestAnimationFrame(measure);
   window.addEventListener("resize", measure);
-  return () => window.removeEventListener("resize", measure);
+
+  return () => {
+    cancelAnimationFrame(id);
+    window.removeEventListener("resize", measure);
+  };
 }, [mobileOpen]);
+
 
   const handleMouseEnter = (label) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -111,9 +158,12 @@ export default function Navbar() {
               className="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full"
               style={{ background: "#F91750" }}
             >
-              <FontAwesomeIcon icon={faEnvelope} className="text-white text-[10px]" />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="text-white text-[10px]"
+              />
             </span>
-           info@gichuripartners.com
+            info@gichuripartners.com
           </a>
           <a
             href="tel:+254711827149"
@@ -123,7 +173,10 @@ export default function Navbar() {
               className="flex items-center justify-center flex-shrink-0 w-6 h-6 rounded-full"
               style={{ background: "#F91750" }}
             >
-              <FontAwesomeIcon icon={faPhone} className="text-white text-[10px]" />
+              <FontAwesomeIcon
+                icon={faPhone}
+                className="text-white text-[10px]"
+              />
             </span>
             +254 711 82 71 49
           </a>
@@ -140,7 +193,8 @@ export default function Navbar() {
               alt="Logo"
               width={130}
               height={38}
-              className="object-contain"
+              className="object-contain w-auto h-10"
+              priority
             />
           </Link>
           <button
@@ -149,15 +203,19 @@ export default function Navbar() {
             style={{ background: "#d4103f" }}
             aria-label="Toggle menu"
           >
-            {mobileOpen
-              ? <FontAwesomeIcon icon={faXmark} />
-              : <FontAwesomeIcon icon={faBars} />}
+            {mobileOpen ? (
+              <FontAwesomeIcon icon={faXmark} />
+            ) : (
+              <FontAwesomeIcon icon={faBars} />
+            )}
           </button>
         </div>
 
         {/* CTA buttons row */}
-        <div className="grid w-full grid-cols-3 gap-2 p-2 border-t " style={{ background: "#fff" }}>
-           
+        <div
+          className="grid w-full grid-cols-3 gap-2 p-2 border-t "
+          style={{ background: "#fff" }}
+        >
           <a
             href="tel:+254711827149"
             className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border   transition-colors"
@@ -170,17 +228,15 @@ export default function Navbar() {
             className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border  transition-colors"
           >
             <FontAwesomeIcon icon={faWhatsapp} className="text-base" />
-             WhatsApp
+            WhatsApp
           </a>
           <a
             href="tel:+254711827149"
             className="flex flex-col bg-[#E81448] rounded-lg items-center justify-center gap-1 py-2 text-white text-xs font-semibold border  transition-colors"
           >
             <FontAwesomeIcon icon={faPercent} className="text-base" />
-             PAYE Calculator
+            PAYE Calculator
           </a>
-         
-          
         </div>
 
         {/* Slide-down menu */}
@@ -273,7 +329,6 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -296,93 +351,105 @@ export default function Navbar() {
                 +254 711 82 71 49
               </span>
             </p>
-            <p className="text-xs text-blue-200">Monday-Friday : 8:00 – 18:00</p>
+            <p className="text-xs text-blue-200">
+              Monday-Friday : 8:00 – 18:00
+            </p>
           </div>
         </div>
 
         {/* Menu row — white bg, #123453 text */}
-        <div className={`bg-white transition-all duration-500 ${scrolled ? "border-b-2 border-[#123453]" : "border-b border-gray-100"}`}>
-        <div className="px-4 mx-auto max-w-8xl md:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center flex-shrink-0">
-              <Image
-                src="/assets/logos/Gichuri-Partners-logo-version-3.png"
-                alt="Logo"
-                width={140}
-                height={40}
-                className="object-contain"
-              />
-            </Link>
-
-            <div className="flex items-center gap-0.5">
-              {menuData.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => item.dropdown && handleMouseEnter(item.label)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link
-                    href={item.href}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-[#123453] hover:text-[#F91750] hover:bg-red-50"
-                  >
-                    {item.label}
-                    {item.dropdown && (
-                      <FontAwesomeIcon
-                        icon={faChevronDown}
-                        className={`text-[10px] transition-transform duration-200 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </Link>
-
-                  {item.dropdown && activeDropdown === item.label && (
-                    <div
-                      className="absolute left-0 mt-2 overflow-hidden bg-white border border-gray-100 shadow-2xl top-full rounded-2xl"
-                      style={{ width: "230px" }}
-                    >
-                      <div
-                        className="w-full h-1"
-                        style={{ background: "linear-gradient(90deg, #F91750, #273277)" }}
-                      />
-                      <div className="py-2">
-                        {item.dropdown.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 transition-colors duration-150 group"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="flex-shrink-0 text-xs"
-                              style={{ color: "#F91750" }}
-                            />
-                            <span className="group-hover:text-[#F91750] transition-colors">
-                              {sub.label}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Link
-                href="#"
-                className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:scale-90"
-                style={{ background: "linear-gradient(135deg, #F91750, #d4103f)" }}
-              >
-                <FontAwesomeIcon icon={faPercent} className="text-sm" />
-                PAYE Calculator
+        <div
+          className={`bg-white transition-all duration-500 ${scrolled ? "border-b-2 border-[#123453]" : "border-b border-gray-100"}`}
+        >
+          <div className="px-4 mx-auto max-w-8xl md:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <Link href="/" className="flex items-center flex-shrink-0">
+                <Image
+                  src="/assets/logos/Gichuri-Partners-logo-version-3.png"
+                  alt="Logo"
+                  width={140}
+                  height={40}
+                  className="object-contain w-auto h-10"
+                  priority
+                />
               </Link>
+
+              <div className="flex items-center gap-0.5">
+                {menuData.map((item) => (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() =>
+                      item.dropdown && handleMouseEnter(item.label)
+                    }
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link
+                      href={item.href}
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-[#123453] hover:text-[#F91750] hover:bg-red-50"
+                    >
+                      {item.label}
+                      {item.dropdown && (
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className={`text-[10px] transition-transform duration-200 ${
+                            activeDropdown === item.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      )}
+                    </Link>
+
+                    {item.dropdown && activeDropdown === item.label && (
+                      <div
+                        className="absolute left-0 mt-2 overflow-hidden bg-white border border-gray-100 shadow-2xl top-full rounded-2xl"
+                        style={{ width: "230px" }}
+                      >
+                        <div
+                          className="w-full h-1"
+                          style={{
+                            background:
+                              "linear-gradient(90deg, #F91750, #273277)",
+                          }}
+                        />
+                        <div className="py-2">
+                          {item.dropdown.map((sub) => (
+                            <Link
+                              key={sub.label}
+                              href={sub.href}
+                              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 transition-colors duration-150 group"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              <FontAwesomeIcon
+                                icon={faAngleRight}
+                                className="flex-shrink-0 text-xs"
+                                style={{ color: "#F91750" }}
+                              />
+                              <span className="group-hover:text-[#F91750] transition-colors">
+                                {sub.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  href="#"
+                  className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:scale-90"
+                  style={{
+                    background: "linear-gradient(135deg, #F91750, #d4103f)",
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPercent} className="text-sm" />
+                  PAYE Calculator
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </nav>
     </>
