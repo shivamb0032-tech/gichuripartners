@@ -6,6 +6,7 @@ import AccountService from '@/components/Accounting/AccountService'
 import BestAccounting from '@/components/Accounting/BestAccounting'
 import BussnessServe from '@/components/Accounting/BussnessServe'
 import ServiceForm from '@/components/Services/ServiceForm'
+import ChooseUs from '@/components/Services/ChooseUs'
 export default function Accounting() {
  
 
