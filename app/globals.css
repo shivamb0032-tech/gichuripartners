@@ -81,3 +81,22 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #F91750; border-radius: 3px; }
+/* Swiper imports */
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+
+/* Pagination pill style */
+.ss-dots .swiper-pagination-bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #E8C99A;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.ss-dots .swiper-pagination-bullet-active {
+  width: 28px;
+  background: #E07B00;
+}

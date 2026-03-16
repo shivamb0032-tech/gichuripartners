@@ -82,13 +82,13 @@ export default function TaxCompliance() {
   ];
 
   return (
-    <section className="py-12 overflow-hidden md:py-16 bg-gradient-to-b from-gray-100 to-white">
+    <section className="py-12 overflow-hidden md:py-16 bg-gradient-to-r from-brand-navy to-brand-pink">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="mb-10 text-center md:mb-14">
-          <h2 className="text-3xl font-bold tracking-tight text-[#123453] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Value Added Services
           </h2>
-          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-gray-700 md:text-lg">
+          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-gray-100 md:text-lg">
             Let us support your business with our 10+ years of expertise in the field of Accounting
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function TaxCompliance() {
             </svg>
           </button>
         </div>
-        <p className="pt-3 text-center">At Gichuri & Partners, we take pride in being The Best Tax Consultants In Kenya. We uphold professionalism, integrity, and excellence, offering the best tax consultancy services to drive business growth and ensure compliance. Trust us for expert financial solutions!</p>
+        <p className="pt-3 text-center text-gray-100">At Gichuri & Partners, we take pride in being The Best Tax Consultants In Kenya. We uphold professionalism, integrity, and excellence, offering the best tax consultancy services to drive business growth and ensure compliance. Trust us for expert financial solutions!</p>
       </div>
     </section>
   );

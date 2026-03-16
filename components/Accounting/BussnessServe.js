@@ -56,11 +56,11 @@ export default function BusinessesWeServe() {
 
         {/* Subheading Banner */}
         <div className="px-6 py-3 mb-10 bg-blue-900 rounded-sm">
-          <h2 className="text-xl font-bold tracking-wide text-white">Businesses We Serve</h2>
+          <h2 className="text-2xl font-bold tracking-wide text-white md:text-3xl lg:text-4xl">Businesses We Serve</h2>
         </div>
 
         {/* Intro Text */}
-        <p className="mb-12 text-base leading-relaxed text-gray-700">
+        <p className="mb-12 leading-relaxed text-gray-700 text-md">
           We have{" "}
           <span className="font-bold text-gray-900">served 1000+ businesses across Kenya</span>,
           helping them achieve financial success through our tailored solutions. Here are some of
@@ -83,14 +83,14 @@ export default function BusinessesWeServe() {
                   <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 transition-colors duration-300 bg-blue-900 rounded-lg group-hover:bg-[#F5164E]">
                     <FontAwesomeIcon icon={item.icon} className="w-4 h-4 text-white" />
                   </div>
-                  <h3 className="text-base font-bold leading-snug text-blue-900">{item.title}</h3>
+                  <h3 className="text-lg font-bold leading-snug text-blue-900">{item.title}</h3>
                 </div>
 
                 {/* Divider */}
                 <div className="mb-4 border-t border-gray-100" />
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-gray-600">{item.description}</p>
+                <p className="leading-relaxed text-gray-600 text-md">{item.description}</p>
               </div>
             </div>
           ))}

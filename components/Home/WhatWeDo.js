@@ -142,7 +142,7 @@ export default function WhatWeDo() {
             <span className="w-20 h-px bg-[#F3164D]" />
           </div>
 
-          <p className="max-w-xl mx-auto text-base font-light leading-relaxed sm:text-lg text-slate-100">
+          <p className="max-w-5xl mx-auto text-base font-light leading-relaxed sm:text-lg text-slate-100">
             Let us take care of your tax, accounting, audit and business registration needs with our comprehensive Tax compliant services!{" "}
             <span className="font-semibold text-brand-blue">Tax compliant services!</span>
           </p>

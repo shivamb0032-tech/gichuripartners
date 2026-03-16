@@ -6,8 +6,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 export const metadata = {
-  title: 'TaxPro Consultancy | CA & Tax Experts',
-  description: "India's trusted CA & Tax Consulting firm. Expert services in GST, Income Tax, Business Registration, Compliance & more.",
+  title: 'Best Accounting Services in Kenya | Gichuri & Partners',
+  description: "Top accounting services in Kenya , reliable bookkeeping, financial reporting, tax compliance, payroll, and advisory support for businesses of all sizes.",
 }
 
 export default function RootLayout({ children }) {

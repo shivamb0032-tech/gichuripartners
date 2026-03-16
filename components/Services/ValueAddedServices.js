@@ -89,13 +89,13 @@ export default function ValueAddedServices() {
   if (!mounted) return null;
 
   return (
-    <section className="py-12 overflow-hidden md:py-20 bg-brand-navy">
+    <section className="py-12 overflow-hidden md:py-20 bg-gradient-to-r from-brand-navy to-brand-pink">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="mb-10 text-center md:mb-14">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Value Added Services
           </h2>
-          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-blue-200 md:text-lg">
+          <p className="max-w-3xl mx-auto mt-4 text-base leading-relaxed text-gray-100 md:text-lg">
             Let us support your business with our 10+ years of expertise in the
             field of Accounting
           </p>

@@ -30,17 +30,17 @@ const services = [
 
 export default function AccountingServices() {
   return (
-    <section className="px-4 py-16 bg-white sm:px-8 lg:px-16">
+    <section className="px-4 py-12 bg-white sm:px-8 lg:px-13">
       {/* Top Heading */}
       <div className="max-w-6xl mx-auto mb-4">
-        <h1 className="text-3xl font-bold text-blue-900 sm:text-4xl">
+        <h1 className="text-2xl font-bold text-blue-900 lg:text-4xl md:text-3xl">
           Best Accounting Services in Kenya
         </h1>
       </div>
 
       {/* Description */}
       <div className="max-w-6xl mx-auto mb-10">
-        <p className="text-base leading-relaxed text-gray-700">
+        <p className="leading-relaxed text-gray-700 text-md">
           <a href="/" className="font-semibold text-[#EE154B]">Gichuri &amp; Partners</a> is the best
           accounting services provider in Kenya. We help your business achieve financial success
           through bookkeeping, financial reporting,{" "}
@@ -90,17 +90,17 @@ export default function AccountingServices() {
 function ServiceCard({ service }) {
   return (
     <div className="overflow-hidden transition-shadow duration-200 border border-b-4 border-[#1E3A8A] rounded-md shadow-sm hover:shadow-md">
-      {/* Card Heading */}
+    
       <div className="px-5 pt-5 pb-3">
-        <h3 className="text-lg font-bold leading-snug text-blue-900 line-clamp-2 min-h-[2.5rem]">{service.title}</h3>
+        <h3 className="text-xl font-bold leading-snug text-blue-900 line-clamp-2 min-h-[2.5rem]">{service.title}</h3>
       </div>
 
-      {/* Divider with pink background */}
+    
       <div className="h-1 mx-5 mb-3 bg-pink-500 rounded-full"></div>
 
-      {/* Card Description */}
+     
       <div className="px-5 pb-5">
-        <p className="text-sm leading-relaxed text-gray-600">{service.description}</p>
+        <p className="leading-relaxed text-justify text-gray-600 text-md">{service.description}</p>
       </div>
     </div>
   );

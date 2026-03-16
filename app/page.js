@@ -10,6 +10,7 @@ import WeBest from '@/components/Home/WeBest'
 import HomeTestimonial from '@/components/Home/HomeTestimonial'
 import TrustedSec from '@/components/Home/TrustedSec'
 import Blogs from '@/components/Home/Blogs'
+import CompanyTalk from '@/components/Home/CompanyTalk'
 
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
      <HomeHero/> 
+     <CompanyTalk/>
      <HomeEmpower/> 
      <WhatWeDo/>
      <WhoWeAre/>     

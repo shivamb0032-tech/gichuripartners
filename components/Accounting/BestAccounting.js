@@ -35,7 +35,7 @@ export default function BestAccounting() {
   };
 
   return (
-    <section className="w-full py-10 bg-gray-200 md:py-20">
+    <section className="w-full py-10 bg-gray-200 md:py-13">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left Content */}
@@ -44,7 +44,7 @@ export default function BestAccounting() {
              Benefits of Professional Auditing Services
             </span> */}
 
-            <h2 className="max-w-4xl text-3xl font-bold leading-tight text-[#273277] sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-4xl text-2xl font-bold leading-tight text-[#273277] sm:text-3xl lg:text-4xl">
              The Best Accounting Services in Kenya
             </h2>
 
@@ -65,7 +65,7 @@ export default function BestAccounting() {
                       onClick={() => handleToggle(index)}
                       className="flex items-center justify-between w-full gap-4 px-5 py-4 text-left sm:px-6"
                     >
-                      <span className="text-base font-semibold text-[#E81448] sm:text-md">
+                      <span className="text-lg font-semibold text-[#E81448] sm:text-md">
                         {item.title}
                       </span>
 
@@ -87,7 +87,7 @@ export default function BestAccounting() {
                     >
                       <div className="overflow-hidden">
                         <div className="px-5 pt-0 pb-5 sm:px-6">
-                          <p className="text-sm leading-7 text-slate-600 sm:text-base">
+                          <p className="leading-7 text-md text-slate-600 sm:text-base">
                             {item.content}
                           </p>
                         </div>
