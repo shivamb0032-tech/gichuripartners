@@ -12,7 +12,7 @@ export default function BookkeepingSection() {
             Choose the Best Bookkeeping Service in Kenya
           </h2>
 
-          <p className="mb-6 leading-relaxed text-gray-200">
+          <p className="mb-6 leading-relaxed text-justify text-gray-200">
            Are you looking for the <Link className="text-[#ED1B51] font-semibold" href="/ngo-bookkeeping-services-in-kenya/">best bookkeeping services</Link> in Kenya? At Gichuri & Partners, we are your financial partner in success! Our bookkeeping experts provide reliable bookkeeping and accounting services to keep your business ahead in the ever-changing entrepreneurial landscape in Kenya. Experience the precision and expertise that make us the best bookkeeping firm in Kenya. We will help you:
           </p>
 
@@ -46,7 +46,7 @@ export default function BookkeepingSection() {
             </li>
           </ul>
 
-          <p className="text-gray-300">
+          <p className="text-justify text-gray-300">
            Whether you are a startup or a growing business, don’t settle for less. Leverage the expertise of our professional bookkeepers to handle your books as you focus on driving growth and innovation. Partner with the <Link className="text-[#ED1B51] font-semibold" href="/smes-bookkeeping-services-in-kenya/">best professional bookkeeping service</Link> in Kenya today!
           </p>
         </div>

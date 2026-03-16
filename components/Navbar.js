@@ -29,7 +29,7 @@ const menuData = [
   { label: "Auditing", href: "/auditing-services-in-kenya" },
   { label: "Accounting", href: "/accounting-services-in-kenya" },
   { label: "Bookkeeping", href: "/bookkeeping-services-in-kenya" },
-  { label: "Tax Advisory", href: "#" },
+  { label: "Tax Advisory", href: "/tax-advisory-services-in-kenya" },
   { label: "About Us", href: "#" },
   { label: "News & Media", href: "#" },
   { label: "Blogs", href: "#" },

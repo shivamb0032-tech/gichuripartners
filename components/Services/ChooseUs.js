@@ -24,7 +24,7 @@ export default function ChooseUs() {
             Our Record Speaks For Itself
           </p>
 
-          <p className="max-w-6xl mx-auto mt-4 text-base leading-relaxed text-gray-600 md:text-lg">
+          <p className="max-w-6xl mx-auto mt-4 text-base leading-relaxed text-justify text-gray-600 md:text-lg">
             We are the best tax and business consultants in Kenya and our track record speaks for itself. But don’t just take our word for it, let reviews from happy clients convince you. We tailor our services to suit your unique business needs. Our goal is to help scale your business through seamless financial operations, employee satisfaction, tax and legal compliance, and accounting transparency.
           </p>
         </div>
@@ -87,7 +87,7 @@ export default function ChooseUs() {
               </div>
               <div>
                 <h3 className="mb-2 text-xl font-semibold text-[#F91750] md:text-2xl">EFFICIENCY</h3>
-                <p className="text-base leading-relaxed text-gray-600">
+                <p className="text-base leading-relaxed text-justify text-gray-600">
                   We provide efficient and unparalleled tax and business services. If you’re looking for a reliable tax and auditing firm in Kenya, look no further.
                 </p>
               </div>
@@ -102,7 +102,7 @@ export default function ChooseUs() {
               </div>
               <div>
                 <h3 className="mb-2 text-xl font-semibold text-[#F91750] md:text-2xl">INTEGRITY</h3>
-                <p className="text-base leading-relaxed text-gray-600">
+                <p className="text-base leading-relaxed text-justify text-gray-600">
                   At Gichuri & Partners tax consultants, we are committed to providing premier tax, auditing, accounting, and business services in Kenya, upholding the highest level of integrity and transparency.
                 </p>
               </div>
@@ -117,7 +117,7 @@ export default function ChooseUs() {
               </div>
               <div>
                 <h3 className="mb-2 text-xl font-semibold text-[#F91750] md:text-2xl">TRUSTWORTHY</h3>
-                <p className="text-base leading-relaxed text-gray-600">
+                <p className="text-base leading-relaxed text-justify text-gray-600">
                   With at least a decade in the tax consultancy and business advisory industry, Gichuri & Partners is your trustworthy ally in all things taxes and business growth in Kenya.
                 </p>
               </div>

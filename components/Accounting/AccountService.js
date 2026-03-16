@@ -40,7 +40,7 @@ export default function AccountingServices() {
 
       {/* Description */}
       <div className="max-w-6xl mx-auto mb-10">
-        <p className="leading-relaxed text-gray-700 text-md">
+        <p className="leading-relaxed text-justify text-gray-700 text-md">
           <a href="/" className="font-semibold text-[#EE154B]">Gichuri &amp; Partners</a> is the best
           accounting services provider in Kenya. We help your business achieve financial success
           through bookkeeping, financial reporting,{" "}

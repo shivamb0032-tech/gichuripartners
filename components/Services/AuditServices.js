@@ -48,7 +48,7 @@ export default function AuditServices() {
              Benefits of Professional Auditing Services
             </h2>
 
-            <p className="max-w-2xl mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="max-w-2xl mt-5 text-base leading-7 text-justify text-slate-600 sm:text-lg">
               Professional auditing services provide many benefits to businesses. For most businesses, publishing audit reports is a requirement by law or stakeholders. So what purpose do professional auditing services serve?
             </p>
 
@@ -87,7 +87,7 @@ export default function AuditServices() {
                     >
                       <div className="overflow-hidden">
                         <div className="px-5 pt-0 pb-5 sm:px-6">
-                          <p className="text-sm leading-7 text-slate-600 sm:text-base">
+                          <p className="text-sm leading-7 text-justify text-slate-600 sm:text-base">
                             {item.content}
                           </p>
                         </div>

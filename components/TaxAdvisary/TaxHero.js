@@ -213,7 +213,7 @@ function StarRow({ reviewCount }) {
   );
 }
 
-export default function AccountHero() {
+export default function TaxHero() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -237,7 +237,7 @@ export default function AccountHero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/blogs/Accounting.jpeg"
+          src="/assets/hero-bg/Tax-Advisory-Services.jpeg"
           alt="Hero Background"
           fill
           className="object-cover object-right"
@@ -256,13 +256,13 @@ export default function AccountHero() {
       {/* ── HEADING ── */}
       <div className="relative z-10 px-2 mb-5 text-center">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-          Best Accounting  
+        Tax Advisory  
           <span className="pl-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500">
-             Services in Kenya
+            Services
           </span>
         </h1>
-        <p className="max-w-5xl mx-auto mt-3 text-sm text-gray-300 sm:text-base ">
-          Are you looking for the best accounting services in Kenya? Our accounting experts offer top-tier accounting solutions to maintain your company’s financial health.
+        <p className="max-w-5xl mx-auto mt-3 text-sm text-gray-300 sm:text-base">
+          Don’t know where to start with your personal and business tax? Get the best tax advisory services from professionals, including tax valuation, compliance, audit, and planning.
         </p>
       </div>
 

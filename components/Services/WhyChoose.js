@@ -37,7 +37,7 @@ export default function WhyChoose() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="flex flex-col h-full p-5 transition-shadow duration-200 border border-gray-200 rounded-lg bg-gray-50 sm:p-6 hover:shadow-md"
+              className="flex flex-col h-full p-5 transition-shadow duration-200 border border-[#123453]  rounded-br-xl rounded-tl-xl border-l-4 bg-gray-50 sm:p-6 hover:shadow-md"
             >
               <h3 className="text-lg sm:text-xl font-semibold text-[#F91750] mb-2.5">
                 {card.title}

@@ -9,7 +9,7 @@ export default function HireAccount() {
         </h2>
 
         {/* Description */}
-        <p className="max-w-6xl mx-auto mt-4 text-base leading-relaxed text-gray-200 md:text-lg">
+        <p className="max-w-6xl mx-auto mt-4 text-base leading-relaxed text-justify text-gray-200 md:text-lg">
           Having a dependable accountant makes all the difference for your business, whether you are a retail store, private company, NGO, or SME. We are your expert partners in all things accounting, including bookkeeping, financial reporting, record management, payroll management, and tax advisory. Let us help you stay compliant, maximize returns, reduce losses, and make informed financial decisions. Take control of your business’s financial health instead of leaving it to chance. Book an appointment today!
         </p>
 

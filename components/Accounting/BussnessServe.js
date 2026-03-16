@@ -60,7 +60,7 @@ export default function BusinessesWeServe() {
         </div>
 
         {/* Intro Text */}
-        <p className="mb-12 leading-relaxed text-gray-700 text-md">
+        <p className="mb-12 leading-relaxed text-justify text-gray-700 text-md">
           We have{" "}
           <span className="font-bold text-gray-900">served 1000+ businesses across Kenya</span>,
           helping them achieve financial success through our tailored solutions. Here are some of
@@ -90,7 +90,7 @@ export default function BusinessesWeServe() {
                 <div className="mb-4 border-t border-gray-100" />
 
                 {/* Description */}
-                <p className="leading-relaxed text-gray-600 text-md">{item.description}</p>
+                <p className="leading-relaxed text-justify text-gray-600 text-md">{item.description}</p>
               </div>
             </div>
           ))}

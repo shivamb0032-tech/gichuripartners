@@ -36,42 +36,42 @@ export default function AccSection() {
               Importance of Auditing Services in Kenya
             </h3>
 
-            <p className="text-base leading-relaxed text-gray-600 md:text-lg">
+            <p className="text-base leading-relaxed text-justify text-gray-600 md:text-lg">
               Many business owners in Kenya only discover the true value of auditing services after facing compliance issues or consulting experts. Auditing is essential — it ensures financial transparency, boosts operational efficiency, and guarantees compliance with legal and regulatory requirements.
             </p>
 
-            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
+            <p className="text-base leading-relaxed text-justify text-gray-700 md:text-lg">
               Every business — whether a large corporation, public institution, private company, SME, or non-profit — benefits from regular audits. They help maintain accurate financial records, identify risks early, and support sustainable growth. At <span className="font-semibold text-[#273277]">Gichuri & Partners</span>, we are recognized as one of the leading auditing and accounting firms in Kenya. Our tailored auditing and assurance services help businesses achieve full compliance while unlocking valuable insights for better decision-making.
             </p>
 
-            <p className="text-base font-medium text-gray-800 md:text-lg">
+            <p className="text-base font-medium text-justify text-gray-800 md:text-lg">
               Our professional auditing services support Kenyan businesses in the following key ways:
             </p>
 
             {/* Points List */}
             <ul className="space-y-3 md:space-y-3">
-              <li className="flex items-start gap-4 text-base text-gray-800 md:text-lg">
+              <li className="flex items-start gap-4 text-base text-justify text-gray-800 md:text-lg">
                 <FontAwesomeIcon 
                   icon={faCheckCircle} 
                   className="flex-shrink-0 mt-1 text-2xl text-[#E01244]" 
                 />
                 <span>Ensure financial records fully align with KRA, ICPAK, and other regulatory standards</span>
               </li>
-              <li className="flex items-start gap-4 text-base text-gray-800 md:text-lg">
+              <li className="flex items-start gap-4 text-base text-justify text-gray-800 md:text-lg">
                 <FontAwesomeIcon 
                   icon={faCheckCircle} 
                   className="flex-shrink-0 mt-1 text-2xl text-[#E01244]" 
                 />
                 <span>Identify and resolve financial inconsistencies or irregularities promptly</span>
               </li>
-              <li className="flex items-start gap-4 text-base text-gray-800 md:text-lg">
+              <li className="flex items-start gap-4 text-base text-justify text-gray-800 md:text-lg">
                 <FontAwesomeIcon 
                   icon={faCheckCircle} 
                   className="flex-shrink-0 mt-1 text-2xl text-[#E01244]" 
                 />
                 <span>Mitigate risks early to enhance operational efficiency and protect your business</span>
               </li>
-              <li className="flex items-start gap-4 text-base text-gray-800 md:text-lg">
+              <li className="flex items-start gap-4 text-base text-justify text-gray-800 md:text-lg">
                 <FontAwesomeIcon 
                   icon={faCheckCircle} 
                   className="flex-shrink-0 mt-1 text-2xl text-[#E01244]" 

@@ -66,13 +66,13 @@ export default function BussinessServ() {
           {cardsData.map((card, index) => (
             <div
               key={index}
-              className="p-6 transition duration-300 bg-white border border-gray-200 shadow-sm rounded-2xl hover:-translate-y-1 hover:shadow-lg sm:p-8"
+              className="p-6 transition duration-300 bg-white border border-l-4 border-r-4 border-gray-200 shadow-sm rounded-2xl hover:-translate-y-1 hover:shadow-lg sm:p-8"
             >
              
 
               <div className="mt-6 space-y-3">
                 {card.points.map((point, pointIndex) => (
-                  <div key={pointIndex} className="flex items-start gap-3">
+                  <div key={pointIndex} className="flex items-start gap-3 ">
                     <CheckIcon />
                     <p className="text-sm leading-6 text-gray-700 sm:text-base">
                       {point}

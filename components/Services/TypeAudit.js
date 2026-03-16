@@ -63,7 +63,7 @@ export default function TypeAudit() {
 
         {/* Cards Grid */}
         <div className="flex flex-col items-center">
-          <div className="grid w-full max-w-6xl grid-cols-1 gap-6 mb-6 text-[#F5174F] sm:grid-cols-2 lg:grid-cols-4 md:gap-8 md:mb-8">
+          <div className="grid w-full max-w-6xl grid-cols-1 gap-6 mb-6 text-[#F5174F] sm:grid-cols-2 lg:grid-cols-4 md:gap-5 md:mb-8">
             {features.slice(0, 4).map((feature, index) => (
               <FeatureCard
                 key={index}
@@ -73,7 +73,7 @@ export default function TypeAudit() {
             ))}
           </div>
 
-          <div className="grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+          <div className="grid w-full max-w-5xl grid-cols-1 gap-6 text-justify sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
             {features.slice(4, 7).map((feature, index) => (
               <FeatureCard
                 key={index + 4}
@@ -91,7 +91,7 @@ export default function TypeAudit() {
 // Single Card Component
 function FeatureCard({ title, desc }) {
   return (
-    <div className="flex flex-col h-full overflow-hidden transition-shadow duration-300 bg-white border border-[#F5174F] shadow-md rounded-xl hover:shadow-xl">
+    <div className="flex flex-col h-full overflow-hidden transition-shadow duration-300 bg-white border border-[#F5174F] border-b-4 border-l-4 shadow-md rounded-xl hover:shadow-xl">
       <div className="flex flex-col flex-grow p-4 md:p-5">
         <h3 className="mb-3 text-xl font-semibold text-[#F5174F]">{title}</h3>
         <p className="flex-grow text-base leading-relaxed text-justify text-gray-600">

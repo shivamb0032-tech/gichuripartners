@@ -36,7 +36,7 @@ export default function BestbookServ() {
               Bookkeeping Services in Kenya
             </h3>
 
-            <p className="text-base leading-relaxed text-gray-600 md:text-lg">
+            <p className="text-base leading-relaxed text-justify text-gray-600 md:text-lg">
               Bookkeeping is the act of recording all your business’s financial
               transactions, including the money coming in and leaving your
               business. This process is the backbone of your business because it
@@ -46,14 +46,14 @@ export default function BestbookServ() {
               Nyeri, or a private company in Mombasa.
             </p>
 
-            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
+            <p className="text-base leading-relaxed text-justify text-gray-700 md:text-lg">
               Financial management and tax compliance can be daunting in the
               bustling entrepreneurial landscape in Kenya. As a business owner,
               you find yourself juggling between managing day-to-day operations
               and driving growth, leaving minimal time for bookkeeping and tax
               preparation.
             </p>
-            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
+            <p className="text-base leading-relaxed text-justify text-gray-700 md:text-lg">
               You end up neglecting the latter, which leads to trouble for your
               business, including fines, losses, penalties, and legal issues
               with tax authorities like KRA. You don’t have to shoulder the

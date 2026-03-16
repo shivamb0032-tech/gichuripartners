@@ -62,7 +62,7 @@ export default function BenifitOutsource() {
              Benefits of Outsourcing Bookkeeping Services
             </h2>
 
-            <p className="max-w-2xl mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="max-w-2xl mt-5 text-base leading-7 text-justify text-slate-600 sm:text-lg">
               Outsourcing bookkeeping services offers many benefits to your business. This is especially true for <Link href='/smes-bookkeeping-services-in-kenya/' className="text-[#F71950] font-semibold">small and medium-sized enterprises (SMEs)</Link> with limited resources. Here’s how outsourcing can save you time, money, and headaches:
             </p>
 
@@ -101,7 +101,7 @@ export default function BenifitOutsource() {
                     >
                       <div className="overflow-hidden">
                         <div className="px-5 pt-0 pb-5 sm:px-6">
-                          <p className="text-sm leading-7 text-slate-600 sm:text-base">
+                          <p className="text-sm leading-7 text-justify text-slate-600">
                             {item.content}
                           </p>
                         </div>
