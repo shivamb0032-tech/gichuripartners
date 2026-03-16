@@ -42,7 +42,7 @@ export default function TypeAudit() {
           alt="Audit background"
           fill
           priority
-          className="object-contain"
+          className="object-cover"
         />
       </div>
 
