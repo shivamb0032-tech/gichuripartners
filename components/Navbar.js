@@ -30,9 +30,9 @@ const menuData = [
   { label: "Accounting", href: "/accounting-services-in-kenya" },
   { label: "Bookkeeping", href: "/bookkeeping-services-in-kenya" },
   { label: "Tax Advisory", href: "/tax-advisory-services-in-kenya" },
-  { label: "About Us", href: "#" },
-  { label: "News & Media", href: "#" },
-  { label: "Blogs", href: "#" },
+  { label: "About Us", href: "/about-us" },
+  { label: "News & Media", href: "/news-media" },
+  { label: "Blogs", href: "blogs" },
   { label: "Contact us", href: "#" },
 ];
 

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaSmile, FaComments, FaBriefcase } from "react-icons/fa";
+import Link from "next/link";
 
 const bgImage = "/assets/hero-bg/sservice-bg1.avif";
 
@@ -39,7 +40,7 @@ const fadeUp = {
   },
 };
 
-export default function HomeEmpower() {
+export default function AboutEmpower() {
   const stats = [
     {
       value: 10000,
@@ -81,7 +82,7 @@ export default function HomeEmpower() {
             viewport={{ once: true, amount: 0.2 }}
             className="text-4xl font-bold text-[#273277] md:text-5xl"
           >
-            Best Tax Consultants
+            Enhancing Tax Compliance
           </motion.h2>
 
           <motion.p
@@ -91,13 +92,9 @@ export default function HomeEmpower() {
             viewport={{ once: true, amount: 0.2 }}
             className="text-base text-justify md:text-md"
           >
-            Gichuri & Partners is the Best Tax Consultants in Nairobi, Kenya,
-            specializing in KRA Tax Audits, KRA Tax Assessments, Bookkeeping,
-            Payroll Services, and professional representation in KRA Independent
-            Review of Objections (IRO), Tax Appeal Tribunal (TAT), and
-            Alternative Dispute Resolution (ADR) to help individuals and
-            businesses achieve full tax compliance. We have a team of experienced
-            tax consultants, who manage your KRA tax matters professionally.
+            At Gichuri & Partners, we unlock your business’s true potential with expert tax and accounting insights, advice, and support. Our client-focused approach ensures success by recognizing the opportunities within your business and the people driving it forward.
+
+
           </motion.p>
 
           <motion.p
@@ -107,13 +104,7 @@ export default function HomeEmpower() {
             viewport={{ once: true, amount: 0.2 }}
             className="text-base text-justify md:text-md"
           >
-            Our tax consultants helps you navigate KRA tax disputes, manage tax
-            liabilities, and develop effective tax planning strategies tailored
-            to your business needs while maximizing tax compliance and returns.
-            We understand that bookkeeping, payroll management, auditing, and
-            meeting ongoing tax obligations can be overwhelming, which is why we
-            provide reliable bookkeeping services, tax compliance support, and
-            audit assistance to give you peace of mind.
+            Our mission at <Link href="/" className="text-[#CE163E] font-semibold">Gichuri & Partners</Link> is to unlock your true potential with expert accounting insights, advice, and support. With over 10 years of experience, we are committed to a client-focused approach that drives success and long-term growth.
           </motion.p>
 
           <motion.p
@@ -123,14 +114,25 @@ export default function HomeEmpower() {
             viewport={{ once: true, amount: 0.2 }}
             className="text-base text-justify md:text-md"
           >
-            Let us help you maintain tax compliance for your business through
-            our tailored solutions like KRA tax audit services, KRA tax
-            assessment services, inventory tracking, and business tax advisory
-            services. As the best tax consultants Nairobi, Kenya, we offer the
-            best solutions for all businesses. We assist you with auditing
-            services, tax advisory, bookkeeping services, business services,
-            payroll services, accounting services, KRA services, and business
-            registration.
+            At Gichuri & Partners, we understand the unique challenges businesses face and recognize the potential within every organization and its people. Our expertise spans Kenyan direct and indirect taxes, exchange control regulations, and employee-related matters, equipping our clients to navigate complex tax landscapes with confidence.
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-base text-justify md:text-md"
+          >
+            Additionally, our business consulting services empower decision-making through tailored financial advisory, while our meticulous <Link href="/bookkeeping-services-in-kenya/" className="text-[#CE163E] font-semibold">bookkeeping consulting</Link> keeps financial records accurate and up-to-date.
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-base text-justify md:text-md"
+          >
+            We take pride in the trust our clients place in us, serving a diverse range of businesses, and maintaining a strong focus on excellence and client satisfaction. By partnering with Gichuri & Partners, you are choosing a dedicated team that is passionate about driving your business growth and success. At Gichuri & Partners, we specialize in <Link href="/tax-advisory-services-in-kenya/" className="text-[#CE163E] font-semibold">Tax Consulting</Link>, <Link href="/business-registration-services-in-kenya/" className="text-[#CE163E] font-semibold">Business Consulting</Link>, and <Link href="/bookkeeping-services-in-kenya/" className="text-[#CE163E] font-semibold">Bookkeeping Consulting</Link>. Our purpose is to connect you with your true potential by providing the accounting insight, advice, and support necessary to navigate towards success. We’ve cultivated a culture focused on ensuring the success of our clients by recognizing the potential within businesses and the people who drive them.
           </motion.p>
         </div>
 

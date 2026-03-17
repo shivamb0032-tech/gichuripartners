@@ -11,7 +11,7 @@ import ValueAddedServices from '@/components/Services/ValueAddedServices'
 import ServiceForm from '@/components/Services/ServiceForm'
 import ChooseUs from '@/components/Services/ChooseUs'
 
-export default function Accounting() {
+export default function BookKeepingPage() {
   return (
     <>
       <BookHero />
