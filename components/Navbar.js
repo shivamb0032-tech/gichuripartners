@@ -32,8 +32,8 @@ const menuData = [
   { label: "Tax Advisory", href: "/tax-advisory-services-in-kenya" },
   { label: "About Us", href: "/about-us" },
   { label: "News & Media", href: "/news-media" },
-  { label: "Blogs", href: "blogs" },
-  { label: "Contact us", href: "#" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact us", href: "/contact-us" },
 ];
 
 const socialLinks = [
