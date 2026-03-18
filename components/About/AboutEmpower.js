@@ -1,200 +1,153 @@
-// components/StatsSection.jsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { FaSmile, FaComments, FaBriefcase } from "react-icons/fa";
 import Link from "next/link";
 
-const bgImage = "/assets/hero-bg/sservice-bg1.avif";
-
-function useCountUp(end, duration = 2000) {
+// ── Count-up hook ────────────────────────────────────────────────
+function useCountUp(end, duration = 2000, trigger) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if (!isInView) return;
-
+    if (!trigger) return;
     let start = 0;
     const increment = end / (duration / 16);
-
     const timer = setInterval(() => {
       start += increment;
       setCount(Math.min(Math.floor(start), end));
       if (start >= end) clearInterval(timer);
     }, 16);
-
     return () => clearInterval(timer);
-  }, [isInView, end, duration]);
+  }, [trigger, end, duration]);
 
-  return { count, ref };
+  return count;
 }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 25 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
+// ── Stat card ────────────────────────────────────────────────────
+function StatCard({ stat, index, trigger }) {
+  const count = useCountUp(stat.value, 2000, trigger);
 
-export default function AboutEmpower() {
-  const stats = [
-    {
-      value: 10000,
-      label: "Happy Customers",
-      icon: <FaSmile className="text-5xl text-white md:text-6xl" />,
-    },
-    {
-      value: 25000,
-      label: "Consultations",
-      icon: <FaComments className="text-5xl text-white md:text-6xl" />,
-    },
-    {
-      value: 5000,
-      label: "Businesses Served",
-      icon: <FaBriefcase className="text-5xl text-white md:text-6xl" />,
-    },
-  ];
-
-  const { count: c1, ref: r1 } = useCountUp(stats[0].value);
-  const { count: c2, ref: r2 } = useCountUp(stats[1].value);
-  const { count: c3, ref: r3 } = useCountUp(stats[2].value);
+  const accents = ["bg-[#CE163E]", "bg-[#273277]", "bg-[#CE163E]"];
+  const borders = ["border-[#CE163E]", "border-[#273277]", "border-[#CE163E]"];
 
   return (
-    <section
-      className="relative py-10 overflow-hidden text-white md:py-16"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "repeat",
-      }}
-    >
-      <div className="relative z-10 px-5 mx-auto max-w-7xl sm:px-8 lg:px-12">
-        <div className="max-w-6xl mx-auto mt-3 mb-8 space-y-4 text-center text-gray-600">
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-4xl font-bold text-[#273277] md:text-5xl"
-          >
-            Enhancing Tax Compliance
-          </motion.h2>
+    <div className={`relative group bg-white rounded-2xl border-2 ${borders[index]} overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300`}>
+      {/* Top accent bar */}
+      <div className={`${accents[index]} h-1.5 w-full`} />
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-base text-justify md:text-md"
-          >
-            At Gichuri & Partners, we unlock your business’s true potential with expert tax and accounting insights, advice, and support. Our client-focused approach ensures success by recognizing the opportunities within your business and the people driving it forward.
+      {/* Number bg watermark */}
+      <div className="absolute -bottom-3 -right-2 text-[6rem] font-black text-slate-100 leading-none select-none pointer-events-none">
+        {String(index + 1).padStart(2, "0")}
+      </div>
 
-
-          </motion.p>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-base text-justify md:text-md"
-          >
-            Our mission at <Link href="/" className="text-[#CE163E] font-semibold">Gichuri & Partners</Link> is to unlock your true potential with expert accounting insights, advice, and support. With over 10 years of experience, we are committed to a client-focused approach that drives success and long-term growth.
-          </motion.p>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-base text-justify md:text-md"
-          >
-            At Gichuri & Partners, we understand the unique challenges businesses face and recognize the potential within every organization and its people. Our expertise spans Kenyan direct and indirect taxes, exchange control regulations, and employee-related matters, equipping our clients to navigate complex tax landscapes with confidence.
-          </motion.p>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-base text-justify md:text-md"
-          >
-            Additionally, our business consulting services empower decision-making through tailored financial advisory, while our meticulous <Link href="/bookkeeping-services-in-kenya/" className="text-[#CE163E] font-semibold">bookkeeping consulting</Link> keeps financial records accurate and up-to-date.
-          </motion.p>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-base text-justify md:text-md"
-          >
-            We take pride in the trust our clients place in us, serving a diverse range of businesses, and maintaining a strong focus on excellence and client satisfaction. By partnering with Gichuri & Partners, you are choosing a dedicated team that is passionate about driving your business growth and success. At Gichuri & Partners, we specialize in <Link href="/tax-advisory-services-in-kenya/" className="text-[#CE163E] font-semibold">Tax Consulting</Link>, <Link href="/business-registration-services-in-kenya/" className="text-[#CE163E] font-semibold">Business Consulting</Link>, and <Link href="/bookkeeping-services-in-kenya/" className="text-[#CE163E] font-semibold">Bookkeeping Consulting</Link>. Our purpose is to connect you with your true potential by providing the accounting insight, advice, and support necessary to navigate towards success. We’ve cultivated a culture focused on ensuring the success of our clients by recognizing the potential within businesses and the people who drive them.
-          </motion.p>
+      <div className="relative z-10 flex items-center gap-5 p-7">
+        {/* Icon box */}
+        <div className={`${accents[index]} w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
+          <stat.IconComponent className="text-2xl text-white" />
         </div>
 
-        <div className="mb-8 text-center md:mb-14">
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="text-2xl font-bold text-[#273277] md:text-4xl"
-          >
-            Empowering Businesses
-          </motion.h2>
+        {/* Text */}
+        <div>
+          <p className="text-3xl font-black text-[#273277] leading-none">
+            {count.toLocaleString()}
+            <span className="text-[#CE163E] text-2xl">+</span>
+          </p>
+          <p className="mt-1 text-sm font-semibold tracking-widest uppercase text-slate-500">
+            {stat.label}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mt-4 text-lg font-semibold text-[#273277] sm:text-xl"
-          >
-            Since{" "}
-            <span className="font-bold text-[#CE163E] text-2xl md:text-3xl">
-              2013
+// ── Main section ─────────────────────────────────────────────────
+export default function HomeEmpower() {
+  const { ref: sectionRef, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
+
+  const stats = [
+    { value: 10000, label: "Happy Customers",   IconComponent: FaSmile    },
+    { value: 25000, label: "Consultations",      IconComponent: FaComments },
+    { value: 5000,  label: "Businesses Served",  IconComponent: FaBriefcase },
+  ];
+
+  return (
+    <section className="relative px-4 py-16 overflow-hidden bg-brand-pink-light/10 sm:px-8">
+
+      {/* ── Decorative background shapes ── */}
+      <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-[#CE163E]/5 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#273277]/5 translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #273277 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+
+        {/* ── Top: Best Tax Consultants ── */}
+        <div className="mb-14">
+          {/* Label */}
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-8 h-0.5 bg-[#CE163E]" />
+            <span className="text-[#CE163E] text-xs font-bold tracking-[0.25em] uppercase">Our Expertise</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-black text-[#273277] leading-tight mb-8">
+            Enhancing Tax {" "}
+            <span className="relative inline-block">
+              <span className="text-[#CE163E]">Compliance</span>
+              <svg className="absolute left-0 w-full -bottom-1" height="5" viewBox="0 0 200 5" preserveAspectRatio="none">
+                <path d="M0,4 Q50,0 100,4 Q150,0 200,4" stroke="#CE163E" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              </svg>
             </span>
-          </motion.p>
+          </h2>
+
+          {/* Vertical text layout */}
+          <div className="flex flex-col gap-4 text-slate-600 text-[15px] leading-relaxed">
+            <p className="text-justify">
+              At Gichuri & Partners, we unlock your business’s true potential with expert tax and accounting insights, advice, and support. Our client-focused approach ensures success by recognizing the opportunities within your business and the people driving it forward.
+            </p>
+            <p className="text-justify">
+              Our mission at <Link href="/" className="font-semibold text-brand-pink-dark" >Gichuri & Partners</Link> is to unlock your true potential with expert accounting insights, advice, and support. With over 10 years of experience, we are committed to a client-focused approach that drives success and long-term growth.
+            </p>
+            <p className="text-justify">
+              At Gichuri & Partners, we understand the unique challenges businesses face and recognize the potential within every organization and its people. Our expertise spans Kenyan direct and indirect taxes, exchange control regulations, and employee-related matters, equipping our clients to navigate complex tax landscapes with confidence.
+            </p>
+            <p className="text-justify">
+              Additionally, our business consulting services empower decision-making through tailored financial advisory, while our meticulous <Link href="/bookkeeping-services-in-kenya/" className="font-semibold text-brand-pink-dark">bookkeeping consulting</Link> keeps financial records accurate and up-to-date.
+            </p>
+            <p className="text-justify">
+             We take pride in the trust our clients place in us, serving a diverse range of businesses, and maintaining a strong focus on excellence and client satisfaction. By partnering with Gichuri & Partners, you are choosing a dedicated team that is passionate about driving your business growth and success. At Gichuri & Partners, we specialize in <Link href="/tax-advisory-services-in-kenya/" className="font-semibold text-brand-pink-dark">Tax Consulting</Link>, <Link href="/business-registration-services-in-kenya/" className="font-semibold text-brand-pink-dark">Business Consulting</Link>, and <Link href="/bookkeeping-services-in-kenya/" className="font-semibold text-brand-pink-dark">Bookkeeping Consulting</Link>. Our purpose is to connect you with your true potential by providing the accounting insight, advice, and support necessary to navigate towards success. We’ve cultivated a culture focused on ensuring the success of our clients by recognizing the potential within businesses and the people who drive them.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-10">
-          {stats.map((stat, i) => {
-            const refs = [r1, r2, r3];
-            const counts = [c1, c2, c3];
-
-            return (
-              <motion.div
-                key={i}
-                ref={refs[i]}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                whileHover={{ scale: 1.03, y: -6 }}
-                className="group rounded-2xl bg-[#273277] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="flex justify-center mb-5 transition-transform duration-300 sm:mb-6 group-hover:scale-110">
-                    {stat.icon}
-                  </div>
-
-                  <div className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-                    {counts[i].toLocaleString()}
-                    <span className="text-2xl sm:text-3xl">+</span>
-                  </div>
-
-                  <p className="mt-3 text-base font-semibold text-[#f91750] sm:mt-4 sm:text-lg">
-                    {stat.label}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* ── Divider with "Empowering Businesses" ── */}
+        <div className="relative flex items-center justify-center mb-12">
+          <div className="flex-1 h-px bg-slate-200" />
+          <div className="px-6 py-3 mx-6 text-center bg-white border shadow-sm rounded-2xl border-slate-200">
+            <p className="text-xl md:text-2xl font-black text-[#273277] leading-none">
+              Empowering Businesses
+            </p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">
+              Since{" "}
+              <span className="text-[#CE163E] font-black text-xl">2013</span>
+            </p>
+          </div>
+          <div className="flex-1 h-px bg-slate-200" />
         </div>
+
+        {/* ── Stats cards ── */}
+        <div ref={sectionRef} className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {stats.map((stat, i) => (
+            <StatCard key={i} stat={stat} index={i} trigger={inView} />
+          ))}
+        </div>
+
       </div>
     </section>
   );

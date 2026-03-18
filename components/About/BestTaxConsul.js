@@ -34,7 +34,7 @@ const cards = [
 
 export default function MissionVisionSection() {
   return (
-    <section className="w-full bg-[#edeae5] py-16 px-4 sm:px-8 lg:px-16">
+    <section className="w-full px-4 py-16 bg-white sm:px-8 lg:px-16">
       <div className="flex flex-col max-w-6xl gap-12 mx-auto">
 
         {/* Heading */}

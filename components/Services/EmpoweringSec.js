@@ -1,21 +1,16 @@
-// components/StatsSection.jsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { FaSmile, FaComments, FaBriefcase } from "react-icons/fa";
 
-const bgImage = "/assets/hero-bg/sservice-bg1.avif"; 
+const bgImage = "/assets/hero-bg/sservice-bg1.avif";
 
-
-function useCountUp(end, duration = 2000) {
+// ── Count-up hook ────────────────────────────────────────────────
+function useCountUp(end, duration = 2000, trigger) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   useEffect(() => {
-    if (!isInView) return;
-
+    if (!trigger) return;
     let start = 0;
     const increment = end / (duration / 16);
     const timer = setInterval(() => {
@@ -23,112 +18,113 @@ function useCountUp(end, duration = 2000) {
       setCount(Math.min(Math.floor(start), end));
       if (start >= end) clearInterval(timer);
     }, 16);
-
     return () => clearInterval(timer);
-  }, [isInView, end, duration]);
-
-  return { count, ref };
+  }, [trigger, end, duration]);
+  return count;
 }
 
-export default function StatsSection() {
-  const stats = [
-    {
-      value: 10000,
-      label: "Happy Customers",
-      icon: <FaSmile className="text-5xl text-white md:text-6xl" />,
-    },
-    {
-      value: 25000,
-      label: "Consultations",
-      icon: <FaComments className="text-5xl text-white md:text-6xl" />,
-    },
-    {
-      value: 5000,
-      label: "Businesses Served",
-      icon: <FaBriefcase className="text-5xl text-white md:text-6xl" />,
-    },
-  ];
+const stats = [
+  { value: 10000, label: "Happy Customers",  Icon: FaSmile,     suffix: "+" },
+  { value: 25000, label: "Consultations",     Icon: FaComments,  suffix: "+" },
+  { value: 5000,  label: "Businesses Served", Icon: FaBriefcase, suffix: "+" },
+];
 
-  const { count: c1, ref: r1 } = useCountUp(stats[0].value);
-  const { count: c2, ref: r2 } = useCountUp(stats[1].value);
-  const { count: c3, ref: r3 } = useCountUp(stats[2].value);
+export default function StatsSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  const c1 = useCountUp(stats[0].value, 2000, inView);
+  const c2 = useCountUp(stats[1].value, 2000, inView);
+  const c3 = useCountUp(stats[2].value, 2000, inView);
+  const counts = [c1, c2, c3];
 
   return (
-    <section 
-      className="relative py-16 overflow-hidden text-white md:py-24"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "repeat",
-      }}
-    >
-      {/* Dark overlay taaki text clear dikhe */}
-      {/* <div className="absolute inset-0 bg-black/15"></div>  */}
-      
-      {/* Content */}
-      <div className="relative z-10 px-5 mx-auto max-w-7xl sm:px-8 lg:px-12">
-        {/* Heading */}
-        <div className="mb-12 text-center md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl font-bold text-[#273277] md:text-5xl"
-          >
-            Empowering Businesses
-          </motion.h2>
+    <section className="relative px-4 py-20 overflow-hidden sm:px-8">
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="mt-4 text-lg font-semibold text-[#273277] sm:text-xl"
-          >
-            Since{" "}
-            <span className="font-bold text-[#CE163E] text-2xl md:text-3xl">
-              2013
+      {/* ── BG image with overlay ── */}
+      <div className="absolute inset-0 -z-10">
+        <img src={bgImage} alt="" className="object-cover object-center w-full h-full" />
+        <div className="absolute inset-0 bg-[#0d1b2e]/90" />
+      </div>
+
+      {/* ── Decorative diagonal stripe ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <svg className="absolute w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <polygon points="0,60 40,100 0,100" fill="rgba(206,22,62,0.12)" />
+          <polygon points="100,0 100,45 60,0" fill="rgba(206,22,62,0.08)" />
+        </svg>
+        {/* dot grid */}
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+
+        {/* ── Heading block ── */}
+        <div className="mb-16 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#CE163E]/40 bg-[#CE163E]/10 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#CE163E] animate-pulse" />
+            <span className="text-[#CE163E] text-xs font-bold tracking-[0.2em] uppercase">Our Impact</span>
+          </div>
+
+          <h2 className="text-4xl font-black leading-tight text-white md:text-5xl">
+            Empowering{" "}
+            <span className="relative inline-block">
+              <span className="text-[#CE163E]">Businesses</span>
+              <span className="absolute -bottom-1 left-0 w-full h-1 bg-[#CE163E] rounded-full opacity-60" />
             </span>
-          </motion.p>
+          </h2>
+
+          <p className="mt-3 text-sm font-medium tracking-widest uppercase text-white/60">
+            Since <span className="text-[#CE163E] font-black text-lg not-italic">2013</span>
+          </p>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-10">
-          {stats.map((stat, i) => {
-            const refs = [r1, r2, r3];
-            const counts = [c1, c2, c3];
+        {/* ── Stats ── */}
+        <div ref={ref} className="grid grid-cols-1 gap-px overflow-hidden shadow-2xl sm:grid-cols-3 bg-white/10 rounded-2xl">
+          {stats.map(({ label, Icon, suffix }, i) => (
+            <div
+              key={i}
+              className="group relative bg-white/5 hover:bg-[#CE163E]/20 transition-colors duration-300 p-10 flex flex-col items-center text-center overflow-hidden"
+            >
+              
+              <span className="absolute -bottom-4 -right-2 text-[5.5rem] font-black text-white/[0.04] leading-none select-none pointer-events-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-            return (
-              <motion.div
-                key={i}
-                ref={refs[i]}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-                whileHover={{ scale: 1.03, y: -6 }}
-                className="group bg-[#273277] backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl border  p-6 sm:p-8 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="flex justify-center mb-5 transition-transform duration-300 transform sm:mb-6 group-hover:scale-110">
-                    {stat.icon}
-                  </div>
+              {/* Vertical left border accent (not on first) */}
+              {i > 0 && (
+                <div className="absolute left-0 hidden w-px sm:block top-8 bottom-8 bg-white/10" />
+              )}
 
-                  <div className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-                    {counts[i].toLocaleString()}
-                    <span className="text-2xl sm:text-3xl">+</span>
-                  </div>
-
-                  <p className="mt-3 text-base font-semibold text-[#f91750] sm:mt-4 sm:text-lg">
-                    {stat.label}
-                  </p>
+              {/* Icon in hexagon-like rounded square */}
+              <div className="relative mb-6">
+                <div className="w-16 h-16 bg-[#CE163E]/20 rounded-2xl rotate-3 absolute inset-0" />
+                <div className="relative w-16 h-16 bg-[#CE163E] rounded-2xl flex items-center justify-center shadow-lg shadow-[#CE163E]/30 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="text-2xl text-white" />
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              {/* Count */}
+              <p className="text-5xl font-black leading-none text-white md:text-6xl">
+                {counts[i].toLocaleString()}
+                <span className="text-[#CE163E] text-3xl">{suffix}</span>
+              </p>
+
+              {/* Label */}
+              <p className="mt-3 text-white/60 text-xs font-bold uppercase tracking-[0.18em]">
+                {label}
+              </p>
+
+              {/* Bottom hover bar */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-3/4 bg-[#CE163E] transition-all duration-500 rounded-full" />
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
