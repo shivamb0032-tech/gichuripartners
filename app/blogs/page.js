@@ -8,7 +8,7 @@ export default function Blogs() {
     <>
       <BlogHero />
       <BlogsSection />
-        <ServiceForm/>
+      <ServiceForm/>
     </>
   );
 }
