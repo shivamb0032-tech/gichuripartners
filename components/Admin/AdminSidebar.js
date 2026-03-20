@@ -82,6 +82,7 @@ export default function AdminSidebar({ children }) {
 
         {/* User */}
         <div className="flex items-center gap-3 px-4 py-4 border-t border-white/10">
+        < Link href="/admin/profile">
           <Image
             src="/assets/logos/Gichuri-Partners-logo-version-3.png"
             alt="Admin"
@@ -89,9 +90,10 @@ export default function AdminSidebar({ children }) {
             height={36}
             className="object-contain w-10 h-10 bg-white border rounded-full border-white/20"
           />
+          </Link>
           <div className="min-w-0">
-            <p className="text-sm font-semibold truncate">Gichuri Partners</p>
-            <p className="text-[11px] text-white/50">Admin</p>
+            <p className="text-sm font-semibold truncate">< Link href="/admin/profile">Gichuri Partners</Link></p>
+            <p className="text-[11px] text-white/50">< Link href="/admin/profile">Admin</Link></p>
           </div>
         </div>
       </aside>

@@ -1,50 +1,24 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const BLOGS = [
-  {
-    id: 1,
-    image: "https://picsum.photos/seed/blog1/60/60",
-    title: "Getting Started with Next.js 14",
-    description: "A complete beginner's guide to building modern apps with the App Router.",
-  },
-  {
-    id: 2,
-    image: "https://picsum.photos/seed/blog2/60/60",
-    title: "Tailwind CSS Best Practices",
-    description: "Learn how to structure your utility classes for maintainable codebases.",
-  },
-  {
-    id: 3,
-    image: "https://picsum.photos/seed/blog3/60/60",
-    title: "React Server Components Explained",
-    description: "Deep dive into RSC and when to use client vs server components.",
-  },
-  {
-    id: 4,
-    image: "https://picsum.photos/seed/blog4/60/60",
-    title: "Building REST APIs with Node.js",
-    description: "Step-by-step guide to creating scalable REST APIs using Express.",
-  },
-  {
-    id: 5,
-    image: "https://picsum.photos/seed/blog5/60/60",
-    title: "MongoDB Aggregation Pipelines",
-    description: "Master complex data queries using MongoDB's powerful aggregation framework.",
-  },
+const FORMS_DATA = [
+  { id: 1, name: "John Smith",    email: "john@example.com",  subject: "Partnership Inquiry",  date: "2025-03-10" },
+  { id: 2, name: "Sarah Johnson", email: "sarah@example.com", subject: "Support Request",       date: "2025-03-11" },
+  { id: 3, name: "Michael Chen",  email: "mchen@example.com", subject: "Product Demo",          date: "2025-03-12" },
+  { id: 4, name: "Amara Osei",    email: "amara@example.com", subject: "General Enquiry",       date: "2025-03-14" },
+  { id: 5, name: "Priya Sharma",  email: "priya@example.com", subject: "Career Opportunities",  date: "2025-03-15" },
 ];
 
-export default function BlogsTableSection() {
-  const [blogs, setBlogs] = useState(BLOGS);
+export default function FormsTableSection() {
+  const [forms, setForms] = useState(FORMS_DATA);
   const [deleteId, setDeleteId] = useState(null);
 
   const confirmDelete = (id) => setDeleteId(id);
   const cancelDelete = () => setDeleteId(null);
   const handleDelete = () => {
-    setBlogs((prev) => prev.filter((b) => b.id !== deleteId));
+    setForms((prev) => prev.filter((f) => f.id !== deleteId));
     setDeleteId(null);
   };
 
@@ -59,7 +33,7 @@ export default function BlogsTableSection() {
                 <TrashIcon className="w-5 h-5 text-[#EC1B51]" />
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-800">Delete Blog</p>
+                <p className="text-sm font-bold text-gray-800">Delete Form</p>
                 <p className="text-xs text-gray-400 mt-0.5">This action cannot be undone.</p>
               </div>
             </div>
@@ -87,76 +61,64 @@ export default function BlogsTableSection() {
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <div className="flex items-center gap-3">
-            <div className="w-1 h-6 rounded-full bg-[#274A9A]" />
-            <h2 className="text-[15px] font-bold text-[#274A9A]">Total Blogs</h2>
+            <div className="w-1 h-6 rounded-full bg-[#EC1B51]" />
+            <h2 className="text-[15px] font-bold text-[#274A9A]">Total Forms Submitted</h2>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] font-bold px-2.5 py-1 rounded-full text-white bg-[#274A9A]">
-              {blogs.length} total
-            </span>
-            <Link
-              href="/admin/blogs/new"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#EC1B51] no-underline shadow-[0_3px_10px_rgba(236,27,81,0.3)] hover:-translate-y-0.5 transition-transform duration-150"
-            >
-              <PlusIcon />
-              Add Blog
-            </Link>
-          </div>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full text-white bg-[#EC1B51]">
+            {forms.length} total
+          </span>
         </div>
 
         {/* Table */}
         <div className="overflow-x-auto">
-          {blogs.length === 0 ? (
+          {forms.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-gray-400">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 text-gray-200">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
               </svg>
-              <p className="text-sm font-semibold">No blogs found</p>
+              <p className="text-sm font-semibold">No forms submitted</p>
             </div>
           ) : (
-            <table className="w-full min-w-[560px] text-sm border-collapse">
+            <table className="w-full min-w-[640px] text-sm border-collapse">
               <thead>
                 <tr className="bg-[#f8f9ff]">
-                  <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Image</th>
-                  <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Title</th>
-                  <th className="hidden md:table-cell px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Description</th>
+                  <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">#</th>
+                  <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Name</th>
+                  <th className="hidden sm:table-cell px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Email</th>
+                  <th className="hidden md:table-cell px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Subject</th>
+                  <th className="hidden lg:table-cell px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Date</th>
                   <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {blogs.map((blog, idx) => (
+                {forms.map((form, idx) => (
                   <tr
-                    key={blog.id}
-                    className={`transition-colors duration-100 hover:bg-[#274A9A]/[0.03] ${idx !== 0 ? "border-t border-gray-100" : ""}`}
+                    key={form.id}
+                    className={`transition-colors duration-100 hover:bg-[#EC1B51]/[0.03] ${idx !== 0 ? "border-t border-gray-100" : ""}`}
                   >
-                    {/* Image */}
-                    <td className="px-4 py-3">
-                      <div className="w-12 h-12 overflow-hidden bg-gray-100 border border-gray-200 rounded-xl shrink-0">
-                        <img
-                          src={blog.image}
-                          alt={blog.title}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
+                    <td className="px-4 py-3 font-medium text-gray-300">
+                      {String(form.id).padStart(2, "0")}
                     </td>
-
-                    {/* Title */}
-                    <td className="px-4 py-3 font-semibold text-[#274A9A] max-w-[180px]">
-                      <p className="m-0 truncate">{blog.title}</p>
+                    <td className="px-4 py-3 font-semibold text-[#274A9A]">
+                      {form.name}
                     </td>
-
-                    {/* Description */}
-                    <td className="hidden md:table-cell px-4 py-3 text-gray-400 text-[13px] max-w-[300px]">
-                      <p className="m-0 line-clamp-2">{blog.description}</p>
+                    <td className="hidden sm:table-cell px-4 py-3 text-gray-400 text-[13px]">
+                      {form.email}
                     </td>
-
-                    {/* Actions */}
+                    <td className="hidden px-4 py-3 md:table-cell">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#EC1B51]/10 text-[#EC1B51]">
+                        {form.subject}
+                      </span>
+                    </td>
+                    <td className="hidden lg:table-cell px-4 py-3 text-gray-400 text-[13px]">
+                      {form.date}
+                    </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         {/* Edit */}
                         <Link
-                          href={`/admin/blogs/${blog.id}/edit`}
+                          href={`/admin/forms/${form.id}/edit`}
                           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#274A9A] no-underline shadow-[0_2px_8px_rgba(39,74,154,0.25)] hover:-translate-y-0.5 active:translate-y-0 transition-transform duration-150 whitespace-nowrap"
                         >
                           <EditIcon />
@@ -165,7 +127,7 @@ export default function BlogsTableSection() {
 
                         {/* Delete */}
                         <button
-                          onClick={() => confirmDelete(blog.id)}
+                          onClick={() => confirmDelete(form.id)}
                           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#EC1B51] bg-[#EC1B51]/10 hover:bg-[#EC1B51] hover:text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap border-none cursor-pointer"
                         >
                           <TrashIcon />
@@ -201,15 +163,6 @@ function TrashIcon({ className = "w-3 h-3" }) {
       <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
       <path d="M10 11v6M14 11v6" />
       <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
-    </svg>
-  );
-}
-
-function PlusIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3">
-      <line x1="12" y1="5" x2="12" y2="19" />
-      <line x1="5" y1="12" x2="19" y2="12" />
     </svg>
   );
 }
