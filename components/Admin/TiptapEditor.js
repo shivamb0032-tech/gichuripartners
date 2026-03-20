@@ -3,9 +3,12 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function TiptapEditor({ value, onChange }) {
+  const [isHtmlMode, setIsHtmlMode] = useState(false);
+  const [htmlValue, setHtmlValue] = useState(value || "");
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -18,25 +21,41 @@ export default function TiptapEditor({ value, onChange }) {
     editorProps: {
       attributes: {
         class:
-          "min-h-[250px] rounded-b-lg border border-t-0 p-4 outline-none prose max-w-none",
+          "ProseMirror min-h-[300px] rounded-b-lg border border-t-0 p-4 outline-none bg-white max-w-none [&_ul]:list-disc [&_ul]:ml-6 [&_ol]:list-decimal [&_ol]:ml-6 [&_li]:mb-1",
       },
     },
     onUpdate: ({ editor }) => {
-      onChange(editor.getHTML());
+      const html = editor.getHTML();
+      setHtmlValue(html);
+      onChange(html);
     },
   });
 
   useEffect(() => {
-    if (editor && value !== editor.getHTML()) {
+    if (!editor) return;
+    if (value !== editor.getHTML()) {
       editor.commands.setContent(value || "");
+      setHtmlValue(value || "");
     }
   }, [value, editor]);
+
+  const handleHtmlChange = (e) => {
+    const newHtml = e.target.value;
+    setHtmlValue(newHtml);
+    onChange(newHtml);
+  };
+
+  const applyHtmlToEditor = () => {
+    if (!editor) return;
+    editor.commands.setContent(htmlValue || "");
+    onChange(htmlValue || "");
+  };
 
   if (!editor) return null;
 
   return (
-    <div className="overflow-hidden bg-white rounded-lg">
-      <div className="flex flex-wrap gap-2 p-3 border rounded-t-lg bg-gray-50">
+    <div className="overflow-visible rounded-lg border bg-white">
+      <div className="sticky top-0 z-20 flex flex-wrap gap-2 border-b bg-gray-50 p-3 rounded-t-lg shadow-sm">
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -126,9 +145,43 @@ export default function TiptapEditor({ value, onChange }) {
         >
           Redo
         </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            if (isHtmlMode) applyHtmlToEditor();
+            setIsHtmlMode(!isHtmlMode);
+          }}
+          className={`px-3 py-1 text-sm border rounded ${
+            isHtmlMode ? "bg-[#274A9A] text-white" : "bg-white"
+          }`}
+        >
+          {isHtmlMode ? "Visual Mode" : "HTML Mode"}
+        </button>
       </div>
 
-      <EditorContent editor={editor} />
+      <div className="bg-white">
+        {isHtmlMode ? (
+          <div className="p-4">
+            <textarea
+              value={htmlValue}
+              onChange={handleHtmlChange}
+              className="w-full min-h-[300px] rounded-lg border p-4 outline-none font-mono text-sm"
+            />
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={applyHtmlToEditor}
+                className="px-4 py-2 rounded bg-[#274A9A] text-white text-sm"
+              >
+                Apply HTML
+              </button>
+            </div>
+          </div>
+        ) : (
+          <EditorContent editor={editor} />
+        )}
+      </div>
     </div>
   );
 }
