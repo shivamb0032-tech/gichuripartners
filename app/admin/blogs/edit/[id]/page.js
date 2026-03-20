@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-
-
 import TiptapEditor from "@/components/Admin/TiptapEditor";
 
 export default function EditBlogPage() {
@@ -26,6 +24,16 @@ export default function EditBlogPage() {
     published: true,
     image: null,
   });
+
+  const getImageUrl = (image) => {
+    if (!image) return "";
+
+    if (image.startsWith("http://") || image.startsWith("https://")) {
+      return image; // Cloudinary image
+    }
+
+    return `${SERVER_URL}${image}`; // old local image
+  };
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -243,10 +251,7 @@ export default function EditBlogPage() {
           </label>
 
           <div className="overflow-hidden border rounded-xl">
-            <TiptapEditor
-              content={form.content}
-              onChange={handleContentChange}
-            />
+            <TiptapEditor value={form.content} onChange={handleContentChange} />
           </div>
         </div>
 
@@ -257,7 +262,7 @@ export default function EditBlogPage() {
 
           {currentImage ? (
             <img
-              src={`${SERVER_URL}${currentImage}`}
+              src={getImageUrl(currentImage)}
               alt="Current blog"
               className="object-cover w-32 h-32 border rounded-xl"
             />

@@ -119,7 +119,7 @@ export default function Login() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} method="POST">
             <div>
               <InputField
                 icon={<MailIcon />}
