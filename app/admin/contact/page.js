@@ -1,7 +1,7 @@
-export default function BlogsPage() {
+export default function FormsPage() {
   return (
     <>
-     <div
+    <div
       style={{
         background: "#fff",
         borderRadius: "16px",
@@ -10,13 +10,13 @@ export default function BlogsPage() {
       }}
     >
       <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#274A9A", marginBottom: "10px" }}>
-        Blogs Page
+        Forms Page
       </h1>
       <p style={{ color: "#6b7280", margin: 0 }}>
-        Yahan blogs ka content right side me aayega.
+        Yahan forms ka content right side me aayega.
       </p>
     </div>
     </>
-   
+    
   );
 }

@@ -38,7 +38,7 @@ export default function Register() {
 
       if (data.success) {
         alert("Registered successfully");
-        router.push("/admin/login");
+        router.push("/admin-login");
       } else {
         alert(data.message || "Registration failed");
       }
@@ -189,7 +189,7 @@ export default function Register() {
         <div className="flex items-center justify-center gap-1.5 mt-4 text-xs text-gray-400">
           <span>Already have an account?</span>
           <Link
-            href="/admin/login"
+            href="/admin-login"
             className="font-medium transition-colors text-violet-600 hover:text-violet-500"
           >
             Sign in
