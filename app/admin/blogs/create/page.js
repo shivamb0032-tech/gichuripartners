@@ -56,7 +56,7 @@ export default function CreateBlogPage() {
       formData.append("content", form.content);
       formData.append("category", form.category);
       formData.append("author", form.author);
-      formData.append("published", form.published);
+      formData.append("published", String(form.published));
 
       if (imageFile) {
         formData.append("image", imageFile);
@@ -194,7 +194,10 @@ export default function CreateBlogPage() {
               checked={form.published}
               onChange={handleChange}
             />
-            <label htmlFor="published" className="text-sm font-medium text-gray-700">
+            <label
+              htmlFor="published"
+              className="text-sm font-medium text-gray-700"
+            >
               Published
             </label>
           </div>

@@ -12,6 +12,16 @@ export default function BlogsTableSection() {
   const [loading, setLoading] = useState(true);
   const [deleteLoading, setDeleteLoading] = useState(false);
 
+  const getImageUrl = (image) => {
+    if (!image) return "";
+
+    if (image.startsWith("http://") || image.startsWith("https://")) {
+      return image; // Cloudinary image
+    }
+
+    return `${SERVER_URL}${image}`; // old local image
+  };
+
   const fetchBlogs = async () => {
     try {
       setLoading(true);
@@ -203,7 +213,7 @@ export default function BlogsTableSection() {
                       <div className="w-12 h-12 overflow-hidden bg-gray-100 border border-gray-200 rounded-xl shrink-0">
                         {blog.image ? (
                           <img
-                            src={`${SERVER_URL}${blog.image}`}
+                            src={getImageUrl(blog.image)}
                             alt={blog.title}
                             className="object-cover w-full h-full"
                           />
