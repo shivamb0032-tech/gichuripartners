@@ -22,27 +22,34 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.success) {
-      localStorage.setItem("adminToken", data.token);
-      router.push("/admin/dashboard");
-    } else {
-      alert(data.message);
+      if (data.success) {
+        localStorage.setItem("adminToken", data.token);
+        router.push("/admin/dashboard");
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (error) {
+      alert("Server error. Please try again.");
+      console.error("Login error:", error);
     }
   };
 
   return (
     <div className="relative flex items-center justify-center w-full min-h-screen overflow-hidden font-sans">
-      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/gichuri-login-bg.webp"
@@ -53,7 +60,6 @@ export default function Login() {
         />
       </div>
 
-      {/* Gradient Overlay */}
       <div
         className="absolute inset-0 z-10"
         style={{
@@ -66,7 +72,6 @@ export default function Login() {
         }}
       />
 
-      {/* Animated Mesh */}
       <div
         className="absolute z-10 pointer-events-none animate-pulse"
         style={{
@@ -78,19 +83,16 @@ export default function Login() {
         }}
       />
 
-      {/* Orb 1 */}
       <div
         className="absolute top-[-60px] left-[-60px] w-64 h-64 rounded-full pointer-events-none z-10 animate-pulse"
         style={{ background: "rgba(139,92,246,0.22)", filter: "blur(55px)" }}
       />
 
-      {/* Orb 2 */}
       <div
         className="absolute bottom-[-50px] right-[-50px] w-52 h-52 rounded-full pointer-events-none z-10 animate-pulse"
         style={{ background: "rgba(236,72,153,0.18)", filter: "blur(55px)" }}
       />
 
-      {/* Card */}
       <div
         className="relative z-20 w-full max-w-[460px] mx-4 rounded-2xl border border-gray-200 px-8 py-7 max-sm:mx-3 max-sm:px-5 max-sm:py-6 max-sm:rounded-xl"
         style={{
@@ -98,7 +100,6 @@ export default function Login() {
           boxShadow: "0 24px 70px rgba(0,0,0,0.5), 0 0 50px rgba(99,55,255,0.15)",
         }}
       >
-        {/* Logo */}
         <div className="flex flex-col items-center mb-6">
           <div className="flex items-center justify-center h-20 mb-3 w-28 max-sm:w-12 max-sm:h-12">
             <Image
@@ -119,9 +120,7 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit}>
-          {/* Identifier */}
           <div>
             <InputField
               icon={<MailIcon />}
@@ -131,7 +130,6 @@ export default function Login() {
             />
           </div>
 
-          {/* Password */}
           <div className="mt-3">
             <PasswordField
               name="password"
@@ -143,11 +141,9 @@ export default function Login() {
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
-            className="w-full mt-4 py-3 rounded-xl text-white text-sm font-medium tracking-wide
-                       transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full mt-4 py-3 rounded-xl text-white text-sm font-medium tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             style={{
               background: "linear-gradient(135deg, #7c3aed, #9d174d)",
               boxShadow: "0 4px 18px rgba(124,58,237,0.4)",
@@ -157,7 +153,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Register Link */}
         <div className="flex items-center justify-center gap-1.5 mt-4 text-xs text-gray-400">
           <span>Don&apos;t have an account?</span>
           <Link
@@ -172,7 +167,6 @@ export default function Login() {
   );
 }
 
-/* Reusable Input */
 function InputField({ icon, name, type = "text", placeholder, onChange }) {
   return (
     <div className="relative">
@@ -196,7 +190,6 @@ function InputField({ icon, name, type = "text", placeholder, onChange }) {
   );
 }
 
-/* Password Field with Eye Icon */
 function PasswordField({
   name,
   placeholder,
@@ -236,7 +229,6 @@ function PasswordField({
   );
 }
 
-/* SVG Icons */
 function MailIcon() {
   return (
     <svg

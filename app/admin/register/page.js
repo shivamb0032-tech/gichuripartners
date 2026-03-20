@@ -23,24 +23,33 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const data = await res.json();
-    if (data.success) {
-      alert("Registered successfully");
-      router.push("/admin/login");
-    } else {
-      alert(data.message);
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Registered successfully");
+        router.push("/admin/login");
+      } else {
+        alert(data.message || "Registration failed");
+      }
+    } catch (error) {
+      alert("Server error. Please try again.");
+      console.error("Register error:", error);
     }
   };
 
   return (
     <div className="relative flex items-center justify-center w-full min-h-screen overflow-hidden font-sans">
-
-      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/gichuri-login-bg.webp"
@@ -51,7 +60,6 @@ export default function Register() {
         />
       </div>
 
-      {/* Gradient Overlay */}
       <div
         className="absolute inset-0 z-10"
         style={{
@@ -64,7 +72,6 @@ export default function Register() {
         }}
       />
 
-      {/* Animated Mesh */}
       <div
         className="absolute z-10 pointer-events-none animate-pulse"
         style={{
@@ -76,19 +83,16 @@ export default function Register() {
         }}
       />
 
-      {/* Orb 1 */}
       <div
         className="absolute top-[-60px] left-[-60px] w-64 h-64 rounded-full pointer-events-none z-10 animate-pulse"
         style={{ background: "rgba(139,92,246,0.22)", filter: "blur(55px)" }}
       />
 
-      {/* Orb 2 */}
       <div
         className="absolute bottom-[-50px] right-[-50px] w-52 h-52 rounded-full pointer-events-none z-10 animate-pulse"
         style={{ background: "rgba(236,72,153,0.18)", filter: "blur(55px)" }}
       />
 
-      {/* Card */}
       <div
         className="relative z-20 w-full max-w-[460px] mx-4 rounded-2xl border border-gray-200 px-8 py-7 max-sm:mx-3 max-sm:px-5 max-sm:py-6 max-sm:rounded-xl"
         style={{
@@ -96,7 +100,6 @@ export default function Register() {
           boxShadow: "0 24px 70px rgba(0,0,0,0.5), 0 0 50px rgba(99,55,255,0.15)",
         }}
       >
-        {/* Logo — centered at top */}
         <div className="flex flex-col items-center mb-6">
           <div className="flex items-center justify-center h-20 mb-3 w-28 max-sm:w-12 max-sm:h-12">
             <Image
@@ -105,46 +108,71 @@ export default function Register() {
               width={70}
               height={70}
               className="object-contain w-full h-full"
-             
             />
           </div>
-          <h2
-            className="text-[1.4rem] max-sm:text-xl font-bold text-gray-900 leading-tight tracking-tight text-center"
-            
-          >
+
+          <h2 className="text-[1.4rem] max-sm:text-xl font-bold text-gray-900 leading-tight tracking-tight text-center">
             Create Account
           </h2>
+
           <p className="text-[0.75rem] text-gray-400 font-light mt-0.5 text-center">
             Join us — it only takes a minute
           </p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit}>
-
-          {/* First Name + Last Name */}
           <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
-            <InputField icon={<UserIcon />} name="firstName" placeholder="First Name" onChange={handleChange} />
-            <InputField icon={<UserIcon />} name="lastName" placeholder="Last Name" onChange={handleChange} />
+            <InputField
+              icon={<UserIcon />}
+              name="firstName"
+              placeholder="First Name"
+              onChange={handleChange}
+            />
+            <InputField
+              icon={<UserIcon />}
+              name="lastName"
+              placeholder="Last Name"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Email */}
           <div className="mt-3">
-            <InputField icon={<MailIcon />} name="email" type="email" placeholder="Email Address" onChange={handleChange} />
+            <InputField
+              icon={<MailIcon />}
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Phone */}
           <div className="mt-3">
-            <InputField icon={<PhoneIcon />} name="phone" type="tel" placeholder="Phone Number" onChange={handleChange} />
+            <InputField
+              icon={<PhoneIcon />}
+              name="phone"
+              type="tel"
+              placeholder="Phone Number"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Password + Confirm */}
           <div className="grid grid-cols-2 gap-3 mt-3 max-[360px]:grid-cols-1">
-            <InputField icon={<LockIcon />} name="password" type="password" placeholder="Password" onChange={handleChange} />
-            <InputField icon={<ShieldIcon />} name="confirmPassword" type="password" placeholder="Confirm" onChange={handleChange} />
+            <InputField
+              icon={<LockIcon />}
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+            <InputField
+              icon={<ShieldIcon />}
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full mt-4 py-3 rounded-xl text-white text-sm font-medium tracking-wide
@@ -158,7 +186,6 @@ export default function Register() {
           </button>
         </form>
 
-        {/* Login Link */}
         <div className="flex items-center justify-center gap-1.5 mt-4 text-xs text-gray-400">
           <span>Already have an account?</span>
           <Link
@@ -173,7 +200,6 @@ export default function Register() {
   );
 }
 
-/* Reusable Input */
 function InputField({ icon, name, type = "text", placeholder, onChange }) {
   return (
     <div className="relative">
@@ -184,7 +210,7 @@ function InputField({ icon, name, type = "text", placeholder, onChange }) {
         name={name}
         type={type}
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={handleChangeSafe(onChange)}
         className="w-full py-[10px] pl-9 pr-3 rounded-xl text-[0.82rem] text-gray-800
                    bg-gray-50 border border-gray-200 outline-none
                    placeholder:text-gray-400
@@ -196,7 +222,10 @@ function InputField({ icon, name, type = "text", placeholder, onChange }) {
   );
 }
 
-/* SVG Icons */
+function handleChangeSafe(onChange) {
+  return (e) => onChange(e);
+}
+
 function UserIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
@@ -205,6 +234,7 @@ function UserIcon() {
     </svg>
   );
 }
+
 function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
@@ -213,6 +243,7 @@ function MailIcon() {
     </svg>
   );
 }
+
 function PhoneIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
@@ -220,6 +251,7 @@ function PhoneIcon() {
     </svg>
   );
 }
+
 function LockIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
@@ -228,6 +260,7 @@ function LockIcon() {
     </svg>
   );
 }
+
 function ShieldIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
