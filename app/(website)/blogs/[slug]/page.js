@@ -114,7 +114,7 @@ export default function BlogPage() {
         </p>
         <Link
           href="/blogs"
-          className="px-5 py-3 text-white bg-green-700 rounded-lg"
+          className="px-5 py-3 text-white rounded-lg bg-brand-pink-dark"
         >
           Back to Blogs
         </Link>
@@ -123,7 +123,7 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen font-sans bg-white">
       {/* Hero Section */}
       <section className="relative w-full h-[420px] md:h-[520px] overflow-hidden">
         <Image
@@ -137,36 +137,36 @@ export default function BlogPage() {
 
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-5xl mx-auto px-6 pb-12 md:pb-16">
-          <span className="mb-3 text-sm font-semibold tracking-widest text-green-400 uppercase">
-            {formatDate(blog.createdAt)}
-          </span>
+        <div className="relative z-10 flex flex-col justify-end h-full px-6 pb-12 mx-auto max-w-7xl md:pb-16"> 
 
-          <h1 className="max-w-2xl text-3xl font-bold leading-tight text-white md:text-5xl drop-shadow-lg">
+          <h1 className="max-w-6xl text-3xl font-bold leading-tight text-white md:text-5xl drop-shadow-lg">
             {blog.title}
           </h1>
+          <span className="mb-3 text-sm font-semibold tracking-widest uppercase text-brand-pink-dark">
+            {formatDate(blog.createdAt)}
+          </span>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="max-w-6xl px-4 py-10 mx-auto sm:px-6 md:py-14">
+      <section className="px-4 py-10 mx-auto max-w-7xl sm:px-6 md:py-14">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-14">
           {/* Left Content */}
           <div className="flex-1 min-w-0">
-            <h2 className="mb-5 text-2xl font-bold leading-snug text-gray-900 md:text-3xl">
+            <h2 className="mb-5 text-2xl font-bold leading-snug text-brand-navy-dark md:text-3xl">
               {blog.title}
             </h2>
 
-            <div className="mb-6 flex flex-wrap items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-brand-pink-dark">
               <span>
                 <strong>Author:</strong> {blog.author || "Admin"}
               </span>
               <span>
                 <strong>Date:</strong> {formatDate(blog.createdAt)}
               </span>
-              <span>
+              {/* <span>
                 <strong>Category:</strong> {blog.category || "Uncategorized"}
-              </span>
+              </span> */}
             </div>
 
             <div
@@ -184,10 +184,10 @@ export default function BlogPage() {
                   placeholder="Search posts..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2.5 pr-10 text-sm text-gray-700 transition border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
+                  className="w-full px-4 py-2.5 pr-10 text-sm text-gray-700 transition border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-pink-dark focus:border-transparent"
                 />
                 <svg
-                  className="absolute w-4 h-4 text-gray-400 pointer-events-none right-3 top-1/2 -translate-y-1/2"
+                  className="absolute w-4 h-4 text-gray-400 -translate-y-1/2 pointer-events-none right-3 top-1/2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -204,7 +204,7 @@ export default function BlogPage() {
 
             <div>
               <h3 className="mb-1 text-lg font-bold text-gray-900">Latest Posts</h3>
-              <div className="w-full h-0.5 bg-green-700 mb-5" />
+              <div className="w-full h-0.5 bg-brand-pink-dark mb-5" />
 
               {filteredPosts.length > 0 ? (
                 <ul className="space-y-6">
@@ -231,7 +231,7 @@ export default function BlogPage() {
                           </div>
 
                           <div className="flex-1 min-w-0">
-                            <p className="mb-1 text-base font-semibold leading-tight text-gray-900 transition-colors group-hover:text-green-700 line-clamp-2">
+                            <p className="mb-1 text-base font-semibold leading-tight text-gray-900 transition-colors group-hover:text-brand-pink-dark line-clamp-2">
                               {post.title}
                             </p>
 

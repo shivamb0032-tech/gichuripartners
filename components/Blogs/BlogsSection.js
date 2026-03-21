@@ -126,13 +126,13 @@ export default function BlogSection() {
   }, [search, blogs.length]);
 
   return (
-    <section className="bg-[#f0f3f8] min-h-screen py-14 lg:px-10 md:px-8 px-6">
+    <section className="bg-[#f0f3f8]  py-14 lg:px-20 md:px-8 px-6">
       <div className="flex flex-col w-full gap-10 lg:flex-row">
         {/* Main Blog Grid */}
         <div className="flex-1 min-w-0">
           <div className="mb-8">
             <h2 className="text-3xl font-extrabold tracking-tight text-brand-navy-dark">
-              Latest Blogs
+             Our Blogs
             </h2>
             <div className="w-12 h-1 mt-2 rounded-full bg-brand-pink-dark" />
           </div>
@@ -142,7 +142,7 @@ export default function BlogSection() {
               Loading blogs...
             </div>
           ) : error ? (
-            <div className="py-16 text-center text-red-600 font-medium">
+            <div className="py-16 font-medium text-center text-brand-pink-dark">
               {error}
             </div>
           ) : filteredBlogs.length === 0 ? (
@@ -249,23 +249,23 @@ export default function BlogSection() {
           {/* Search */}
           <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
             <h3 className="mb-2 text-lg font-extrabold text-brand-navy-dark">Search Blogs</h3>
-            <div className="w-10 h-1 bg-brand-pink-dark mb-4 rounded-full" />
+            <div className="w-10 h-1 mb-4 rounded-full bg-brand-pink-dark" />
             <div className="relative">
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by title, category..."
-                className="w-full border border-gray-200 rounded-lg pl-4 pr-11 py-3 text-sm focus:outline-none focus:border-brand-pink-dark transition"
+                className="w-full py-3 pl-4 text-sm transition border border-gray-200 rounded-lg pr-11 focus:outline-none focus:border-brand-pink-dark"
               />
-              <FiSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg" />
+              <FiSearch className="absolute text-lg text-gray-400 -translate-y-1/2 right-4 top-1/2" />
             </div>
           </div>
 
           {/* Latest Posts */}
           <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
             <h3 className="mb-2 text-lg font-extrabold text-brand-navy-dark">Latest Posts</h3>
-            <div className="w-10 h-1 bg-brand-pink-dark mb-4 rounded-full" />
+            <div className="w-10 h-1 mb-4 rounded-full bg-brand-pink-dark" />
 
             {loading ? (
               <p className="text-sm text-gray-400">Loading...</p>
@@ -279,17 +279,17 @@ export default function BlogSection() {
                       href={`/blogs/${post.slug}`}
                       className="flex items-start gap-4 group"
                     >
-                      <div className="relative w-20 h-16 rounded-lg overflow-hidden bg-gray-100 shrink-0">
+                      <div className="relative w-20 h-16 overflow-hidden bg-gray-100 rounded-lg shrink-0">
                         <Image
                           src={getImageUrl(post.image)}
                           alt={post.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform"
+                          className="object-cover transition-transform group-hover:scale-105"
                           unoptimized
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-gray-800 leading-tight group-hover:text-brand-pink-dark transition-colors line-clamp-2">
+                        <p className="text-sm font-semibold leading-tight text-gray-800 transition-colors group-hover:text-brand-pink-dark line-clamp-2">
                           {post.title}
                         </p>
                         <span className="flex items-center gap-1.5 text-xs text-gray-500 mt-1.5">

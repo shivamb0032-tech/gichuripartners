@@ -16,10 +16,10 @@ export default function BlogsTableSection() {
     if (!image) return "";
 
     if (image.startsWith("http://") || image.startsWith("https://")) {
-      return image; // Cloudinary image
+      return image; 
     }
 
-    return `${SERVER_URL}${image}`; // old local image
+    return `${SERVER_URL}${image}`; 
   };
 
   const fetchBlogs = async () => {

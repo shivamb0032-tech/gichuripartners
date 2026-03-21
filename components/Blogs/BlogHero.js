@@ -25,7 +25,7 @@ export default function BlogHero() {
       <div className="absolute top-0 left-[38%] w-px h-full opacity-10 bg-gradient-to-b from-transparent via-[#F3164E] to-transparent" />
 
       <div className="relative z-10 w-full max-w-5xl px-8 py-16 mx-auto lg:px-12">
-        <div className="max-w-md">
+        <div className="max-w-2xl">
 
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-[#F3164E]/10 border border-[#F3164E]/30">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F3164E] animate-pulse" />
@@ -35,11 +35,11 @@ export default function BlogHero() {
           </div>
 
           {/* Heading */}
-          <h1 className="mb-6 leading-none font-[Playfair_Display]">
+          <h1 className="flex mb-6 leading-none">
             <span className="block font-bold text-white text-[clamp(2.6rem,5.5vw,3.8rem)]">
               Blog
             </span>
-            <span className="block font-bold text-[clamp(2.6rem,5.5vw,3.8rem)] pb-3 bg-gradient-to-r from-[#F3164E] to-[#ff8fa3] bg-clip-text text-transparent">
+            <span className="ml-2 block font-bold text-[clamp(2.6rem,5.5vw,3.8rem)] pb-3 bg-gradient-to-r from-[#F3164E] to-[#ff8fa3] bg-clip-text text-transparent">
               Insights
             </span>
           </h1>

@@ -24,7 +24,7 @@ export default function ContactHero() {
 
       <div className="absolute top-0 left-[38%] w-px h-full opacity-10 bg-gradient-to-b from-transparent via-[#F3164E] to-transparent" />
 
-      <div className="relative z-10 w-full max-w-5xl px-8 py-16 mx-auto lg:px-12">
+      <div className="relative z-10 w-full px-8 py-16 mx-auto max-w-7xl lg:px-12">
         <div className="max-w-2xl">
 
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-[#F3164E]/10 border border-[#F3164E]/30">
