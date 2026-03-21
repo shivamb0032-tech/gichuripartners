@@ -220,7 +220,7 @@ export default function FormsTableSection() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-gray-500 text-[13px] max-w-[220px]">
-                      <p className="m-0 line-clamp-2">{form.message || "-"}</p>
+                      <p className="m-0 line-clamp-2">{form.companyName || "-"}</p>
                     </td>
                     <td className="px-4 py-3 text-gray-400 text-[13px]">
                       {form.createdAt
