@@ -152,7 +152,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
 }
 
 .blog-content blockquote {
-  border-left: 4px solid #15803d;
+  border-left: 4px solid #fa0644;
   padding-left: 1rem;
   margin: 1rem 0;
   color: #374151;
@@ -160,8 +160,9 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
 }
 
 .blog-content a {
-  color: #15803d;
-  text-decoration: underline;
+  color: #fa0644;
+  /* text-decoration: underline; */
+  font-weight: 600;
 }
 
 .blog-content strong {

@@ -30,7 +30,7 @@ function CountryCodeDropdown({ selectedCountry, setSelectedCountry }) {
     async function fetchCountries() {
       try {
         const res = await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,idd,flags,cca2"
+          "https://restcountries.com/v3.1/all?fields=name,idd,flags,cca2",
         );
         const data = await res.json();
 
@@ -86,7 +86,7 @@ function CountryCodeDropdown({ selectedCountry, setSelectedCountry }) {
     return countries.filter(
       (country) =>
         country.name.toLowerCase().includes(search.toLowerCase()) ||
-        country.dialCode.includes(search)
+        country.dialCode.includes(search),
     );
   }, [countries, search]);
 
@@ -169,6 +169,8 @@ function CountryCodeDropdown({ selectedCountry, setSelectedCountry }) {
 }
 
 export default function ContactSection() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -180,6 +182,7 @@ export default function ContactSection() {
   const [focused, setFocused] = useState("");
   const [robot, setRobot] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setFormData({
@@ -199,6 +202,66 @@ export default function ContactSection() {
     }`;
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!robot) {
+      alert("Please confirm you are not a robot");
+      return;
+    }
+
+    if (
+      !formData.name.trim() ||
+      !formData.mobile.trim() ||
+      !formData.email.trim() ||
+      !formData.service.trim()
+    ) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    const payload = {
+      name: formData.name.trim(),
+      phone: `${selectedCountry?.dialCode || "+91"} ${formData.mobile.trim()}`,
+      email: formData.email.trim(),
+      services: formData.service.trim(),
+      companyName: formData.company.trim(),
+    };
+
+    try {
+      setLoading(true);
+
+      const res = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Form submitted successfully");
+        setFormData({
+          name: "",
+          mobile: "",
+          email: "",
+          company: "",
+          service: "",
+        });
+        setRobot(false);
+      } else {
+        alert(data.message || "Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Contact form submit error:", error);
+      alert("Something went wrong while submitting the form");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="px-4 py-16 bg-gray-200">
       <div className="max-w-6xl mx-auto">
@@ -211,7 +274,10 @@ export default function ContactSection() {
               Fill in the details below and we'll get back to you shortly.
             </p>
 
-            <div className="flex flex-col flex-1 gap-3.5">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col flex-1 gap-3.5"
+            >
               <div className="relative">
                 <MdPerson className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-base pointer-events-none" />
                 <input
@@ -284,7 +350,7 @@ export default function ContactSection() {
                   onFocus={() => setFocused("service")}
                   onBlur={() => setFocused("")}
                   className={`${inputClass(
-                    "service"
+                    "service",
                   )} pl-10 pr-9 appearance-none cursor-pointer`}
                 >
                   <option value="" disabled>
@@ -323,11 +389,12 @@ export default function ContactSection() {
               </div>
 
               <button
-                type="button"
-                className="mt-auto flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#123453] to-[#F91750] hover:from-[#0f2a44] hover:to-[#d4103f] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#F91750]/20 active:translate-y-0 transition-all duration-300 shadow-md"
+                type="submit"
+                disabled={loading}
+                className="mt-auto flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#123453] to-[#F91750] hover:from-[#0f2a44] hover:to-[#d4103f] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#F91750]/20 active:translate-y-0 transition-all duration-300 shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 <MdSend className="text-base" />
-                Request A Callback Now
+                {loading ? "Submitting..." : "Request A Callback Now"}
               </button>
 
               <div className="flex items-center gap-3">
@@ -355,7 +422,7 @@ export default function ContactSection() {
                   Call Now
                 </a>
               </div>
-            </div>
+            </form>
           </div>
 
           <div className="flex flex-col overflow-hidden border shadow-sm rounded-2xl border-slate-100 min-h-[520px]">

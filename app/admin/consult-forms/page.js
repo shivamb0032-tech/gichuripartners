@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function FormsTableSection() {
+export default function ConsultTableSection() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
   const [forms, setForms] = useState([]);
@@ -21,10 +21,11 @@ export default function FormsTableSection() {
 
       if (!token) {
         setForms([]);
+        setLoading(false);
         return;
       }
 
-      const res = await fetch(`${API_URL}/contact`, {
+      const res = await fetch(`${API_URL}/consult`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -35,14 +36,14 @@ export default function FormsTableSection() {
       const data = await res.json();
 
       if (data.success) {
-        setForms(data.contacts || []);
+        setForms(data.consults || []);
       } else {
         setForms([]);
-        console.error(data.message || "Failed to fetch forms");
+        console.error(data.message || "Failed to fetch consult forms");
       }
     } catch (error) {
       setForms([]);
-      console.error("Fetch forms error:", error);
+      console.error("Fetch consult forms error:", error);
     } finally {
       setLoading(false);
     }
@@ -71,7 +72,7 @@ export default function FormsTableSection() {
         return;
       }
 
-      const res = await fetch(`${API_URL}/contact/${deleteId}`, {
+      const res = await fetch(`${API_URL}/consult/${deleteId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -87,8 +88,8 @@ export default function FormsTableSection() {
         alert(data.message || "Delete failed");
       }
     } catch (error) {
-      console.error("Delete form error:", error);
-      alert("Something went wrong while deleting form");
+      console.error("Delete consult form error:", error);
+      alert("Something went wrong while deleting consult form");
     } finally {
       setDeleteLoading(false);
     }
@@ -104,7 +105,7 @@ export default function FormsTableSection() {
                 <TrashIcon className="w-5 h-5 text-[#EC1B51]" />
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-800">Delete Form</p>
+                <p className="text-sm font-bold text-gray-800">Delete Consult Form</p>
                 <p className="text-xs text-gray-400 mt-0.5">
                   This action cannot be undone.
                 </p>
@@ -136,7 +137,7 @@ export default function FormsTableSection() {
           <div className="flex items-center gap-3">
             <div className="w-1 h-6 rounded-full bg-[#EC1B51]" />
             <h2 className="text-[15px] font-bold text-[#274A9A]">
-              Total Forms Submitted
+              Total Consult Forms Submitted
             </h2>
           </div>
           <span className="text-[11px] font-bold px-2.5 py-1 rounded-full text-white bg-[#EC1B51]">
@@ -147,7 +148,7 @@ export default function FormsTableSection() {
         <div className="overflow-x-auto">
           {loading ? (
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-gray-400">
-              <p className="text-sm font-semibold">Loading forms...</p>
+              <p className="text-sm font-semibold">Loading consult forms...</p>
             </div>
           ) : forms.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-gray-400">
@@ -161,7 +162,7 @@ export default function FormsTableSection() {
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
               </svg>
-              <p className="text-sm font-semibold">No forms submitted</p>
+              <p className="text-sm font-semibold">No consult forms submitted</p>
             </div>
           ) : (
             <table className="w-full min-w-[760px] text-sm border-collapse">
@@ -181,9 +182,6 @@ export default function FormsTableSection() {
                   </th>
                   <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">
                     Service
-                  </th>
-                  <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">
-                    Message
                   </th>
                   <th className="px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400">
                     Date
@@ -218,9 +216,6 @@ export default function FormsTableSection() {
                       <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#EC1B51]/10 text-[#EC1B51]">
                         {form.services || "-"}
                       </span>
-                    </td>
-                    <td className="px-4 py-3 text-gray-500 text-[13px] max-w-[220px]">
-                      <p className="m-0 line-clamp-2">{form.message || "-"}</p>
                     </td>
                     <td className="px-4 py-3 text-gray-400 text-[13px]">
                       {form.createdAt
