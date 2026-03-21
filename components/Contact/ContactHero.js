@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactHero() {
   return (
-    <section className="relative w-full min-h-[55vh] flex items-center overflow-hidden bg-[#06111f]">
+    <section className="relative w-full min-h-[75vh] flex items-center overflow-hidden bg-[#06111f]">
 
       {/* Background Image — right side only */}
       <div className="absolute right-0 top-0 w-full lg:w-[62%] h-full">
