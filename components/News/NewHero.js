@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NewHero() {
   return (
-    <section className="relative w-full min-h-[52vh] flex items-stretch overflow-hidden ">
+    <section className="relative w-full min-h-[75vh] flex items-stretch overflow-hidden ">
 
       {/* === BG: diagonal split via clip-path === */}
       <div className="absolute inset-0 bg-[#0d1f33]" />
