@@ -34,15 +34,6 @@ const menuData = [
   { label: "News & Media", href: "/news-media" },
   { label: "Blogs", href: "/blogs" },
   { label: "Contact us", href: "/contact-us" },
-  // {
-  //   label: "Compliance",
-  //   href: "#",
-  //   dropdown: [
-  //     { label: "Annual Returns", href: "#" },
-  //     { label: "Business Licenses", href: "#" },
-  //     { label: "KRA Compliance", href: "#" },
-  //   ],
-  // },
 ];
 
 const socialLinks = [
@@ -79,7 +70,7 @@ const socialLinks = [
   },
 ];
 
-export default function Navbar() {
+export default function Navbar1() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -94,43 +85,44 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setMobileOpen(false);
-        setMobileExpanded(null);
-      }
-    };
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setMobileOpen(false);
+      setMobileExpanded(null);
+    }
+  };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+useEffect(() => {
+  return () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
+}, []);
 
-  useEffect(() => {
-    const measure = () => {
-      if (window.innerWidth < 1024 && mobileNavRef.current) {
-        const h = mobileNavRef.current.getBoundingClientRect().height;
-        if (h > 0) setNavHeight((p) => ({ ...p, mobile: h }));
-      } else if (window.innerWidth >= 1024 && desktopNavRef.current) {
-        const h = desktopNavRef.current.getBoundingClientRect().height;
-        if (h > 0) setNavHeight((p) => ({ ...p, desktop: h }));
-      }
-    };
+ useEffect(() => {
+  const measure = () => {
+    if (window.innerWidth < 1024 && mobileNavRef.current) {
+      const h = mobileNavRef.current.getBoundingClientRect().height;
+      if (h > 0) setNavHeight((p) => ({ ...p, mobile: h }));
+    } else if (window.innerWidth >= 1024 && desktopNavRef.current) {
+      const h = desktopNavRef.current.getBoundingClientRect().height;
+      if (h > 0) setNavHeight((p) => ({ ...p, desktop: h }));
+    }
+  };
 
-    const id = requestAnimationFrame(measure);
-    window.addEventListener("resize", measure);
+  const id = requestAnimationFrame(measure);
+  window.addEventListener("resize", measure);
 
-    return () => {
-      cancelAnimationFrame(id);
-      window.removeEventListener("resize", measure);
-    };
-  }, [mobileOpen]);
+  return () => {
+    cancelAnimationFrame(id);
+    window.removeEventListener("resize", measure);
+  };
+}, [mobileOpen]);
+
 
   const handleMouseEnter = (label) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -146,7 +138,7 @@ export default function Navbar() {
     <>
       {/* Spacer */}
       <div className="block lg:hidden" style={{ height: navHeight.mobile }} />
-      {/* <div className="hidden lg:block" style={{ height: navHeight.desktop }} /> */}
+      <div className="hidden lg:block" style={{ height: navHeight.desktop }} />
 
       {/* ── MOBILE NAVBAR (< lg) ── */}
       <div
@@ -343,110 +335,123 @@ export default function Navbar() {
       </div>
 
       {/* ── DESKTOP NAVBAR (>= lg) ── */}
-      <div className="fixed top-0 left-0 right-0 z-50 justify-center hidden px-6 pt-4 bg-transparent pointer-events-none lg:flex">
-        <nav
-          className={`
-         pointer-events-auto w-full max-w-7xl rounded-full bg-gray-50/50 backdrop-blur-lg  border border-white/20 transition-all duration-300
-        ${
-        scrolled
-        ? "shadow-[0_8px_32px_rgba(0,0,0,0.13)] bg-blue-500/30"
-        : "shadow-[0_2px_16px_rgba(0,0,0,0.08)]"
-        }
-        `}
-        >
-          <div className="px-5 flex items-center justify-between h-[58px]">
-            {/* ── Logo ── */}
-            <Link href="/" className="flex items-center flex-shrink-0">
-              <Image
-                src="/assets/logos/Gichuri-Partners-logo-version-3.png"
-                alt="Gichuri & Partners"
-                width={140}
-                height={38}
-                className="object-contain w-auto h-9"
-                priority
-              />
-            </Link>
-
-            {/* ── Menu Items ── */}
-            <div className="flex items-center gap-0.5">
-              {menuData.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() =>
-                    item.dropdown && handleMouseEnter(item.label)
-                  }
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link
-                    href={item.href}
-                    className={`
-                    flex items-center gap-1.5 px-3 py-2 rounded-full
-                    text-[13.5px] font-medium transition-all duration-200
-                    ${
-                      activeDropdown === item.label
-                        ? "text-[#F91750] bg-red-50"
-                        : "text-[#123453] hover:text-[#F91750] hover:bg-red-50"
-                    }
-                  `}
-                  >
-                    {item.label}
-                    {item.dropdown && (
-                      <FontAwesomeIcon
-                        icon={faChevronDown}
-                        className={`text-[9px] transition-transform duration-200 ${
-                          activeDropdown === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </Link>
-
-                  {/* Dropdown */}
-                  {item.dropdown && activeDropdown === item.label && (
-                    <div
-                      className="absolute left-0 top-full mt-2 overflow-hidden rounded-2xl border border-gray-100 shadow-[0_16px_40px_rgba(0,0,0,0.12)] bg-white"
-                      style={{ width: "220px" }}
-                      onMouseEnter={() => handleMouseEnter(item.label)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <div className="h-[3px] w-full bg-gradient-to-r from-[#F91750] to-[#273277]" />
-                      <div className="py-2">
-                        {item.dropdown.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            href={sub.href}
-                            className="flex items-center gap-3 px-4 py-2.5 text-[13px] text-gray-600 hover:text-[#F91750] hover:bg-red-50 transition-all duration-150"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="text-[9px] text-[#F91750] flex-shrink-0"
-                            />
-                            <span>{sub.label}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* ── CTA Button ── */}
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-white text-[13px] font-bold px-5 py-2.5 rounded-lg transition-all duration-200 hover:scale-95 active:scale-90 flex-shrink-0"
-              style={{
-                background: "#EE154B",
-                boxShadow: "0 4px 16px rgba(245,166,35,0.45)",
-              }}
-            >
-              <FontAwesomeIcon icon={faPercent} className="text-base" />
-              PAYE Calculator
-            </Link>
+      <nav
+        ref={desktopNavRef}
+        className={`hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? "shadow-2xl -translate-y-0 scale-[1.00]" : "shadow-none"
+        }`}
+      >
+        {/* Top strip — hamesha visible */}
+        <div className="bg-[#123453]">
+          <div className="max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between">
+            <p className="flex items-center gap-2 text-xs text-blue-200">
+              <FontAwesomeIcon icon={faHeadset} className="text-xs" />
+              Free Consultation:{" "}
+              <span style={{ color: "#F91750" }} className="font-semibold">
+                +254 711 82 71 49
+              </span>
+            </p>
+            <p className="text-xs text-blue-200">
+              Monday-Friday : 8:00 – 18:00
+            </p>
           </div>
-        </nav>
-      </div>
+        </div>
+
+        {/* Menu row — white bg, #123453 text */}
+        <div
+          className={`bg-white transition-all duration-500 ${scrolled ? "border-b-2 border-[#123453]" : "border-b border-gray-100"}`}
+        >
+          <div className="px-4 mx-auto max-w-8xl md:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <Link href="/" className="flex items-center flex-shrink-0">
+                <Image
+                  src="/assets/logos/Gichuri-Partners-logo-version-3.png"
+                  alt="Logo"
+                  width={140}
+                  height={40}
+                  className="object-contain w-auto h-10"
+                  priority
+                />
+              </Link>
+
+              <div className="flex items-center gap-0.5">
+                {menuData.map((item) => (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() =>
+                      item.dropdown && handleMouseEnter(item.label)
+                    }
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link
+                      href={item.href}
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-[#123453] hover:text-[#F91750] hover:bg-red-50"
+                    >
+                      {item.label}
+                      {item.dropdown && (
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className={`text-[10px] transition-transform duration-200 ${
+                            activeDropdown === item.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      )}
+                    </Link>
+
+                    {item.dropdown && activeDropdown === item.label && (
+                      <div
+                        className="absolute left-0 mt-2 overflow-hidden bg-white border border-gray-100 shadow-2xl top-full rounded-2xl"
+                        style={{ width: "230px" }}
+                      >
+                        <div
+                          className="w-full h-1"
+                          style={{
+                            background:
+                              "linear-gradient(90deg, #F91750, #273277)",
+                          }}
+                        />
+                        <div className="py-2">
+                          {item.dropdown.map((sub) => (
+                            <Link
+                              key={sub.label}
+                              href={sub.href}
+                              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 transition-colors duration-150 group"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              <FontAwesomeIcon
+                                icon={faAngleRight}
+                                className="flex-shrink-0 text-xs"
+                                style={{ color: "#F91750" }}
+                              />
+                              <span className="group-hover:text-[#F91750] transition-colors">
+                                {sub.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  href="#"
+                  className="flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:scale-90"
+                  style={{
+                    background: "linear-gradient(135deg, #F91750, #d4103f)",
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPercent} className="text-sm" />
+                  PAYE Calculator
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </>
   );
 }
