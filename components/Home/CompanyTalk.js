@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
@@ -398,11 +398,18 @@ function ServiceCard({ title, desc, icon }) {
   return (
     <div className="flex flex-col h-full p-5 transition-shadow duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl md:p-6 hover:shadow-md">
       <div className="flex items-start justify-between mb-3">
-        <h3 className="text-md md:text-xl font-bold text-[#0D2B4E] leading-snug pr-3">{title}</h3>
+        <h3 className="text-md md:text-xl font-bold text-[#0D2B4E] leading-snug pr-3">
+          {title}
+        </h3>
         {icon}
       </div>
+
       <p className="flex-1 leading-relaxed text-gray-500 text-md">{desc}</p>
-      <button className="mt-4 flex items-center gap-1.5 text-[12px] md:text-[15px] font-semibold text-[#D81141] hover:gap-3 transition-all duration-200 group w-fit">
+
+      <button
+        type="button"
+        className="mt-4 flex items-center gap-1.5 text-[12px] md:text-[15px] font-semibold text-[#D81141] hover:gap-3 transition-all duration-200 group w-fit"
+      >
         Know More
         <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
       </button>
@@ -414,30 +421,42 @@ function ServiceCard({ title, desc, icon }) {
 function TabBar({ activeTab, setActiveTab }) {
   const scrollRef = useRef(null);
 
-  // Auto-scroll active tab into center view
-  useEffect(() => {
+  const centerActiveTab = (index) => {
     const container = scrollRef.current;
     if (!container) return;
-    const activeEl = container.querySelector(`[data-idx="${activeTab}"]`);
-    if (activeEl) {
-      activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  }, [activeTab]);
 
-  const goTo = (i) => {
+    const activeEl = container.querySelector(`[data-idx="${index}"]`);
+    if (!activeEl) return;
+
+    const containerWidth = container.clientWidth;
+    const targetLeft =
+      activeEl.offsetLeft - containerWidth / 2 + activeEl.clientWidth / 2;
+
+    container.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: 'smooth',
+    });
+  };
+
+  const goTo = (i, shouldCenter = false) => {
     const next = Math.max(0, Math.min(tabs.length - 1, i));
     setActiveTab(next);
+
+    if (shouldCenter) {
+      requestAnimationFrame(() => {
+        centerActiveTab(next);
+      });
+    }
   };
 
   return (
     <div className="max-w-6xl mx-auto mb-8">
-      {/* ── Desktop: normal centered tabs ── */}
-      <div
-        className="justify-center hidden border-b border-gray-200 md:flex"
-      >
+      {/* Desktop Tabs */}
+      <div className="justify-center hidden border-b border-gray-200 md:flex">
         {tabs.map((tab, i) => (
           <button
             key={tab.label}
+            type="button"
             onClick={() => goTo(i)}
             className={`px-6 py-3 text-sm font-semibold whitespace-nowrap transition-colors duration-200 border-b-2 -mb-px flex-shrink-0 ${
               activeTab === i
@@ -450,11 +469,11 @@ function TabBar({ activeTab, setActiveTab }) {
         ))}
       </div>
 
-      {/* ── Mobile: arrow + active tab label + arrow ── */}
+      {/* Mobile Tabs */}
       <div className="flex items-center pb-3 border-b border-gray-200 md:hidden">
-        {/* Left Arrow */}
         <button
-          onClick={() => goTo(activeTab - 1)}
+          type="button"
+          onClick={() => goTo(activeTab - 1, true)}
           disabled={activeTab === 0}
           className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200 ${
             activeTab === 0
@@ -464,21 +483,25 @@ function TabBar({ activeTab, setActiveTab }) {
           aria-label="Previous tab"
         >
           <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+            <path
+              fillRule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
           </svg>
         </button>
 
-        {/* Scrollable tab strip — shows all, active centered */}
         <div
           ref={scrollRef}
-          className="flex items-end flex-1 overflow-x-auto"
+          className="flex items-end flex-1 overflow-x-auto no-scrollbar"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {tabs.map((tab, i) => (
             <button
               key={tab.label}
+              type="button"
               data-idx={i}
-              onClick={() => goTo(i)}
+              onClick={() => goTo(i, true)}
               className={`flex-shrink-0 px-4 py-1 text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 ${
                 activeTab === i
                   ? 'text-[#D81141] border-[#D81141]'
@@ -490,9 +513,9 @@ function TabBar({ activeTab, setActiveTab }) {
           ))}
         </div>
 
-        {/* Right Arrow */}
         <button
-          onClick={() => goTo(activeTab + 1)}
+          type="button"
+          onClick={() => goTo(activeTab + 1, true)}
           disabled={activeTab === tabs.length - 1}
           className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200 ${
             activeTab === tabs.length - 1
@@ -502,7 +525,11 @@ function TabBar({ activeTab, setActiveTab }) {
           aria-label="Next tab"
         >
           <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            <path
+              fillRule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clipRule="evenodd"
+            />
           </svg>
         </button>
       </div>
@@ -516,16 +543,16 @@ export default function SmartSolutionsSection() {
   const currentCards = tabs[activeTab].cards;
 
   return (
-    <section className="px-4 py-12 bg-white md:py-16">
-
+    <section className="px-4 py-12 overflow-x-hidden bg-white md:py-16">
       {/* Header */}
       <div className="max-w-4xl mx-auto mb-8 text-center md:mb-10">
         <h2 className="text-4xl sm:text-3xl md:text-5xl font-bold text-[#0D2B4E] mb-3 leading-tight">
           Smart Solutions for Modern Businesses
         </h2>
+
         <p className="leading-relaxed text-gray-500 text-md">
-          All-in-one platform for online legal consultation, business incorporation, corporate
-          compliance, and startup-friendly solutions—tailored for every industry.
+          All-in-one platform for online legal consultation, business incorporation,
+          corporate compliance, and startup-friendly solutions—tailored for every industry.
         </p>
       </div>
 
@@ -540,6 +567,11 @@ export default function SmartSolutionsSection() {
           slidesPerView={1}
           slidesPerGroup={1}
           spaceBetween={16}
+          touchStartPreventDefault={false}
+          preventClicks={false}
+          preventClicksPropagation={false}
+          observer={true}
+          observeParents={true}
           breakpoints={{
             640: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 16 },
             1024: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 20 },
@@ -557,7 +589,8 @@ export default function SmartSolutionsSection() {
         </Swiper>
 
         {/* Pagination Dots */}
-        <div className="ss-dots flex justify-center items-center gap-2
+        <div
+          className="ss-dots flex justify-center items-center gap-2
           [&_.swiper-pagination-bullet]:inline-block
           [&_.swiper-pagination-bullet]:w-2.5
           [&_.swiper-pagination-bullet]:h-2.5
@@ -570,10 +603,9 @@ export default function SmartSolutionsSection() {
           [&_.swiper-pagination-bullet-active]:w-7
           [&_.swiper-pagination-bullet-active]:h-2.5
           [&_.swiper-pagination-bullet-active]:rounded-full
-          [&_.swiper-pagination-bullet-active]:bg-[#D81141]
-        " />
+          [&_.swiper-pagination-bullet-active]:bg-[#D81141]"
+        />
       </div>
-
     </section>
   );
 }
