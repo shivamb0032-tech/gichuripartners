@@ -5,12 +5,12 @@ import WhatWeDo from '@/components/Home/WhatWeDo'
 import WhoWeAre from '@/components/Home/WhoWeAre'
 import TaxCompliance from '@/components/Home/TaxCompliance'
 import ChooseUs from '@/components/Services/ChooseUs'
-import ServiceForm from '@/components/Services/ServiceForm'
 import WeBest from '@/components/Home/WeBest'
 import HomeTestimonial from '@/components/Home/HomeTestimonial'
-import TrustedSec from '@/components/Home/TrustedSec'
 import Blogs from '@/components/Home/Blogs'
 import CompanyTalk from '@/components/Home/CompanyTalk'
+import { HomeAccordion } from '@/components/Home/HomeAccordian'
+import OnlineLegalSolution from '@/components/Home/OnlineLegalSolution'
 
 
 export default function HomePage() {
@@ -25,11 +25,11 @@ export default function HomePage() {
      <WhoWeAre/>     
      <TaxCompliance/> 
       <ChooseUs/>    
-      <WeBest/>   
+      <WeBest/>  
+      <OnlineLegalSolution/> 
       <HomeTestimonial/> 
-      <TrustedSec/> 
       <Blogs/> 
-      <ServiceForm/>
+      <HomeAccordion/>
     </>
   )
 }

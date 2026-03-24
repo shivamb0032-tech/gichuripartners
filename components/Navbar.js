@@ -25,7 +25,7 @@ import {
 import Image from "next/image";
 
 const menuData = [
-  { label: "Home", href: "/" },
+  // { label: "Home", href: "/" },
   { label: "Auditing", href: "/auditing-services-in-kenya" },
   { label: "Accounting", href: "/accounting-services-in-kenya" },
   { label: "Bookkeeping", href: "/bookkeeping-services-in-kenya" },
@@ -346,7 +346,7 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 right-0 z-50 justify-center hidden px-6 pt-4 bg-transparent pointer-events-none lg:flex">
         <nav
           className={`
-         pointer-events-auto w-full max-w-7xl rounded-full bg-gray-50/60 backdrop-blur-lg  border border-white/20 transition-all duration-300
+         pointer-events-auto w-full max-w-7xl rounded-full bg-gray-50/60 backdrop-blur-lg py-1  border border-white/20 transition-all duration-300
         ${
         scrolled
         ? "shadow-[0_8px_32px_rgba(0,0,0,0.13)] bg-blue-500/30"
@@ -382,7 +382,7 @@ export default function Navbar() {
                     href={item.href}
                     className={`
                     flex items-center gap-1.5 px-3 py-2 rounded-full
-                    text-[13.5px] font-semibold transition-all duration-200
+                    text-[14px] font-semibold transition-all duration-200
                     ${
                       activeDropdown === item.label
                         ? "text-[#F91750] bg-red-50"
