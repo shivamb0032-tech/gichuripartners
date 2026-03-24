@@ -396,7 +396,7 @@ const tabs = [
 // ─── Service Card ─────────────────────────────────────────────────────────────
 function ServiceCard({ title, desc, icon }) {
   return (
-    <div className="flex flex-col h-full p-5 transition-shadow duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl md:p-6 hover:shadow-md">
+    <div className="flex flex-col h-full p-5 transition-shadow duration-200 bg-white border border-gray-200 shadow-lg rounded-2xl md:p-6 hover:shadow-md">
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-md md:text-xl font-bold text-[#0D2B4E] leading-snug pr-3">
           {title}

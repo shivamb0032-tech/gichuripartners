@@ -1,6 +1,7 @@
 import './globals.css'
 import { config } from "@fortawesome/fontawesome-svg-core";  
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Popup from '@/components/Popup';
 config.autoAddCss = false;
 
 export const metadata = {
@@ -12,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-       
+       <Popup/>
         <main>{children}</main>
        
       </body>
