@@ -460,116 +460,118 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <div className="relative w-full max-w-6xl px-0 mt-8 z-1">
-        <div className="py-5 overflow-hidden border border-l-4 rounded-2xl lg:py-2 md:rounded-lg lg:rounded-full backdrop-blur-md bg-white/5 border-white/15 border-l-brand-pink-dark">
-          {/* ── MOBILE: shield label + marquee ── */}
-          <div className="flex flex-col gap-2 md:hidden">
-            {/* Shield label */}
-            <div className="flex items-center gap-2.5 px-5">
-              <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 bg-[#D81141] rounded-full shadow-lg">
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                  />
-                </svg>
-              </div>
-              <span className="text-sm font-semibold text-white">
-                What Sets Us Apart
-              </span>
-            </div>
+      <div className="relative z-[1] w-full max-w-5xl px-0 mt-8 overflow-hidden">
+  {/* Left fade */}
+  <div className="pointer-events-none absolute left-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-r from-[#4D224C] via-[#4D224C] to-transparent rounded-l-2xl lg:rounded-l-full"></div>
 
-            {/* Marquee pills */}
-            <div className="overflow-hidden">
-              <div className="marquee-track">
-                {[...Array(2)].map((_, loopIdx) => (
-                  <div key={loopIdx} className="flex items-center gap-3 px-3">
-                    {[
-                      { value: "10+", label: "Certified Tax Experts" },
-                      { value: "500+", label: "Verified Reviews" },
-                      { value: "2500+", label: "Consultations" },
-                      { value: "", label: "Serving Business Across Kenya " },
-                    ].map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-1.5 bg-white border border-white/25 rounded-full px-4 py-1.5 whitespace-nowrap flex-shrink-0"
-                      >
-                        {item.value && (
-                          <span className="text-sm font-bold text-[#D81141]">
-                            {item.value}
-                          </span>
-                        )}
-                        <span className="text-sm text-gray-600">
-                          {item.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+  {/* Right fade */}
+  <div className="pointer-events-none absolute right-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-l from-[#4D224C] via-[#4D224C] to-transparent rounded-r-2xl lg:rounded-r-full"></div>
 
-          {/* ── DESKTOP: Static single row ── */}
-          <div className="items-center hidden w-full gap-3 px-5 md:flex flex-nowrap">
-            {/* Shield + label */}
-            <div className="flex items-center gap-2.5 flex-shrink-0">
-              <div className="flex items-center justify-center flex-shrink-0 bg-[#D81141] rounded-full shadow-lg w-9 h-9">
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                  />
-                </svg>
-              </div>
-              <span className="text-sm font-semibold text-white whitespace-nowrap">
-                What Sets Us Apart
-              </span>
-            </div>
+  <div className="pt-2 pb-5 overflow-hidden border border-l-4 rounded-2xl lg:py-2 md:rounded-lg lg:rounded-full backdrop-blur-md bg-white/5 border-white/15 border-l-brand-pink-dark">
+    {/* ── MOBILE: shield label + marquee ── */}
+    <div className="flex flex-col gap-2 md:hidden">
+      {/* Shield label */}
+      <div className="flex items-center justify-center gap-2.5 px-5 mb-2">
+        <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 bg-[#D81141] rounded-full shadow-lg">
+          <svg
+            className="w-4 h-4 text-white"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+            />
+          </svg>
+        </div>
+        <span className="text-sm font-semibold text-white">
+          What Sets Us Apart
+        </span>
+      </div>
 
-            {/* Divider */}
-            <div className="flex-shrink-0 w-px h-6 bg-white/20" />
-
-            {/* Pills */}
-            <div className="flex items-center justify-between flex-1 gap-2 flex-nowrap">
+      {/* Marquee pills */}
+      <div className="relative overflow-hidden">
+        <div className=" marquee-track">
+          {[...Array(2)].map((_, loopIdx) => (
+            <div key={loopIdx} className="flex items-center gap-3 px-3">
               {[
-                { value: "10+", label: "Certified Tax Experts" },
-                { value: "500+", label: "Verified Reviews" },
-                { value: "2500+", label: "Consultations" },
+                { value: "10+", label: "Years" },
+                { value: "✔", label: " Experts in KRA Disputes" },
+                { value: "✔", label: " Proven Results" },
+                { value: "✔", label: "Trusted by Businesses in Kenya" },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1 border bg-white border-white/20 rounded-full px-3 py-1.5 whitespace-nowrap"
+                  className="flex items-center gap-1.5 bg-white border border-white/25 rounded-full px-4 py-1.5 whitespace-nowrap flex-shrink-0"
                 >
-                  <span className="text-sm font-bold text-[#D81141]">
-                    {item.value}
+                  {item.value && (
+                    <span className="text-sm font-bold text-[#D81141]">
+                      {item.value}
+                    </span>
+                  )}
+                  <span className="text-sm text-gray-600">
+                    {item.label}
                   </span>
-                  <span className="text-sm text-gray-600">{item.label}</span>
                 </div>
               ))}
-              <div className="px-3 py-1 bg-white border rounded-full border-white/20 whitespace-nowrap">
-                <span className="text-sm text-gray-600">
-                  Serving Businesses Across Kenya
-                </span>
-              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
+
+    {/* ── DESKTOP: Static single row ── */}
+    <div className="items-center hidden w-full gap-3 px-5 md:flex flex-nowrap">
+      {/* Shield + label */}
+      <div className="flex items-center gap-2.5 flex-shrink-0">
+        <div className="flex items-center justify-center flex-shrink-0 bg-[#D81141] rounded-full shadow-lg w-9 h-9">
+          <svg
+            className="w-4 h-4 text-white"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+            />
+          </svg>
+        </div>
+        <span className="text-sm font-semibold text-white whitespace-nowrap">
+          What Sets Us Apart
+        </span>
+      </div>
+
+      {/* Divider */}
+      <div className="flex-shrink-0 w-px h-6 bg-white/20" />
+
+      {/* Pills */}
+      <div className="flex items-center justify-between flex-1 gap-2 flex-nowrap">
+        {[
+          { value: "10+", label: "Years" },
+          { value: "✔", label: "Experts in KRA Disputes" },
+          { value: "✔", label: "Proven Results" },
+          { value: "✔", label: "Trusted by Businesses in Kenya" },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="flex items-center gap-1 border bg-white border-white/20 rounded-full px-3 py-1.5 whitespace-nowrap"
+          >
+            <span className="text-sm font-bold text-[#D81141]">
+              {item.value}
+            </span>
+            <span className="text-sm text-gray-600">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
     </section>
   );
 }
