@@ -11,6 +11,8 @@ import Blogs from '@/components/Home/Blogs'
 import CompanyTalk from '@/components/Home/CompanyTalk'
 import { HomeAccordion } from '@/components/Home/HomeAccordian'
 import OnlineLegalSolution from '@/components/Home/OnlineLegalSolution'
+import HomeProcess from '@/components/Home/HomeProcess'
+import KRAIssue from '@/components/Home/KRAIssue'
 
 
 export default function HomePage() {
@@ -27,6 +29,8 @@ export default function HomePage() {
       <ChooseUs/>    
       <WeBest/>  
       <OnlineLegalSolution/> 
+      <HomeProcess/>
+      <KRAIssue/>
       <HomeTestimonial/> 
       <Blogs/> 
       <HomeAccordion/>
