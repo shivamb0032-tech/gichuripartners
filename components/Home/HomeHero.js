@@ -288,16 +288,16 @@ export default function HeroSection() {
       </div>
 
       {/* ── HEADING ── */}
-      <div className="relative z-10 px-2 mb-5 text-center">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+      <div className="relative z-10 px-2 pt-5 mb-5 text-center">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-2xl md:text-4xl lg:text-5xl">
           Best Tax Consultants
           <span className="pl-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500">
-            in Nairobi, Kenya.
+            in Nairobi Kenya
           </span>
         </h1>
         <p className="max-w-5xl mx-auto mt-3 text-sm text-gray-300 sm:text-base">
-          Get fast, reliable, and expert tax consultation tailored for your
-          business needs
+          We help businesses resolve KRA Tax Appeals, manage audits, handle
+          assessments, and stay fully compliant with Kenyan tax laws.
         </p>
       </div>
 
@@ -350,7 +350,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── FORM — glass outer + white inner card ── */}
-      <div className="relative z-10 w-full max-w-4xl mb-5">
+      <div className="relative z-10 w-full max-w-4xl mb-2">
         <div className="p-1.5 border backdrop-blur-md bg-white/40 border-white/15 rounded-2xl shadow-[0_0_10px_rgba(255,255,255,0.6)]">
           <div className="bg-white rounded-xl px-6 py-6 sm:px-8 sm:py-8 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
             <form onSubmit={handleSubmit}>
@@ -436,13 +436,20 @@ export default function HeroSection() {
                   type="submit"
                   className="w-full py-3 px-4 text-sm font-bold tracking-widest uppercase text-white rounded-lg bg-gradient-to-r from-[#D81141] to-[#273277] hover:from-[#273277] hover:to-[#D81141] shadow-lg shadow-orange-400/30 transition-all duration-200 hover:scale-[1.02] active:scale-95 whitespace-nowrap"
                 >
-                  Book A Free Consultation
+                  Book a Consultation
                 </button>
               </div>
             </form>
           </div>
         </div>
       </div>
+       <div className="relative z-10 px-2 pt-5 mb-5 text-center">
+         <h4 className="text-center text-white ">Trusted by businesses across Kenya | Specialists in Tax Disputes & Compliance </h4>
+       
+      </div>
+      
+       
+      
 
       {/* ── STATS BAR ── */}
       <style>{`
@@ -460,118 +467,119 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <div className="relative z-[1] w-full max-w-5xl px-0 mt-8 overflow-hidden">
-  {/* Left fade */}
-  <div className="pointer-events-none absolute left-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-r from-[#4D224C] via-[#4D224C] to-transparent rounded-l-2xl lg:rounded-l-full"></div>
+      <div className="relative z-[1] w-full max-w-6xl px-0 mt-4 overflow-hidden">
+        
+        {/* Left fade */}
+        <div className="pointer-events-none absolute left-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-r from-[#4D224C] via-[#4D224C] to-transparent rounded-l-2xl lg:rounded-l-full"></div>
 
-  {/* Right fade */}
-  <div className="pointer-events-none absolute right-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-l from-[#4D224C] via-[#4D224C] to-transparent rounded-r-2xl lg:rounded-r-full"></div>
+        {/* Right fade */}
+        <div className="pointer-events-none absolute right-0 md:hidden top-0 z-20 h-full w-10 md:w-16 lg:w-20 bg-gradient-to-l from-[#4D224C] via-[#4D224C] to-transparent rounded-r-2xl lg:rounded-r-full"></div>
 
-  <div className="pt-2 pb-5 overflow-hidden border border-l-4 rounded-2xl lg:py-2 md:rounded-lg lg:rounded-full backdrop-blur-md bg-white/5 border-white/15 border-l-brand-pink-dark">
-    {/* ── MOBILE: shield label + marquee ── */}
-    <div className="flex flex-col gap-2 md:hidden">
-      {/* Shield label */}
-      <div className="flex items-center justify-center gap-2.5 px-5 mb-2">
-        <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 bg-[#D81141] rounded-full shadow-lg">
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-            />
-          </svg>
-        </div>
-        <span className="text-sm font-semibold text-white">
-          What Sets Us Apart
-        </span>
-      </div>
+        <div className="pt-2 pb-5 overflow-hidden border border-l-4 rounded-2xl lg:py-2 md:rounded-lg lg:rounded-full backdrop-blur-md lg:bg-white/5 bg-[#4D224C] border-white/15 border-l-brand-pink-dark">
+          {/* ── MOBILE: shield label + marquee ── */}
+          <div className="flex flex-col gap-2 md:hidden">
+            {/* Shield label */}
+            <div className="flex items-center justify-center gap-2.5 px-5 mb-2">
+              <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 bg-[#D81141] rounded-full shadow-lg">
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-white">
+                What Sets Us Apart
+              </span>
+            </div>
 
-      {/* Marquee pills */}
-      <div className="relative overflow-hidden">
-        <div className=" marquee-track">
-          {[...Array(2)].map((_, loopIdx) => (
-            <div key={loopIdx} className="flex items-center gap-3 px-3">
+            {/* Marquee pills */}
+            <div className="relative overflow-hidden">
+              <div className=" marquee-track">
+                {[...Array(2)].map((_, loopIdx) => (
+                  <div key={loopIdx} className="flex items-center gap-3 px-3">
+                    {[
+                      { value: "10+", label: "Years of Tax Experience" },
+                      { value: "✔", label: " Experts in Kra Tax Disputes" },
+                      { value: "✔", label: " Proven Results  in Tax Disputes" },
+                      { value: "✔", label: "Serve Business in Kenya" },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-1.5 bg-white border border-white/25 rounded-full px-4 py-1.5 whitespace-nowrap flex-shrink-0"
+                      >
+                        {item.value && (
+                          <span className="text-sm font-bold text-[#D81141]">
+                            {item.value}
+                          </span>
+                        )}
+                        <span className="text-sm text-gray-600">
+                          {item.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── DESKTOP: Static single row ── */}
+          <div className="items-center hidden w-full gap-3 px-3 md:flex flex-nowrap">
+            {/* Shield + label */}
+            <div className="flex items-center gap-2.5 flex-shrink-0">
+              <div className="flex items-center justify-center flex-shrink-0 bg-[#D81141] rounded-full shadow-lg w-9 h-9">
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-white whitespace-nowrap">
+                What Sets Us Apart
+              </span>
+            </div>
+
+            {/* Divider */}
+            <div className="flex-shrink-0 w-px h-6 bg-white/20" />
+
+            {/* Pills */}
+            <div className="flex items-center justify-between flex-1 gap-2 flex-nowrap">
               {[
-                { value: "10+", label: "Years" },
-                { value: "✔", label: " Experts in KRA Disputes" },
-                { value: "✔", label: " Proven Results" },
-                { value: "✔", label: "Trusted by Businesses in Kenya" },
+                { value: "10+", label: "Years of Tax Experience" },
+                { value: "✔", label: "Experts in Kra Tax Disputes" },
+                { value: "✔", label: "Proven Results  in Tax Disputes" },
+                { value: "✔", label: "Serve Business in Kenya" },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 bg-white border border-white/25 rounded-full px-4 py-1.5 whitespace-nowrap flex-shrink-0"
+                  className="flex items-center gap-1 border bg-white border-white/20 rounded-full px-3 py-1.5 whitespace-nowrap"
                 >
-                  {item.value && (
-                    <span className="text-sm font-bold text-[#D81141]">
-                      {item.value}
-                    </span>
-                  )}
-                  <span className="text-sm text-gray-600">
-                    {item.label}
+                  <span className="text-sm font-bold text-[#D81141]">
+                    {item.value}
                   </span>
+                  <span className="text-sm text-gray-600">{item.label}</span>
                 </div>
               ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* ── DESKTOP: Static single row ── */}
-    <div className="items-center hidden w-full gap-3 px-5 md:flex flex-nowrap">
-      {/* Shield + label */}
-      <div className="flex items-center gap-2.5 flex-shrink-0">
-        <div className="flex items-center justify-center flex-shrink-0 bg-[#D81141] rounded-full shadow-lg w-9 h-9">
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-            />
-          </svg>
-        </div>
-        <span className="text-sm font-semibold text-white whitespace-nowrap">
-          What Sets Us Apart
-        </span>
-      </div>
-
-      {/* Divider */}
-      <div className="flex-shrink-0 w-px h-6 bg-white/20" />
-
-      {/* Pills */}
-      <div className="flex items-center justify-between flex-1 gap-2 flex-nowrap">
-        {[
-          { value: "10+", label: "Years" },
-          { value: "✔", label: "Experts in KRA Disputes" },
-          { value: "✔", label: "Proven Results" },
-          { value: "✔", label: "Trusted by Businesses in Kenya" },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-1 border bg-white border-white/20 rounded-full px-3 py-1.5 whitespace-nowrap"
-          >
-            <span className="text-sm font-bold text-[#D81141]">
-              {item.value}
-            </span>
-            <span className="text-sm text-gray-600">{item.label}</span>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </section>
   );
 }

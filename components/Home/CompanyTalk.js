@@ -8,10 +8,10 @@ import { Pagination } from "swiper/modules";
 
 const tabs = [
   {
-    label: "Tax Disputes",
+    label: "Tax Dispute Resolution Services",
     cards: [
       {
-        title: "Tax Dispute Resolution Services",
+        title: "Tax Appeal Tribunal Representation",
         desc: "",
         points: [
           "Income tax notice handling",
@@ -66,7 +66,7 @@ const tabs = [
         ),
       },
       {
-        title: "KRA Audit & Assessment Services",
+        title: "Filing & Management of Tax Appeals ",
         desc: "",
          points: [
           "KRA Audit Representation",
@@ -116,7 +116,7 @@ const tabs = [
         ),
       },
       {
-        title: "Tax Appeal Tribunal Services",
+        title: "Alternative Dispute Resolution (ADR)",
         desc: "",
          points: [
           "Filing Tax Appeals",
@@ -170,7 +170,39 @@ const tabs = [
         ),
       },
       {
-        title: "Tax Compliance Service",
+        title: "Independent Review of Objections",
+        desc: "",
+         points: [
+          "Tax Filing & Returns",
+          "PAYE Compliance  ",
+          "KRA PIN Registration ",
+        ],
+        icon: (
+          <svg
+            viewBox="0 0 40 40"
+            fill="none"
+            className="flex-shrink-0 w-10 h-10"
+          >
+            <rect width="40" height="40" rx="20" fill="#FFF3E0" />
+            <circle
+              cx="20"
+              cy="16"
+              r="5"
+              stroke="#E07B00"
+              strokeWidth="1.8"
+              fill="none"
+            />
+            <path
+              d="M11 30c0-5 4-8 9-8s9 3 9 8"
+              stroke="#E07B00"
+              strokeWidth="1.8"
+              fill="none"
+            />
+          </svg>
+        ),
+      },
+      {
+        title: "KRA Objection Filing & Follow-ups",
         desc: "",
          points: [
           "Tax Filing & Returns",
@@ -205,10 +237,10 @@ const tabs = [
     ],
   },
   {
-    label: "Auditing",
+    label: "KRA Tax Audits & Investigations",
     cards: [
       {
-        title: "MSME Registration",
+        title: "KRA Audit Representation ",
         desc: "Claim government benefits by registering your MSME smoothly.",
         icon: (
           <svg
@@ -241,7 +273,7 @@ const tabs = [
         ),
       },
       {
-        title: "Annual Compliance for Private Limited Company",
+        title: "VAT Audit Support ",
         desc: "Keep your Pvt Ltd compliant and penalty-free with timely filings.",
         icon: (
           <svg
@@ -274,7 +306,7 @@ const tabs = [
         ),
       },
       {
-        title: "LLP Annual Compliance",
+        title: "Tax Risk Reviews & Advisory ",
         desc: "Stay compliant and avoid fines with expert LLP filings.",
         icon: (
           <svg
@@ -311,7 +343,7 @@ const tabs = [
         ),
       },
       {
-        title: "ROC Compliance",
+        title: "Audit Response Strategy",
         desc: "Stay ahead of all ROC filing deadlines with expert assistance.",
         icon: (
           <svg
@@ -357,68 +389,14 @@ const tabs = [
           </svg>
         ),
       },
-      {
-        title: "DIR-3 KYC Filing",
-        desc: "Complete your Director KYC on time to avoid disqualification.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E8F5E9" />
-            <circle
-              cx="20"
-              cy="16"
-              r="5"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <path
-              d="M12 31c0-4.4 3.6-8 8-8s8 3.6 8 8"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "GST Annual Return",
-        desc: "File your GSTR-9 accurately and avoid penalties with expert help.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E3F2FD" />
-            <circle
-              cx="20"
-              cy="20"
-              r="7"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <path
-              d="M20 14v6l4 2"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </svg>
-        ),
-      },
+     
     ],
   },
   {
-    label: "Bookkeeping",
+    label: "KRA Assessments & Objections ",
     cards: [
       {
-        title: "Trademark Registration",
+        title: "Review of KRA Tax Assessments ",
         desc: "File your trademark with expert support and secure your brand name today.",
         icon: (
           <svg
@@ -459,7 +437,7 @@ const tabs = [
         ),
       },
       {
-        title: "Copyright Registration",
+        title: "Objection Preparation & Filing ",
         desc: "Protect your original content and ideas by filing for copyright in your name.",
         icon: (
           <svg
@@ -487,7 +465,7 @@ const tabs = [
         ),
       },
       {
-        title: "Patent Registration",
+        title: "Penalty & Interest Disputes",
         desc: "Secure your innovation with complete patent registration support.",
         icon: (
           <svg
@@ -524,7 +502,7 @@ const tabs = [
         ),
       },
       {
-        title: "Design Registration",
+        title: "Negotiation with KRA ",
         desc: "Protect your unique product design with official design registration.",
         icon: (
           <svg
@@ -560,70 +538,14 @@ const tabs = [
           </svg>
         ),
       },
-      {
-        title: "Trademark Objection",
-        desc: "Respond to trademark objections with expert legal guidance.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E8F5E9" />
-            <path
-              d="M20 12l8 16H12z"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-              strokeLinejoin="round"
-            />
-            <line
-              x1="20"
-              y1="20"
-              x2="20"
-              y2="24"
-              stroke="#2E7D32"
-              strokeWidth="1.5"
-            />
-            <circle cx="20" cy="26.5" r="0.8" fill="#2E7D32" />
-          </svg>
-        ),
-      },
-      {
-        title: "Trademark Renewal",
-        desc: "Renew your trademark on time and keep your brand rights intact.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E3F2FD" />
-            <path
-              d="M28 20a8 8 0 11-2-5.3"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M28 12v4h-4"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        ),
-      },
+      
     ],
   },
   {
-    label: "Taxation",
+    label: "KRA Compliance & Advisory",
     cards: [
       {
-        title: "Income Tax Return Filing",
+        title: "Tax Compliance Management ",
         desc: "File your ITR stress-free with expert guidance and maximum savings.",
         icon: (
           <svg
@@ -686,7 +608,7 @@ const tabs = [
         ),
       },
       {
-        title: "GST Registration",
+        title: "VAT Filing & Returns",
         desc: "Get your GST number fast and hassle-free—completely online.",
         icon: (
           <svg
@@ -716,7 +638,7 @@ const tabs = [
         ),
       },
       {
-        title: "GST Return Filing",
+        title: "Corporate Tax Advisory",
         desc: "Stay penalty-free with timely and accurate GST return filing.",
         icon: (
           <svg
@@ -744,7 +666,7 @@ const tabs = [
         ),
       },
       {
-        title: "TDS Return Filing",
+        title: "Payroll & Accounting Support ",
         desc: "File TDS returns accurately and on time with professional help.",
         icon: (
           <svg
@@ -790,297 +712,9 @@ const tabs = [
           </svg>
         ),
       },
-      {
-        title: "Tax Notice Response",
-        desc: "Get expert help responding to income tax notices quickly.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E8F5E9" />
-            <path
-              d="M20 12l8 16H12z"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-              strokeLinejoin="round"
-            />
-            <line
-              x1="20"
-              y1="20"
-              x2="20"
-              y2="24"
-              stroke="#2E7D32"
-              strokeWidth="1.5"
-            />
-            <circle cx="20" cy="26.5" r="0.8" fill="#2E7D32" />
-          </svg>
-        ),
-      },
-      {
-        title: "Advance Tax Filing",
-        desc: "Avoid interest and penalties by filing advance tax on time.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E3F2FD" />
-            <circle
-              cx="20"
-              cy="20"
-              r="7"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <path
-              d="M17 23l3-6 3 6"
-              stroke="#1565C0"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            <line
-              x1="18"
-              y1="21.5"
-              x2="22"
-              y2="21.5"
-              stroke="#1565C0"
-              strokeWidth="1.2"
-            />
-          </svg>
-        ),
-      },
     ],
   },
-  {
-    label: "Payroll",
-    cards: [
-      {
-        title: "Online Chartered Accountant Services",
-        desc: "Get expert CA advice tailored to your business needs.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#FFF3E0" />
-            <rect
-              x="11"
-              y="14"
-              width="18"
-              height="14"
-              rx="2"
-              stroke="#E07B00"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <circle cx="20" cy="10" r="2" fill="#E07B00" />
-            <line
-              x1="20"
-              y1="12"
-              x2="20"
-              y2="14"
-              stroke="#E07B00"
-              strokeWidth="1.5"
-            />
-            <line
-              x1="15"
-              y1="20"
-              x2="25"
-              y2="20"
-              stroke="#E07B00"
-              strokeWidth="1.2"
-            />
-            <line
-              x1="15"
-              y1="23"
-              x2="22"
-              y2="23"
-              stroke="#E07B00"
-              strokeWidth="1.2"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "Consumer Complaint",
-        desc: "Get justice for unfair trade—file your consumer complaint legally.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E8F5E9" />
-            <circle
-              cx="20"
-              cy="17"
-              r="5"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <path
-              d="M12 31c0-4.4 3.6-8 8-8s8 3.6 8 8"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              fill="none"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "Startup Planning",
-        desc: "Validate your business idea with free expert startup consultation.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E3F2FD" />
-            <rect
-              x="12"
-              y="12"
-              width="16"
-              height="18"
-              rx="2"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <line
-              x1="16"
-              y1="18"
-              x2="24"
-              y2="18"
-              stroke="#1565C0"
-              strokeWidth="1.2"
-            />
-            <line
-              x1="16"
-              y1="22"
-              x2="24"
-              y2="22"
-              stroke="#1565C0"
-              strokeWidth="1.2"
-            />
-            <line
-              x1="16"
-              y1="26"
-              x2="20"
-              y2="26"
-              stroke="#1565C0"
-              strokeWidth="1.2"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "Legal Notice",
-        desc: "Send or respond to legal notices with professional legal drafting.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#FFF3E0" />
-            <rect
-              x="11"
-              y="11"
-              width="18"
-              height="20"
-              rx="2"
-              stroke="#E07B00"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <line
-              x1="15"
-              y1="17"
-              x2="25"
-              y2="17"
-              stroke="#E07B00"
-              strokeWidth="1.2"
-            />
-            <line
-              x1="15"
-              y1="21"
-              x2="25"
-              y2="21"
-              stroke="#E07B00"
-              strokeWidth="1.2"
-            />
-            <line
-              x1="15"
-              y1="25"
-              x2="20"
-              y2="25"
-              stroke="#E07B00"
-              strokeWidth="1.2"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "Business Agreement Drafting",
-        desc: "Get watertight business agreements drafted by legal experts.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E8F5E9" />
-            <path
-              d="M14 26l2-6 4 4 4-8 2 4"
-              stroke="#2E7D32"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
-        ),
-      },
-      {
-        title: "Due Diligence",
-        desc: "Get complete legal and financial due diligence for your business deals.",
-        icon: (
-          <svg
-            viewBox="0 0 40 40"
-            fill="none"
-            className="flex-shrink-0 w-10 h-10"
-          >
-            <rect width="40" height="40" rx="20" fill="#E3F2FD" />
-            <circle
-              cx="19"
-              cy="19"
-              r="6"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              fill="none"
-            />
-            <line
-              x1="23.5"
-              y1="23.5"
-              x2="29"
-              y2="29"
-              stroke="#1565C0"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-          </svg>
-        ),
-      },
-    ],
-  },
+ 
 ];
 
 // ─── Service Card ─────────────────────────────────────────────────────────────

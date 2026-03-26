@@ -8,28 +8,70 @@ const testimonials = [
     image: "/assets/hero-bg/Serah-Kariuki-768x576.jpg",
     rating: 5,
     review:
-      "Gichuri & Partners made our tax compliance completely stress-free. Their team guided us at every step and ensured everything was handled accurately and on time. Highly recommended for any business looking for reliable tax experts.",
+      "Gichuri & Partners handled our Tax Appeal Tribunal case in Kenya with exceptional professionalism. They successfully challenged a complex KRA tax assessment and saved our business significant costs.",
   },
   {
     name: "Peter Maina",
     image: "/assets/hero-bg/Peter-Maina-768x576.jpg",
     rating: 5,
     review:
-      "We’ve been working with Gichuri & Partners for over a year now, and their expertise in tax advisory and bookkeeping has helped us streamline our finances. Their advice is always practical and easy to understand.",
+      "We were facing a difficult KRA tax audit, but their team guided us through the entire process. Their expertise in KRA compliance and audit response made all the difference.",
   },
   {
     name: "Wambui Maina",
     image: "/assets/hero-bg/Wambui-Maina-768x576.jpg",
     rating: 4,
     review:
-      "The team took time to understand our business and provided tailored solutions that actually reduced our tax burden. Their approach is both strategic and transparent, which we truly appreciate.",
+      "Their support in Alternative Dispute Resolution (ADR) helped us resolve a long-standing tax dispute without going to court. Highly recommend them for KRA dispute resolution.",
   },
   {
     name: "Kelvin Wairagu",
     image: "/assets/hero-bg/Testimonial-768x576.jpg",
     rating: 5,
     review:
-      "From KRA filing to audit support, everything was handled professionally. The process was smooth, and their communication was always prompt and clear. Definitely a trustworthy partner for business compliance.",
+      "Gichuri & Partners assisted us with an Independent Review of Objections, and the outcome was very favorable. Their deep understanding of KRA procedures is unmatched.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "We received an unfair KRA tax assessment, but their team quickly stepped in, filed a strong objection, and reduced our tax liability significantly.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "Professional, responsive, and highly knowledgeable in KRA tax audits and compliance. They handled our audit case efficiently and gave us peace of mind.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "Their representation at the Tax Appeal Tribunal Kenya was outstanding. They prepared a solid case and achieved a result beyond our expectations.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "We engaged them for KRA compliance services, and they streamlined our tax processes while ensuring we met all regulatory requirements.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "Thanks to their expertise in ADR and tax dispute resolution, we were able to settle a complex KRA matter quickly and avoid unnecessary penalties.",
+  },
+  {
+    name: "Kelvin Wairagu",
+    image: "/assets/hero-bg/Testimonial-768x576.jpg",
+    rating: 5,
+    review:
+      "Gichuri & Partners are the go-to experts for KRA tax assessments, audits, and objections. Their strategic approach and professionalism stand out.",
   },
   
 ];

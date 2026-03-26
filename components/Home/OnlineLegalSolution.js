@@ -9,30 +9,30 @@ import { GoXCircleFill } from "react-icons/go";
 
 const ComparisonSection = () => {
   return (
-    <section className="py-16 bg-white md:py-12">
+    <section className="py-16 bg-gray-100 md:py-12">
       <div className="max-w-6xl px-4 mx-auto sm:px-6">
         
         {/* Heading */}
-        <div className="mb-12 text-center md:mb-16">
-          <h2 className="text-3xl font-bold leading-tight text-brand-navy-dark sm:text-4xl md:text-5xl">
-            Find The Best Online Legal<br className="hidden sm:block" /> Solutions For You
+        <div className="mb-8 text-center md:mb-10">
+          <h2 className="text-2xl font-bold leading-tight text-brand-navy-dark sm:text-4xl md:text-5xl">
+            Why Choose Gichuri & Partners
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-600">
-            We take care of the tedious registration process so you can focus on building your dream business.
+          <p className="max-w-5xl mx-auto mt-4 text-lg text-gray-600">
+           At <span className='font-semibold text-brand-pink-dark'>Gichuri & Partners</span>, we don’t just provide tax services, we specialize in solving complex KRA tax disputes, handling disputed assessments, objection decisions, and enforcement actions with strategic, results-driven solutions. Here’s why we stand out: 
           </p>
 
           {/* Save Badge */}
-          <div className="inline-flex items-center gap-2 mt-6 bg-amber-100 text-amber-700 px-6 py-2.5 rounded-full text-sm font-medium">
+          <div className="inline-flex items-center gap-2 mt-6 bg-brand-pink-dark/20 text-brand-pink-dark px-6 py-2.5 rounded-full text-sm font-semibold">
             💰 Save ₹50K+ on Compliance Costs Now
           </div>
         </div>
 
         {/* Main Comparison Card */}
-        <div className="max-w-5xl mx-auto overflow-hidden bg-white border border-gray-100 shadow-2xl rounded-3xl">
+        <div className="max-w-6xl mx-auto overflow-hidden bg-white border border-gray-100 shadow-2xl rounded-3xl">
           <div className="grid md:grid-cols-2">
 
             {/* === RegisterKaro Column === */}
-            <div className="p-8 border-b border-gray-100 md:p-10 md:border-b-0 md:border-r">
+            <div className="p-5 border-b border-gray-100 md:p-8 md:border-b-0 md:border-r">
               <div className="flex items-center mb-5">
                 {/* Yeh aapki image hai - Next.js Image */}
                 <div className="relative flex-shrink-0 w-32 h-12">
@@ -46,23 +46,27 @@ const ComparisonSection = () => {
                 
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {[
                   {
-                    title: "All-in-one pricing",
-                    desc: "A single package includes everything you need—no hidden charges."
+                    title: "Specialized in KRA Tax Disputes & Assessments",
+                    desc: "We handle complex KRA tax disputes, disputed assessments, objection decisions, and enforcement actions with strategic, results-driven solutions."
                   },
                   {
-                    title: "Personalized assistance",
-                    desc: "A dedicated expert guides you at every step."
+                    title: "Expertise in Kenyan Tax Laws, Compliance & Procedures",
+                    desc: "Guidance on KRA compliance, Independent Review of Objections, and proper handling of all tax processes while protecting your rights."
                   },
                   {
-                    title: "End-to-end Service",
-                    desc: "From document collection to final registration, we handle it all."
+                    title: "Fast, Responsive Support for KRA Audits & Disputes ",
+                    desc: "Quick, professional responses to KRA audits, notices, and queries, helping you avoid penalties while maintaining a strong defense."
                   },
                   {
-                    title: "Simplified process",
-                    desc: "Easy-to-follow steps and clear communication for a stress-free experience."
+                    title: "Tailored Strategies for ADR & Tax Dispute Resolution ",
+                    desc: "Customized solutions for Alternative Dispute Resolution (ADR), objections, and appeals to minimize financial exposure and business disruption."
+                  },
+                  {
+                    title: "Strong Representation at the Tax Appeal Tribunal ",
+                    desc: "Full support in Tax Appeal Tribunal Kenya cases: document preparation, evidence submission, and legal argumentation to maximize favorable outcomes."
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
@@ -71,7 +75,7 @@ const ComparisonSection = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
-                      <p className="mt-1 leading-relaxed text-gray-600">{item.desc}</p>
+                      <p className="mt-1 leading-snug text-justify text-gray-600">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -79,31 +83,35 @@ const ComparisonSection = () => {
             </div>
 
             {/* === Others Column === */}
-            <div className="p-8 md:p-10 bg-gray-50">
+            <div className="p-5 md:p-8 bg-gray-50">
               <div className="flex items-center gap-4 mb-5">
                 <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-2xl">
                   <span className="text-3xl"><GoCircleSlash className='text-gray-400 '/></span>
                 </div>
-                <p className="text-2xl font-bold text-gray-500">Others</p>
+                <p className="text-2xl font-bold text-gray-500">Other Tax Service Providers</p>
               </div>
 
               <div className="space-y-8">
                 {[
                   {
-                    title: "Pay for Each task",
-                    desc: "Separate charges for each task add up quickly."
+                    title: "General services with limited experience in KRA disputes or tribunal cases.",
+                    desc: ""
                   },
                   {
-                    title: "No Single Point of Contact",
-                    desc: "Constantly dealing with different people causes delays and confusion."
+                    title: "Limited understanding of Kenyan tax laws; may miss compliance risks and deadlines.",
+                    desc: ""
                   },
                   {
-                    title: "Limited Service Scope",
-                    desc: "Only basic tasks covered; extra services cost more or aren't available."
+                    title: "Slow response times; clients often face penalties or missed deadlines.",
+                    desc: ""
                   },
                   {
-                    title: "Unclear instructions",
-                    desc: "Poor guidance leads to errors and slower processing."
+                    title: "One-size-fits-all approach; rarely offers strategic ADR or objection support.",
+                    desc: ""
+                  },
+                  {
+                    title: "Weak or no representation at the Tax Appeal Tribunal, cases may be poorly prepared.",
+                    desc: ""
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
@@ -111,8 +119,8 @@ const ComparisonSection = () => {
                       <GoXCircleFill className="text-gray-400 w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
-                      <p className="mt-1 leading-relaxed text-gray-600">{item.desc}</p>
+                      <h4 className="text-lg font-semibold text-justify text-gray-900">{item.title}</h4>
+                      <p className="mt-1 leading-normal text-justify text-gray-600">{item.desc}</p>
                     </div>
                   </div>
                 ))}
