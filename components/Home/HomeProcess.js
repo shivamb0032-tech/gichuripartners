@@ -1,93 +1,116 @@
 import { FiClipboard, FiSearch, FiZap, FiShield, FiCheckCircle } from "react-icons/fi";
 
-const cards = [
+const steps = [
   {
-    icon: FiClipboard,
+    number: 1,
     title: "Initial Consultation",
-    description:
-      "We assess your KRA tax issue, including audits, disputes, and KRA tax assessments, and review all relevant documents.",
+    description: "We assess your KRA tax issue, including audits, disputes, and KRA tax assessments, and review all relevant documents.",
+    icon: FiClipboard,
   },
   {
-    icon: FiSearch,
+    number: 2,
     title: "Case Analysis",
-    description:
-      "We analyze your case in detail, identifying risks and opportunities in KRA audits, objections, and dispute matters.",
+    description: "We analyze your case in detail, identifying risks and opportunities in KRA audits, objections, and dispute matters.",
+    icon: FiSearch,
   },
   {
-    icon: FiZap,
+    number: 3,
     title: "Strategy Development",
-    description:
-      "We develop a tailored approach, including Alternative Dispute Resolution (ADR), Independent Review of Objections, or Tax Appeal Tribunal action.",
+    description: "We develop a tailored approach, including Alternative Dispute Resolution (ADR), Independent Review of Objections, or Tax Appeal Tribunal action.",
+    icon: FiZap,
   },
   {
-    icon: FiShield,
+    number: 4,
     title: "Representation",
-    description:
-      "We represent you before KRA in tax audits, objections, ADR processes, and Tax Appeal Tribunal Kenya proceedings.",
+    description: "We represent you before KRA in tax audits, objections, ADR processes, and Tax Appeal Tribunal Kenya proceedings.",
+    icon: FiShield,
   },
   {
-    icon: FiCheckCircle,
+    number: 5,
     title: "Resolution",
-    description:
-      "We work to resolve disputes by reducing KRA tax assessments, penalties, and ensuring full KRA compliance.",
+    description: "We work to resolve disputes by reducing KRA tax assessments, penalties, and ensuring full KRA compliance.",
+    icon: FiCheckCircle,
   },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="px-4 py-12 bg-gray-200 md:px-10 lg:px-20">
-      {/* Heading */}
-      <div className="mb-4 text-center">
-        <h2 className="text-2xl font-bold tracking-tight uppercase text-brand-navy-dark md:text-4xl lg:text-5xl">
+    <section className="bg-[#f0f8ff] py-16 px-6 md:px-12 lg:px-20">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#1e3a8a]">
           Our Process
         </h2>
-      </div>
-
-      {/* Subheading */}
-      <div className="mb-12 text-center">
-        <p className="max-w-2xl mx-auto text-base text-gray-500 md:text-lg">
-          A clear, step-by-step flow designed to resolve your KRA tax matters
-          efficiently and effectively — from first consultation to final
-          resolution.
+        <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          A clear, step-by-step flow designed to resolve your KRA tax matters efficiently and effectively — from first consultation to final resolution.
         </p>
       </div>
 
-      {/* Row 1 — 3 cards */}
-      <div className="grid grid-cols-1 gap-6 mb-6 md:grid-cols-3">
-        {cards.slice(0, 3).map((card, index) => (
-          <Card key={index} card={card} index={index + 1} />
-        ))}
-      </div>
+      <div className="max-w-4xl mx-auto relative">
+        {/* Vertical Center Line */}
+        <div className="absolute left-1/2 top-10 bottom-10 w-1 bg-orange-400 hidden md:block -translate-x-1/2 rounded-full z-0"></div>
 
-      {/* Row 2 — 2 cards centered */}
-      <div className="grid grid-cols-1 gap-6 mx-auto md:grid-cols-2 md:max-w-2xl lg:max-w-3xl">
-        {cards.slice(3).map((card, index) => (
-          <Card key={index + 3} card={card} index={index + 4} />
-        ))}
+        <div className="space-y-16 relative z-10">
+          {steps.map((step, index) => {
+            const isLeft = index % 2 === 0; // 1,3,5 left | 2,4 right
+
+            return (
+              <div key={index} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                {/* Left Side */}
+                {isLeft ? (
+                  <>
+                    {/* Content - Left */}
+                    <div className="md:w-5/12 w-full text-center md:text-right order-2 md:order-1">
+                      <div className="bg-white rounded-3xl shadow-sm p-8">
+                        <h3 className="text-2xl font-semibold text-[#1e3a8a] mb-3">
+                          {step.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Icon + Number - Right (attached to center line) */}
+                    <div className="md:w-2/12 w-20 flex justify-center order-1 md:order-2">
+                      <div className="flex flex-col items-center">
+                        <div className="w-16 h-16 rounded-2xl bg-[#fbbf24] flex items-center justify-center text-white text-4xl font-bold shadow-md">
+                          {step.number}
+                        </div>
+                        <step.icon className="mt-4 w-12 h-12 text-[#1e3a8a]" />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  /* Right Side Layout */
+                  <>
+                    {/* Icon + Number - Left (attached to center line) */}
+                    <div className="md:w-2/12 w-20 flex justify-center">
+                      <div className="flex flex-col items-center">
+                        <div className="w-16 h-16 rounded-2xl bg-[#fbbf24] flex items-center justify-center text-white text-4xl font-bold shadow-md">
+                          {step.number}
+                        </div>
+                        <step.icon className="mt-4 w-12 h-12 text-[#1e3a8a]" />
+                      </div>
+                    </div>
+
+                    {/* Content - Right */}
+                    <div className="md:w-5/12 w-full text-center md:text-left">
+                      <div className="bg-white rounded-3xl shadow-sm p-8">
+                        <h3 className="text-2xl font-semibold text-[#1e3a8a] mb-3">
+                          {step.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
-  );
-}
-
-function Card({ card, index }) {
-  const Icon = card.icon;
-  return (
-    <div className="flex flex-col h-full p-6 transition-shadow duration-300 border border-gray-200 shadow-sm bg-brand-navy-dark rounded-2xl hover:shadow-md">
-      {/* Step Number + Icon */}
-      <div className="flex items-center gap-3 mb-4">
-<span className="flex items-center justify-center w-10 h-10 text-sm font-bold text-white rounded-full bg-brand-pink-dark shrink-0">
-          {index}
-        </span>
-        <Icon size={32} className="text-white" />
-      </div>
-
-      {/* Title */}
-      <h3 className="mb-2 text-lg font-semibold text-brand-pink-dark">{card.title}</h3>
-
-      {/* Description */}
-      <p className="flex-grow text-sm leading-relaxed text-gray-200">
-        {card.description}
-      </p>
-    </div>
   );
 }
