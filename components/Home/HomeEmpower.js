@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { FaSmile, FaComments, FaBriefcase } from "react-icons/fa";
+import Link from "next/link";
 
 // ── Count-up hook ────────────────────────────────────────────────
 function useCountUp(end, duration = 2000, trigger) {
@@ -108,32 +109,32 @@ export default function HomeEmpower() {
           {/* Vertical text layout */}
           <div className="flex flex-col gap-4 text-slate-600 text-[15px] leading-relaxed">
             <p className="text-justify">
-              Gichuri &amp; Partners is the Best Tax Consultants in Nairobi, Kenya,
+              Gichuri &amp; Partners is the <span className="font-bold ">Best Tax Consultants in Nairobi, Kenya</span>,
               specializing in KRA Tax Audits, KRA Tax Assessments, Bookkeeping,
-              Payroll Services, and professional representation in KRA Independent
-              Review of Objections (IRO), Tax Appeal Tribunal (TAT), and
-              Alternative Dispute Resolution (ADR) to help individuals and
+              Payroll Services, and professional representation in <Link href="/independent-review-of-objections/" className="font-bold text-brand-pink-dark" >KRA Independent
+              Review of Objections</Link> (IRO), <Link href="/kra-tax-appeal-tribunal-services-in-kenya/" className="font-bold text-brand-pink-dark" >Tax Appeal Tribunal</Link> (TAT), and
+              <Link href="/alternative-dispute-resolution-in-kenya/" className="font-bold text-brand-pink-dark">Alternative Dispute Resolution</Link> (ADR) to help individuals and
               businesses achieve full tax compliance. We have a team of experienced
               tax consultants, who manage your KRA tax matters professionally.
             </p>
             <p className="text-justify">
-              Our tax consultants helps you navigate KRA tax disputes, manage tax
-              liabilities, and develop effective tax planning strategies tailored
+              Our tax consultants helps you navigate <span className="font-bold ">KRA tax disputes</span>, manage tax
+              liabilities, and develop effective  <span className="font-bold ">tax planning strategies</span> tailored
               to your business needs while maximizing tax compliance and returns.
-              We understand that bookkeeping, payroll management, auditing, and
-              meeting ongoing tax obligations can be overwhelming, which is why we
-              provide reliable bookkeeping services, tax compliance support, and
-              audit assistance to give you peace of mind.
+              We understand that <span className="font-bold ">bookkeeping, payroll management, auditing, and
+              meeting ongoing tax obligations</span> can be overwhelming, which is why we
+              provide reliable <span className="font-bold ">bookkeeping services, tax compliance support, and
+              audit assistance</span> to give you peace of mind.
             </p>
             <p className="text-justify">
               Let us help you maintain tax compliance for your business through
               our tailored solutions like KRA tax audit services, KRA tax
               assessment services, inventory tracking, and business tax advisory
               services. As the best tax consultants Nairobi, Kenya, we offer the
-              best solutions for all businesses. We assist you with auditing
-              services, tax advisory, bookkeeping services, business services,
-              payroll services, accounting services, KRA services, and business
-              registration.
+              best solutions for all businesses. We assist you with <Link href="/auditing-services-in-kenya/" className="font-bold text-brand-pink-dark" >auditing
+              services</Link>, <Link href="/tax-advisory-services-in-kenya/" className="font-bold text-brand-pink-dark" >tax advisory</Link>, <Link href="/bookkeeping-services-in-kenya/" className="font-bold text-brand-pink-dark" >bookkeeping services</Link>, business services,
+              <Link href="/payroll-services-in-kenya/" className="font-bold text-brand-pink-dark" >payroll services</Link>, <Link href="/accounting-services-in-kenya/" className="font-bold text-brand-pink-dark" >accounting services</Link>, <Link href="/tax-advisory-services-in-kenya/" className="font-bold text-brand-pink-dark" >KRA services</Link>, and <Link href="/business-registration-services-in-kenya/" className="font-bold text-brand-pink-dark" >business
+              registration</Link>.
             </p>
           </div>
         </div>
