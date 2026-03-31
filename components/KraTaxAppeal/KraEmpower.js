@@ -62,7 +62,7 @@ function StatCard({ stat, index, trigger }) {
 }
 
 // ── Main section ─────────────────────────────────────────────────
-export default function EmpoweringSec() {
+export default function KraEmpower() {
   const { ref: sectionRef, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   const stats = [
