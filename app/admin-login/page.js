@@ -14,6 +14,7 @@ export default function Login() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,17 +23,18 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (loading) return;
+
+    setLoading(true);
+
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
-        }
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
       const data = await res.json();
 
@@ -41,10 +43,12 @@ export default function Login() {
         router.push("/admin/dashboard");
       } else {
         alert(data.message || "Login failed");
+        setLoading(false);
       }
     } catch (error) {
       alert("Server error. Please try again.");
       console.error("Login error:", error);
+      setLoading(false);
     }
   };
 
@@ -127,6 +131,7 @@ export default function Login() {
                 placeholder="Email or Username"
                 value={form.identifier}
                 onChange={handleChange}
+                disabled={loading}
               />
             </div>
 
@@ -138,18 +143,31 @@ export default function Login() {
                 onChange={handleChange}
                 showPassword={showPassword}
                 setShowPassword={setShowPassword}
+                disabled={loading}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full mt-4 py-3 rounded-xl text-white text-sm font-medium tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              disabled={loading}
+              className={`w-full mt-4 py-3 rounded-xl text-white text-sm font-medium tracking-wide transition-all duration-200 ${
+                loading
+                  ? "opacity-80 cursor-not-allowed"
+                  : "hover:-translate-y-0.5 active:translate-y-0"
+              }`}
               style={{
                 background: "linear-gradient(135deg, #7c3aed, #9d174d)",
                 boxShadow: "0 10px 24px rgba(124,58,237,0.35)",
               }}
             >
-              Login →
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Spinner />
+                  Logging in...
+                </span>
+              ) : (
+                "Login →"
+              )}
             </button>
           </form>
 
@@ -168,7 +186,15 @@ export default function Login() {
   );
 }
 
-function InputField({ icon, name, type = "text", placeholder, value, onChange }) {
+function InputField({
+  icon,
+  name,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  disabled = false,
+}) {
   return (
     <div className="relative">
       <span className="absolute w-4 h-4 text-gray-400 -translate-y-1/2 pointer-events-none left-3 top-1/2">
@@ -181,7 +207,8 @@ function InputField({ icon, name, type = "text", placeholder, value, onChange })
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="w-full py-[11px] pl-10 pr-3 rounded-xl text-[0.84rem] text-gray-800 bg-gray-50 border border-gray-200 outline-none placeholder:text-gray-400 focus:border-violet-400 focus:bg-violet-50/40 focus:ring-[2px] focus:ring-violet-400/20 transition-all duration-200"
+        disabled={disabled}
+        className="w-full py-[11px] pl-10 pr-3 rounded-xl text-[0.84rem] text-gray-800 bg-gray-50 border border-gray-200 outline-none placeholder:text-gray-400 focus:border-violet-400 focus:bg-violet-50/40 focus:ring-[2px] focus:ring-violet-400/20 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
       />
     </div>
   );
@@ -194,6 +221,7 @@ function PasswordField({
   onChange,
   showPassword,
   setShowPassword,
+  disabled = false,
 }) {
   return (
     <div className="relative">
@@ -207,17 +235,25 @@ function PasswordField({
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="w-full py-[11px] pl-10 pr-10 rounded-xl text-[0.84rem] text-gray-800 bg-gray-50 border border-gray-200 outline-none placeholder:text-gray-400 focus:border-violet-400 focus:bg-violet-50/40 focus:ring-[2px] focus:ring-violet-400/20 transition-all duration-200"
+        disabled={disabled}
+        className="w-full py-[11px] pl-10 pr-10 rounded-xl text-[0.84rem] text-gray-800 bg-gray-50 border border-gray-200 outline-none placeholder:text-gray-400 focus:border-violet-400 focus:bg-violet-50/40 focus:ring-[2px] focus:ring-violet-400/20 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
       />
 
       <button
         type="button"
+        disabled={disabled}
         onClick={() => setShowPassword(!showPassword)}
-        className="absolute text-gray-400 transition -translate-y-1/2 right-3 top-1/2 hover:text-violet-600"
+        className="absolute text-gray-400 transition -translate-y-1/2 right-3 top-1/2 hover:text-violet-600 disabled:cursor-not-allowed"
       >
         {showPassword ? <EyeOffIcon /> : <EyeIcon />}
       </button>
     </div>
+  );
+}
+
+function Spinner() {
+  return (
+    <span className="inline-block w-4 h-4 border-2 rounded-full border-white/40 border-t-white animate-spin" />
   );
 }
 
