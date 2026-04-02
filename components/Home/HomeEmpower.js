@@ -113,7 +113,7 @@ export default function HomeEmpower() {
               specializing in KRA Tax Audits, KRA Tax Assessments, Bookkeeping,
               Payroll Services, and professional representation in <Link href="/independent-review-of-objections/" className="font-bold text-brand-pink-dark" >KRA Independent
               Review of Objections</Link> (IRO), <Link href="/kra-tax-appeal-tribunal-services-in-kenya/" className="font-bold text-brand-pink-dark" >Tax Appeal Tribunal</Link> (TAT), and
-              <Link href="/alternative-dispute-resolution-in-kenya/" className="font-bold text-brand-pink-dark">Alternative Dispute Resolution</Link> (ADR) to help individuals and
+              <Link href="/alternative-dispute-resolution-in-kenya/" className="font-bold text-brand-pink-dark"> Alternative Dispute Resolution</Link> (ADR) to help individuals and
               businesses achieve full tax compliance. We have a team of experienced
               tax consultants, who manage your KRA tax matters professionally.
             </p>
