@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import { BsCalendar3 } from "react-icons/bs";
@@ -12,8 +11,7 @@ const BLOGS_PER_PAGE = 6;
 
 export default function BlogSection() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-  const SERVER_URL = API_URL.replace(/\/api$/, ""); // safer replace
-
+  const SERVER_URL = API_URL.replace(/\/api$/, ""); 
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -120,7 +118,7 @@ export default function BlogSection() {
       .slice(0, 4);
   }, [blogs]);
 
-  // Reset to page 1 when search or blogs change
+
   useEffect(() => {
     setCurrentPage(1);
   }, [search, blogs.length]);
