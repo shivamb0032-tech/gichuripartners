@@ -10,12 +10,12 @@ export default function NewsMedia() {
  
 
   return (
-    <>
+  <>
    <NewHero/>
    <NewCardsSec/>
    <NewForm/>
    <NewServCard/>
-    <ServiceForm />
-    </>
+  <ServiceForm />
+  </>
   )
 }

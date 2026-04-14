@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 export default function AdminDashboardPage() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
   const SERVER_URL = API_URL.replace("/api", "");
+  const [media, setMedia] = useState([]);
+const [loadingMedia, setLoadingMedia] = useState(true);
 
   const [blogs, setBlogs] = useState([]);
   const [forms, setForms] = useState([]);
@@ -23,7 +25,29 @@ export default function AdminDashboardPage() {
 
     return `${SERVER_URL}${image}`;
   };
+const fetchMedia = async () => {
+  try {
+    setLoadingMedia(true);
 
+    const res = await fetch(`${API_URL}/newmedia`, {
+      cache: "no-store",
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      setMedia(data.data || []);
+    } else {
+      setMedia([]);
+      console.error(data.message || "Failed to fetch media");
+    }
+  } catch (error) {
+    setMedia([]);
+    console.error("Fetch media error:", error);
+  } finally {
+    setLoadingMedia(false);
+  }
+};
   const fetchBlogs = async () => {
     try {
       setLoadingBlogs(true);
@@ -128,6 +152,7 @@ export default function AdminDashboardPage() {
     fetchBlogs();
     fetchForms();
     fetchConsultForms();
+    fetchMedia(); 
   }, []);
 
   const totalSubmittedForms = forms.length + consultForms.length;
@@ -153,6 +178,7 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="flex gap-4">
+            <StatPill label="Total News & Media" value={media.length} />
             <StatPill label="Total Blogs" value={blogs.length} />
             <StatPill
               label="Forms Submitted"
@@ -238,6 +264,99 @@ export default function AdminDashboardPage() {
                     <td className="px-4 py-3">
                       <Link
                         href={`/blogs/${blog.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#274A9A] shadow-[0_3px_10px_rgba(39,74,154,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-transform duration-150 no-underline"
+                      >
+                        <EyeIcon /> View
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </Section>
+      {/* News Table */}
+     <Section title="Total News" count={media.length} accentBlue>
+        <div className="overflow-x-auto">
+          {loadingMedia ? (
+            <div className="flex items-center justify-center py-16 text-gray-400">
+              <p className="text-sm font-semibold">Loading news...</p>
+            </div>
+          ) : media.length === 0 ? (
+            <div className="flex flex-col items-center justify-center gap-3 py-16 text-gray-400">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="w-12 h-12 text-gray-200"
+              >
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+              <p className="text-sm font-semibold">No news found</p>
+            </div>
+          ) : (
+            <table className="w-full min-w-[560px] text-sm border-collapse">
+              <thead>
+                <tr className="bg-slate-50">
+                  {["Image", "Title", "Description", "Action"].map((h) => (
+                    <th
+                      key={h}
+                      className={`px-4 py-3 text-left text-[11px] font-semibold tracking-widest uppercase text-gray-400${
+                        h === "Description" ? " hidden md:table-cell" : ""
+                      }`}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+
+              <tbody>
+                {media.map((item, idx) => (
+                  <tr
+                    key={item._id}
+                    className={`transition-colors duration-100 hover:bg-[#274A9A]/[0.04] ${
+                      idx !== 0 ? "border-t border-gray-100" : ""
+                    }`}
+                  >
+                    {/* IMAGE */}
+                    <td className="px-4 py-3">
+                      <div className="w-12 h-12 overflow-hidden bg-gray-100 border border-gray-200 rounded-xl shrink-0">
+                        {item.image ? (
+                          <img
+                            src={getImageUrl(item.image)}
+                            alt={item.title}
+                            className="object-cover w-full h-full"
+                          />
+                        ) : (
+                          <div className="flex items-center justify-center w-full h-full text-[10px] text-gray-400">
+                            No Image
+                          </div>
+                        )}
+                      </div>
+                    </td>
+
+                    {/* TITLE */}
+                    <td className="px-4 py-3 font-semibold text-[#274A9A] max-w-[180px]">
+                      <p className="m-0 truncate">{item.title}</p>
+                    </td>
+
+                    {/* DESCRIPTION */}
+                    <td className="hidden md:table-cell px-4 py-3 text-gray-400 max-w-[260px] text-[13px]">
+                      <p className="m-0 line-clamp-2">
+                        {item.excerpt || "No description available"}
+                      </p>
+                    </td>
+
+                    {/* ACTION */}
+                    <td className="px-4 py-3">
+                      <Link
+                        href={`/news-media/${item.slug}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#274A9A] shadow-[0_3px_10px_rgba(39,74,154,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-transform duration-150 no-underline"
@@ -348,7 +467,10 @@ export default function AdminDashboardPage() {
       </Section>
 
       {/* Consult Forms Table */}
-      <Section title="Total Consult Forms Submitted" count={consultForms.length}>
+      <Section
+        title="Total Consult Forms Submitted"
+        count={consultForms.length}
+      >
         <div className="overflow-x-auto">
           {loadingConsultForms ? (
             <div className="flex items-center justify-center py-16 text-gray-400">
